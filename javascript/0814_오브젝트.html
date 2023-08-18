@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="demo"></div>
+    <script>
+      //   let firstName = "John";
+      //   let lastName = "Doe";
+      //   let age = 50;
+      //   let eyeColor = "blue";
+      //   document.getElementById("demo").innerHTML =
+      //     firstName + lastName + " is " + age + " years old.";
+      let person = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 50,
+        eyeColor: "blue",
+        fullName: function () {
+          return this.firstName + " " + this.lastName;
+        },
+      };
+      //   document.getElementById("demo").innerHTML =
+      //     person.fullName() + " is " + person.age + " years old.";
+      //실행문은 ()
+      let person1 = {};
+      person1.firstName = "John";
+      person1.lastName = "Doe";
+      person1.age = 27;
+      person1.eyeColor = "blue";
+      document.getElementById("demo").innerHTML =
+        person.fullName() +
+        " is " +
+        person.age +
+        " years old.<br>" +
+        person1.firstName +
+        person1.lastName +
+        " is " +
+        person1.age +
+        " years old.";
+
+      let student = new Object();
+      student.kor = 80;
+      student.eng = 90;
+      student.math = 100;
+      student.total = student.kor + student.eng + student.math;
+      student.avg = function () {
+        document.write(
+          "총점은 " +
+            student.total +
+            "점이고 평균은 " +
+            student.total / 3 +
+            "점 입니다."
+        );
+      };
+      student.avg();
+      //위는 할당만 한거고 출력 x 밑에서 따로 실행문을 출력하라 해줘야함
+    </script>
+  </body>
+</html>

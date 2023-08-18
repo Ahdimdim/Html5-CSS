@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>라로슈포제</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+      }
+      @font-face {
+        font-family: NanumBarunGothic, "나눔 바른", sans-serif;
+        src: url(webfonts/NanumBarunGothic.woff) format("woff"),
+          url(webfonts/NanumBarunGothicBold.woff) format("woff");
+      }
+      @font-face {
+        font-family: NanumGothic, "나눔 고딕", sans-serif;
+        src: url(webfonts/NanumGothic.woff) format("woff"),
+          url(webfonts/NanumGothicExtraBold.woff) format("woff");
+      }
+      body {
+        font-family: NanumBarunGothic, "나눔 고딕", sans-serif;
+      }
+      .login {
+        justify-content: flex-end;
+      }
+      .login ul {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .login ul li {
+        position: relative;
+        padding: 0 20px;
+        text-align: center;
+      }
+      .login ul li::after {
+        position: absolute;
+        content: "";
+        width: 1px;
+        height: 12px;
+        background: #cacaca;
+        top: 8px;
+        left: 0;
+      }
+      .login ul li:first-child:after {
+        content: none;
+      }
+      .login ul li a {
+        color: #adadad;
+        font-size: 12px;
+      }
+      .login ul li:hover a {
+        color: #009ee3;
+      }
+      .top {
+        width: 1280px;
+        height: 114px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+      }
+      .top div {
+        width: 260px;
+        text-align: center;
+      }
+      .top ul {
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+      .top .logo {
+        margin: 0 auto;
+      }
+      .top ul li {
+        padding-right: 10px;
+      }
+      .top .search input {
+        height: 40px;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #adadad;
+      }
+      .topmenu {
+        border-bottom: 1px solid #adadad;
+        border-top: 1px solid #d4d4d4;
+      }
+      .topmenu .menu ul {
+        display: flex;
+        width: 1280px;
+        height: 50px;
+        justify-content: space-between;
+        margin: 0 auto;
+      }
+      .topmenu .menu ul li {
+        line-height: 50px;
+        text-align: center;
+        flex: 1 1 20%;
+      }
+      .topmenu .menu ul li a {
+        position: relative;
+        color: #000;
+        font-size: 18px;
+        display: inline-block;
+        width: 100%;
+      }
+      /* .menu ul li a:hover,
+      .menu ul li a.on {
+        background: #ccc;
+      } */
+      .menu ul > li > a::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        bottom: 0px;
+        left: 0;
+        background: #009ee3;
+        transform: scaleX(0);
+        transition: 0.5s;
+      }
+      .menu ul > li > a:hover::after,
+      .menu ul li a.on::after {
+        transform: scaleX(1);
+      }
+      .submenu {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 188px;
+        background: #fff;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.5s;
+      }
+      .submenu .lnb {
+        width: 1280px;
+        margin: 0 auto;
+      }
+      .submenu .lnb > ul {
+        display: flex;
+        justify-content: space-between;
+      }
+      .submenu .lnb > ul > li {
+        flex: 1 1 20%;
+        line-height: 40px;
+        text-align: left;
+      }
+      .submenu .lnb > ul > li a {
+        color: #333;
+      }
+      .submenu .lnb > ul > li a:hover {
+        color: #009ee3;
+      }
+      .submenu .lnb > ul > li a span {
+        display: inline-block;
+        width: 200px;
+        border-bottom: 1px solid #cacaca;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+      .submenu .lnb > ul > li:last-child > ul {
+        display: flex;
+        width: 400px;
+        align-items: center;
+        border-left: 1px solid #cacaca;
+        padding-left: 50px;
+        height: 100%;
+        text-align: center;
+      }
+      .submenu .lnb > ul > li a .name {
+        border: none;
+        font-size: 16px;
+        line-height: 20px;
+      }
+      .submenu .lnb > ul > li a .price {
+        border: none;
+      }
+      .submenu .lnb > ul > li a .price strong {
+        font-size: 24px;
+        color: #009ee3;
+      }
+      .banner {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .bestseller {
+        width: 1280px;
+        height: 461px;
+        margin: 80px auto 80px auto;
+      }
+      .bestseller h2 {
+        text-align: center;
+        padding-bottom: 30px;
+      }
+      .bestseller .btn_next,
+      .bestseller .btn_prev {
+        width: 50px;
+        height: 100%;
+        border: none;
+        background: none;
+        color: #009ee3;
+      }
+      .bestseller ul {
+        display: flex;
+        width: 1280px;
+        height: 300px;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: space-around;
+      }
+      .bestseller ul li {
+        width: 210px;
+        height: 100%;
+        text-align: center;
+      }
+      .bestseller ul li img {
+        width: 210px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <header>
+        <div class="login">
+          <ul>
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">회원가입</a></li>
+            <li><a href="#">주문/배송조회</a></li>
+            <li><a href="#">고객케어센터</a></li>
+          </ul>
+        </div>
+        <div class="top">
+          <div></div>
+          <div class="logo"><img src="images/logo.png" alt="" /></div>
+          <div class="search">
+            <ul>
+              <li>
+                <input
+                  type="search"
+                  placeholder="SEARCH"
+                  onfocus="this.placeholder=''"
+                />
+              </li>
+              <li>
+                <a href="#"
+                  ><img src="images/ic_search_s32_000_style01.svg" alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><img src="images/ic_shoppingBag_s32_000.svg" alt=""
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="topmenu">
+          <div class="menu">
+            <ul>
+              <li><a href="#">공식몰 단독혜택</a></li>
+              <li><a href="#">병원판매화장품</a></li>
+              <li><a href="#">스킨케어</a></li>
+              <li><a href="#">바디케어</a></li>
+              <li><a href="#">UV케어</a></li>
+              <li><a href="#">리얼리뷰</a></li>
+            </ul>
+          </div>
+          <div class="submenu">
+            <div class="lnb">
+              <ul>
+                <li>
+                  <ul>
+                    <li><a href="#">베스트</a></li>
+                    <li><a href="#">단독구성</a></li>
+                    <li><a href="#">신규회원첫혜택</a></li>
+                    <li><a href="#">피부민감도 자가진단</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"
+                        ><img src="images/menu_product (1).jpg" alt=""
+                      /></a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="submenu">
+            <div class="lnb">
+              <ul>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>케어 고민별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">스킨케어</a></li>
+                    <li><a href="#">바디케어</a></li>
+                    <li><a href="#">헤어케어</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"
+                        ><img src="images/menu_product (2).png" alt="" />
+                        <span class="name"
+                          >H아이소바이옴울트라수딩하이드레이팅크림<br />[병원판매화장품]
+                        </span>
+                        <span class="price"><strong>29,000</strong>원</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="submenu">
+            <div class="lnb">
+              <ul>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>피부고민별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">민감성 피부</a></li>
+                    <li><a href="#">지성/트러블 피부</a></li>
+                    <li><a href="#">외부 자극 받은 피부</a></li>
+                    <li><a href="#">건조한 피부</a></li>
+                    <li><a href="#">톤업/메이크업</a></li>
+                    <li><a href="#">브라이트닝</a></li>
+                    <li><a href="#">탄력/주름</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>제품 라인별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">에빠끌라</a></li>
+                    <li><a href="#">시카플라스트</a></li>
+                    <li><a href="#">똘러리앙</a></li>
+                    <li><a href="#">히알루 B5</a></li>
+                    <li><a href="#">유비데아</a></li>
+                    <li><a href="#">퓨어비타민C10</a></li>
+                    <li><a href="#">세로징크</a></li>
+                    <li><a href="#">오 떼르말</a></li>
+                    <li><a href="#">미셀라 클렌징 워터</a></li>
+                    <li><a href="#">나이아신아마이드</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>사용 단계별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">클렌징</a></li>
+                    <li><a href="#">토너</a></li>
+                    <li><a href="#">세럼/에센스</a></li>
+                    <li><a href="#">로션/크림</a></li>
+                    <li><a href="#">마스크/팩</a></li>
+                    <li><a href="#">미스트</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"
+                        ><img src="images/menu_product (3).png" alt="" />
+                        <span class="name">멀티리페어크림B5[100ml] </span>
+                        <span class="price"><strong>46,000</strong>원</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="submenu">
+            <div class="lnb">
+              <ul>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>피부 고민별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">외부 자극 받은 피부</a></li>
+                    <li><a href="#">건조한 피부</a></li>
+                    <li><a href="#">두피 모발 강화</a></li>
+                    <li><a href="#">온가족사용가능</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>제품 라인별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">리피카</a></li>
+                    <li><a href="#">시카플라스트</a></li>
+                    <li><a href="#">키리움</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>사용 단계별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">바디 케어</a></li>
+                    <li><a href="#">헤어 케어</a></li>
+                    <li><a href="#">핸드 케어</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"
+                        ><img src="images/menu_product (4).png" alt="" />
+                        <span class="name">바디오일클렌저대용량세트 </span>
+                        <span class="price"><strong>53,000</strong>원</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="submenu">
+            <div class="lnb">
+              <ul>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>피부 고민별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">수분UV케어</a></li>
+                    <li><a href="#">톤업UV케어</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>제품 라인별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">유비데아</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>사용 단계별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">UV차단</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"
+                        ><img src="images/menu_product (5).png" alt="" />
+                        <span class="name">안뗄리오스톤업클리어[30ml] </span>
+                        <span class="price"><strong>35,000</strong>원</span></a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="submenu">
+            <div class="lnb"></div>
+          </div>
+        </div>
+      </header>
+
+      <script>
+        let subMenu = document.querySelectorAll(".submenu");
+        let sub = document.querySelectorAll(".lnb");
+        let gnb = document.querySelectorAll(".menu ul li a");
+        gnb.forEach(function (item, keys) {
+          item.addEventListener("mouseenter", function (e) {
+            let j = Array.from(gnb).indexOf(e.target);
+            function others(item) {
+              return item !== j;
+            }
+            let otherItem = Array.from(subMenu).filter(others);
+            otherItem.forEach(function (item) {
+              item.style.height = "0px";
+              item.style.opacity = "0";
+            });
+            sub.forEach(function () {
+              let subht = sub[j].offsetHeight;
+              console.log("subht : " + subht);
+              subMenu[j].style.height = subht + "px";
+              subMenu[j].style.opacity = "1";
+            });
+          });
+
+          item.addEventListener("mouseleave", function () {
+            for (let i = 0; i <= 4; i++) {
+              subMenu[i].style.height = 0 + "px";
+            }
+          });
+        });
+        subMenu.forEach(function (item, keys) {
+          item.addEventListener("mouseenter", function (e) {
+            let j = Array.from(subMenu).indexOf(e.target);
+            sub.forEach(function () {
+              let subht = sub[j].offsetHeight;
+              console.log("subht : " + subht);
+              subMenu[j].style.height = subht + "px";
+              subMenu[j].style.opacity = "1";
+            });
+            gnb[j].classList.add("on");
+          });
+          item.addEventListener("mouseleave", function (e) {
+            for (let i = 0; i <= 4; i++) {
+              subMenu[i].style.height = 0 + "px";
+            }
+            gnb[keys].classList.remove("on");
+          });
+        });
+      </script>
+
+      <section class="banner">
+        <ul>
+          <li>
+            <a href="#"><img src="images/banner (1).jpg" alt="" /></a>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <section class="bestseller">
+      <h2><img src="images/title_best.png" alt="" /></h2>
+      <div class="btn">
+        <button class="btn_prev">
+          <img src="images/arrow_prev.svg" alt="" />
+        </button>
+        <button class="btn_next">
+          <img src="images/arrow_next.svg" alt="" />
+        </button>
+      </div>
+      <ul>
+        <li>
+          <a href="#"
+            ><img src="images/product_210x210 (6).png" alt="" />
+            <span class="product_price">29,000</span>
+            <span class="product_name"
+              >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
+              화장품]</span
+            >
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><img src="images/product_210x210 (7).png" alt="" />
+            <span class="product_price">39,000</span>
+            <span class="product_name">시카플라스트밤 B5+</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><img src="images/product_210x210 (13).png" alt="" />
+            <span class="product_price">35,000</span>
+            <span class="product_name">에빠끌라K(+) 토너 [200ml]</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><img src="images/product_1040x1040.png" alt="" />
+            <span class="product_price">28,000</span>
+            <span class="product_name">에빠끌라 딥 클렌징 포밍 크림 125ml</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>

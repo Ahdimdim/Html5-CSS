@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrap {
+        width: 1200px;
+        margin: 0 auto;
+        border: 1px solid #000;
+        overflow: hidden;
+        /* 밑 플롯으로 부모의 높이를 잃어 찾아주면 보더가 돌아옴 */
+      }
+      .wrap > div {
+        float: left;
+        width: 22%;
+        height: 100px;
+        /* margin-left: 4%; */
+        margin-left: calc((100% - (22% * 4)) / 3);
+      }
+      /* calc 연산자 앞뒤로 공백 필수 */
+      .wrap > .one {
+        background: #aaa;
+        margin-left: 0;
+      }
+      /* .one만 하면 우선순위가 밀려서 margin이 안먹힘 */
+      .two {
+        background: #bbb;
+      }
+      .three {
+        background: #ccc;
+      }
+      .four {
+        background: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="one">one</div>
+      <div class="two">two</div>
+      <div class="three">three</div>
+      <div class="four">four</div>
+    </div>
+  </body>
+</html>

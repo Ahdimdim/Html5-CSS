@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrap1 > div {
+        width: 33.333%;
+        float: left;
+        background: #ccc;
+      }
+      .wrap2 {
+        font-size: 0;
+      }
+      .wrap2 > div {
+        display: inline-block;
+        background: #ccc;
+        width: 33.333%;
+        font-size: 16px;
+      }
+      .wrap3 {
+        position: relative;
+      }
+      .wrap3 > div {
+        position: absolute;
+        background: #ccc;
+        width: 33.333%;
+      }
+
+      .wrap3 .right {
+        position: absolute;
+        left: 33.333%;
+      }
+      .wrap3 .contents {
+        position: absolute;
+        left: 66.666%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap1">
+      <div class="left">left</div>
+      <div class="right">right</div>
+      <div class="contents">contents</div>
+    </div>
+    <div class="wrap2">
+      <div class="left">left</div>
+      <div class="right">right</div>
+      <div class="contents">contents</div>
+    </div>
+    <div class="wrap3">
+      <div class="left">left</div>
+      <div class="right">right</div>
+      <div class="contents">contents</div>
+    </div>
+  </body>
+</html>

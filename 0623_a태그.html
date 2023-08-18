@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>a태그</title>
+    <style>
+      a {
+        color: green;
+        text-decoration: none;
+      }
+      a:link {
+        color: green;
+      }
+      a:visited {
+        color: pink;
+      }
+      a:hover {
+        color: red;
+      }
+      a:active {
+        color: yellow;
+      }
+    </style>
+    <!-- text-decoration 밑줄 none 없앰 -->
+    <!-- link 방문 안 한 상태, visited 방문 했을 때, hover 마우스 올렸을 때, active 마우스 누르고 있을 때-->
+  </head>
+  <body>
+    <address>대전광역시 서구 둔산동</address>
+    <!-- address 주소, 연락처 정보를 쓸 때 씀 굳이 안 써도 됨 퍼블리셔 배려용 -->
+    <p>대전광역시 서구 둔산동</p>
+
+    <a href="http://www.naver.com" target="_new">하나</a>
+    <a href="http://www.naver.com">하나(타겟X)</a>
+    <!-- 타겟_new 새창, _self 클릭한 것과 동일한 창/탭, _blank 새 창이나 탭
+    _parent 상위 프레임, _top 창의전체 본문-->
+    <a href="one.html">one</a>
+    <!-- <a href="./one.html"이라 쓰기도 함 -->
+    <!--  ./는 현재위치(생략가능) ../는 이전 폴더, 전전일 경우 ../../ 여러번 쓰면 됨-->
+    <a href="#two">둘</a>
+    <a href="images/photo1.jpg">넷</a>
+    <a href="HTML5.pdf">이해 안될 경우p16</a>
+    <!-- 크기지정 안됨 , a태그는 클릭 시 이동 시켜줌 *id로만 책갈피 설정*-->
+    <br />
+    <p>
+      <a href="mailto:이메일@naver.com" title="관리자 이메일">Send email</a>
+    </p>
+    <!-- title도움말풍선 -->
+
+    <p>
+      What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and
+      typesetting industry. Lorem Ipsum has been the industry's standard dummy
+      text ever since the 1500s, when an unknown printer took a galley of type
+      and scrambled it to make a type specimen book. It has survived not only
+      five centuries, but also the leap into electronic typesetting, remaining
+      essentially unchanged. It was popularised in the 1960s with the release of
+      Letraset sheets containing Lorem Ipsum passages, and more recently with
+      desktop publishing software like Aldus PageMaker including versions of
+      Lorem Ipsum. Why do we use it? It is a long established fact that a reader
+      will be distracted by the readable content of a page when looking at its
+      layout. The point of using Lorem Ipsum is that it has a more-or-less
+      normal distribution of letters, as opposed to using 'Content here, content
+      here', making it look like readable English. Many desktop publishing
+      packages and web page editors now use Lorem Ipsum as their default model
+      text, and a search for 'lorem ipsum' will uncover many web sites still in
+      their infancy. Various versions have evolved over the years, sometimes by
+      accident, sometimes on purpose (injected humour and the like). Where does
+      it come from? Contrary to popular belief, Lorem Ipsum is not simply random
+      text. It has roots in a piece of classical Latin literature from 45 BC,
+      making it over 2000 years old. Richard McClintock, a Latin professor at
+      Hampden-Sydney College in Virginia, looked up one of the more obscure
+      Latin words, consectetur, from a Lorem Ipsum passage, and going through
+      the cites of the word in classical literature, discovered the undoubtable
+      source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus
+      Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in
+      45 BC. This book is a treatise on the theory of ethics, very popular
+      during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor
+      sit amet..", comes from a line in section 1.10.32. The standard chunk of
+      Lorem Ipsum used since the 1500s is reproduced below for those interested.
+      Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by
+      Cicero are also reproduced in their exact original form, accompanied by
+      English versions from the 1914 translation by H. Rackham. Where can I get
+      some? There are many variations of passages of Lorem Ipsum available, but
+      the majority have suffered alteration in some form, by injected humour, or
+      randomised words which don't look even slightly believable. If you are
+      going to use a passage of Lorem Ipsum, you need to be sure there isn't
+      anything embarrassing hidden in the middle of text. All the Lorem Ipsum
+      generators on the Internet tend to repeat predefined chunks as necessary,
+      making this the first true generator on the Internet. It uses a dictionary
+      of over 200 Latin words, combined with a handful of model sentence
+      structures, to generate Lorem Ipsum which looks reasonable. The generated
+      Lorem Ipsum is therefore always free from repetition, injected humour, or
+      non-characteristic words etc.What is Lorem Ipsum? Lorem Ipsum is simply
+      dummy text of the printing and typesetting industry. Lorem Ipsum has been
+      the industry's standard dummy text ever since the 1500s, when an unknown
+      printer took a galley of type and scrambled it to make a type specimen
+      book. It has survived not only five centuries, but also the leap into
+      electronic typesetting, remaining essentially unchanged. It was
+      popularised in the 1960s with the release of Letraset sheets containing
+      Lorem Ipsum passages, and more recently with desktop publishing software
+      like Aldus PageMaker including versions of Lorem Ipsum. Why do we use it?
+      It is a long established fact that a reader will be distracted by the
+      readable content of a page when looking at its layout. The point of using
+      Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+      as opposed to using 'Content here, content here', making it look like
+      readable English. Many desktop publishing packages and web page editors
+      now use Lorem Ipsum as their default model text, and a search for 'lorem
+      ipsum' will uncover many web sites still in their infancy. Various
+      versions have evolved over the years, sometimes by accident, sometimes on
+      purpose (injected humour and the like). Where does it come from? Contrary
+      to popular belief, Lorem Ipsum is not simply random text. It has roots in
+      a piece of classical Latin literature from 45 BC, making it over 2000
+      years old. Richard McClintock, a Latin professor at Hampden-Sydney College
+      in Virginia, looked up one of the more obscure Latin words, consectetur,
+      from a Lorem Ipsum passage, and going through the cites of the word in
+      classical literature, discovered the undoubtable source. Lorem Ipsum comes
+      from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
+      Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a
+      treatise on the theory of ethics, very popular during the Renaissance. The
+      first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a
+      line in section 1.10.32. The standard chunk of Lorem Ipsum used since the
+      1500s is reproduced below for those interested. Sections 1.10.32 and
+      1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced
+      in their exact original form, accompanied by English versions from the
+      1914 translation by H. Rackham. Where can I get some? There are many
+      variations of passages of Lorem Ipsum available, but the majority have
+      suffered alteration in some form, by injected humour, or randomised words
+      which don't look even slightly believable. If you are going to use a
+      passage of Lorem Ipsum, you need to be sure there isn't anything
+      embarrassing hidden in the middle of text. All the Lorem Ipsum generators
+      on the Internet tend to repeat predefined chunks as necessary, making this
+      the first true generator on the Internet. It uses a dictionary of over 200
+      Latin words, combined with a handful of model sentence structures, to
+      generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is
+      therefore always free from repetition, injected humour, or
+      non-characteristic words etc.
+    </p>
+    <p id="two">둘입니다</p>
+    <a href="#">Top</a>
+  </body>
+</html>

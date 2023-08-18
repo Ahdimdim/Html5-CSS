@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            color:white;
+            flex-direction: column;
+        }
+        .head{
+            display: flex;
+            justify-content: center;
+            height: 100px;
+        }
+        .box1{
+            width: 200px;
+        }
+        .box2{
+            width: 1000px;
+        }
+        .box3{
+            height: 300px;
+        }
+        .con{
+            display: flex;
+            height: 200px;
+        }
+        .box4,
+        .box5,
+        .box6{
+            width: 33.33%;
+        }
+        .foot{
+            display: flex;
+            height: 100px;
+        }
+        .box7{
+            width: 200px;
+        }
+        .box8{
+            width: 800px;
+        }
+        .box9{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex container">
+        <div class="head">
+            <div class="box1" style="background:#B8336A";>logo</div>
+            <div class="box2" style="background:#726DA8";>menu</div>
+        </div>
+        <div class="box3" style="background:#7C8CC4";>slide</div>
+        <div class="con">
+            <div class="box4" style="background:#9FD2DB";>공지사항/갤러리</div>
+            <div class="box5" style="background:#C490D2";>banner</div>
+            <div class="box6" style="background:#B8336A";>바로가기</div>
+        </div>
+        <div class="foot">
+            <div class="box7" style="background:#B8336A";>logo</div>
+            <div class="box8" style="background:#9FD2DB";>copyright</div>
+            <div class="box9" style="background:#C490D2";>sns</div>
+        </div>
+    </div>
+</body>
+</html>

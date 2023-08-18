@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .flex{
+            background: #ccc;
+            display: flex;
+            width: 500px;
+        }
+        .flex div{
+            flex-basis: 100px;
+            /* 최소값 정해주는 거 아이템이 100보다 크면 늘어남
+            위드는 100의 크기를 아예 정하는 거에 차이가 있음 */
+            border: 1px solid;
+            background: #ddd;
+        }
+        .flex div:first-child{
+            flex-grow: 0;
+            /* flex-shrink: 0; */
+            /* grow는 부모 가로값이 더 클 경우 n등분해서 자식에게 나눠 주는 거
+               shrink는 부모 가로값이 더 작을 경우 n등분 해서 자식의 값을 빼는 거 */
+        }
+        .flex div:nth-child(2){
+            flex-grow: 1;
+            /* flex-shrink: 1; */
+        }
+        .flex div:nth-child(3){
+            flex-grow: 1;
+            /* flex-shrink: 1; */
+        }
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div>111111111111111</div>
+        <div>22</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

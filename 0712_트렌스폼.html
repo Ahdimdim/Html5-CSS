@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+        }
+        .div1{
+            transform: translate(100px, -50px);
+            /* 포지션 없이 움직이기 가로 세로 순 */
+            /* transform: translateX(200px); */
+        }
+        .div2{
+            transform: scale(0.5,1);
+            /* x y순 n배로 */
+        }
+        .div3{
+            transform: rotate(-10deg);
+            /* n각도로 돌림*/
+        }
+        .div4{
+            transform: skew(10deg, 20deg);
+            /* x y 순 기울기 */
+        }
+        .div5{
+            transform:
+        }
+        p{
+            position: relative;
+            left: 50px;
+            top: 50px;
+            width: 10px;
+            height: 10px;
+            background: red;
+            transform: scale(1);
+            /* transform-origin: 0 0; */
+            /* origin은 커지는 위치 기준을 잡아 주는 애 xy순 n% */
+            transform: translate(-50%, -50%) scale(2) rotate(45deg);
+            /* 얘로 정 가운데 갈 수 있게 함 */
+        }
+        section{
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+        section:hover img{
+            transform: scale(2);
+            transition: 0.5s;
+        }
+        article{
+            width: 100px;
+            height: 100px;
+            background: green;
+            transition-property: width, height;
+            transition-duration: 0.5s, 1s;
+            transition-timing-function: ease;
+            transition-delay: 1s;
+            /* 개체에게 직접 줘야하고 (hover X)
+               property는 변화를 누구한테 줄 것인가
+               duration 몇초에 걸려 커지거나 작아질 것인가
+               따로 정할 수 있음
+               timing은 중간에 한번 느려지는 거?.?...
+               delay는 딜레이 주는 거*/
+        }
+        article:hover{
+            width: 200px;
+            height: 300px;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4"></div>
+    <div class="div5">
+        <p></p>
+    </div>
+    <section>
+        <img src="images/photo1.jpg" alt="photo1">
+    </section>
+    <article></article>
+</body>
+</html>

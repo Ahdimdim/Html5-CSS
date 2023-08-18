@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .nav{
+            position: relative;
+            width: 700px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .nav a{
+            position: relative;
+            display: block;
+            width: 20%;
+            text-decoration: none;
+            float: left;
+            color: #333;
+            padding: 20px 0 40px;
+        }
+        .nav a:hover{
+            color: #68c3ff;
+        }
+        .nav .effect{
+            position: absolute;
+            /* width: 8px;
+            height: 8px;
+            background: #333; */
+            left: -25%;
+            transition: 1s;
+        }
+        .nav a:first-child:hover ~ .effect{
+            left: 10%;
+        }
+        .nav a:nth-child(2):hover ~ .effect{
+            left: 30%;
+        }
+        .nav a:nth-child(3):hover ~ .effect{
+            left: 50%;
+        }
+        .nav a:nth-child(4):hover ~ .effect{
+            left: 70%;
+        }
+        .nav a:nth-child(5):hover ~ .effect{
+            left: 90%;
+        }
+        .line .effect{
+            width: 70px;
+            height: 3px;
+            background: #68c3ff;
+            margin-left: -35px;
+            /* 중간에 오게 하기 위해서 70절반 마진 */
+            bottom: 30px;
+        }
+        .dot .effect{
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #68c3ff;
+            bottom: 14px;
+        }
+        .dot:after{
+            content: "";        
+            position: absolute;
+            left: 0;
+            bottom: 20px;
+            width: 100%;
+            height: 1px;
+            background: #68c3ff;
+        }
+        .dot a::after{
+            content: "";
+            position: absolute;            
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #68c3ff;
+            bottom: 18px;
+            left: 50%;
+        }
+        .box a::after,
+        .box .effect{
+            background: url(images/target.png) no-repeat;
+            
+        }
+        .box a::after{
+            position: absolute;
+            content: "";
+            width: 20px;
+            height: 20px;
+            left: 45%;
+            bottom: 0;
+            background-position: -64px 0;
+            /* 백그라운드 이미지 위치 조정 */
+        }
+        .box .effect{
+            width: 8px;
+            height: 8px;
+            bottom: 5px;
+            margin-left: -2.5px;
+            background-position: -26px 0;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="nav line">
+            <a href="#">Html</a>
+            <a href="#">css</a>
+            <a href="#">javascript</a>
+            <a href="#">jquery</a>
+            <a href="#">portfolio</a>
+            <div class="effect"></div>
+        </div>
+        <div class="nav dot">
+            <a href="#">Html</a>
+            <a href="#">css</a>
+            <a href="#">javascript</a>
+            <a href="#">jquery</a>
+            <a href="#">portfolio</a>
+            <div class="effect"></div>
+        </div>
+        <div class="nav box">
+            <a href="#">Html</a>
+            <a href="#">css</a>
+            <a href="#">javascript</a>
+            <a href="#">jquery</a>
+            <a href="#">portfolio</a>
+            <div class="effect"></div>
+        </div>
+    </div>
+  </body>
+</html>

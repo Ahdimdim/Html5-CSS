@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>블록인라인</title>
+    <style>
+      p,
+      a {
+        background: #ccc;
+        width: 300px;
+        height: 100px;
+        text-align: center;
+        padding: 50px;
+        margin: 0 auto;
+      }
+      /* 패딩이나 마진 위와 옆을 다르게 주고싶으면 따로 설정 해줘야 됨
+      50px 0 20px 40px */
+      /* text-align 문자 이미지 인라인 요소를 정렬 시켜줌, 블록은 글자만 정렬 됨
+      margin: 0 auto 디바이스 크기가 몇이든 자동으로 중앙, 가로는 오토가 기본
+       line-height: px은 수직정렬으로 높이 값과 똑같이 주면 됨 */
+      h1 {
+        margin: auto;
+        width: 200px;
+        background-color: dodgerblue;
+        text-align: center;
+      }
+      /* 블록은 기본적으로 화면 끝까지 크기를 먹고 있어서 가로크기를 줄이고 먹여야됨 */
+      img {
+        width: 10px;
+      }
+      /* a는 인라인 p는 블록으로, 기본적으로 인라인은 크기도 정렬도 바뀌지 않는다
+      그러나 a상위 태그에 먹이면 크기와 정렬을 바꿀 수 있다 상위 태그 없을 때 바디
+      body {text-align: center;} 아니면 걍 a상위 p넣고 바꿈 됨 p 안에 p는 안됨
+      마진(바깥여백)은 안 먹는다 */
+    </style>
+  </head>
+  <body>
+    <p>p태그:문단태그</p>
+    <p>p태그:문단태그</p>
+    <a href="#">a태그:링크태그</a>
+    <a href="#">a태그:링크태그</a>
+    <img src="images/menu1.jpg" alt="" />
+    <img src="images/menu1.jpg" alt="" />
+    <img src1="images/menu1.jpg" alt="" />
+    <h1>제목태그</h1>
+  </body>
+</html>

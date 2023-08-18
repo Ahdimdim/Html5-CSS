@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .tabcon {
+        width: 960px;
+        height: 500px;
+      }
+      .tabcon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      .tabButton {
+        width: 960px;
+        display: flex;
+      }
+      .tabButton .tablink {
+        width: 25%;
+        padding: 10px 0;
+        text-align: center;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tabcon">
+      <img src="images/photo1.jpg" alt="photo1" />
+    </div>
+    <div class="tabButton">
+      <p class="tablink">photo1</p>
+      <p class="tablink">photo2</p>
+      <p class="tablink">photo3</p>
+      <p class="tablink">photo4</p>
+    </div>
+    <script>
+      let content = document.getElementsByTagName("img");
+      let btn = document.querySelectorAll(".tablink");
+      btn.forEach(function (item, keys) {
+        console.log("item : " + item + "\n" + "keys : " + keys);
+        item.onclick = function (e) {
+          let j = Array.from(btn).indexOf(e.target);
+          console.log("j : " + j);
+          content[0].setAttribute("src", "images/photo" + (j + 1) + ".jpg");
+          content[0].setAttribute("alt", "photo" + (j + 1));
+        };
+      });
+    </script>
+  </body>
+</html>

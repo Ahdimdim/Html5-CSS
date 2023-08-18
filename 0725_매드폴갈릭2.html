@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        body{
+            font-family: arial,"맑은 고딕",sans-serif;
+            background: #161616;
+        }
+        .top{
+            background: #666;
+        }
+        .top .topmenu{
+            width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .topmenu ul{
+            display: flex;
+            align-items: center;
+            height: 30px;
+        }
+        .topmenu ul li{
+            margin-left: 10px;
+        }
+        .topmenu ul li a{
+            color: #fff;
+            font-size: 14px;
+        }
+        .topmenu ul li img{
+            vertical-align: middle;
+        }
+        :focus {
+            outline: none;
+        }
+        .head{
+            width: 1000px;
+            height: 70px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .head ul{
+            display: flex;
+        }
+        .head ul li a{
+            line-height: 70px;
+            display: block;
+            color: #fff;
+            font-size: 20px;
+            box-sizing: border-box;
+            padding: 0 20px;
+        }
+        .head ul li a:hover{
+            background: #fff;
+            color: #000;
+        }
+        .visual{
+            background:#999;
+            height: 400px;
+        }
+        .madimg{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        ul.banner{
+            width: 1000px;
+            display: flex;
+            margin: 20px auto;
+            justify-content: space-between;
+        }
+        /* ul.banner li{
+            width: 235px
+            height: 227px
+            border: 3px dashed transparent;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        ul.banner li:hover{
+            border-color: yellow;
+        }
+        ul.banner li img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        } */
+        ul.banner li:hover a img{
+            outline: 3px dashed yellow;
+        /* 사이즈 변화가 있을 때 보더로 주지 말고 아웃라인으로 */
+        }
+        .event{
+            width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .event .right{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        .event .right h2{
+            margin-bottom: 20px;
+        }
+        .event .right strong{
+            margin-right: 10px;
+        }
+        .event .right span{
+            margin-left: 10px;
+        }
+        footer{
+            border-top: 1px solid #ccc;
+            margin-top: 20px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+        }
+        footer .foot{
+            display: flex;
+            flex-direction: column;
+            width: 1000px;
+            height: 70px;
+            margin: 0 auto;
+            align-items: center;
+            color: #fff;
+            justify-content: space-between;
+        }
+        /* 컬럼주는 이유는 스페이스비트윈을 수직값으로 바꿔주고싶어서 */
+        footer .foot ul{
+            display: flex;
+            width: 70%;
+            justify-content: space-between;
+        }
+        footer .foot ul li a{
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="top">
+            <div class="topmenu">
+                <ul>
+                    <li><a href="#">LOGIN</a></li>
+                    <li><a href="#">JOIN</a></li>
+                    <li><a href="#">GUST</a></li>
+                    <li><input
+                        type="search"
+                        placeholder="검색어를 입력해주세요"
+                        onfocus="this.placeholder=''">
+                    </li>
+                    <li><a href="#"><img src="images/zoom.png" alt="zoom"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="head">
+            <div class="logo">
+                <img src="images/mad_12.gif" alt="mad_12">
+            </div>
+            <ul>
+                <li><a href="#">BRAND</a></li>
+                <li><a href="#">MENU</a></li>
+                <li><a href="#">STORE</a></li>
+                <li><a href="#">MEMBERSHIP</a></li>
+                <li><a href="#">EVENT</a></li>
+            </ul>
+        </div>
+        <div class="visual">
+            <div class="madimg">
+                <img src="images/mad_17.jpg" alt="mad_17">
+            </div>
+        </div>
+        <ul class="banner">
+            <li><a href="#"><img src="images/mad_25.jpg" alt="mad_25"></a></li>
+            <li><a href="#"><img src="images/mad_27.jpg" alt="mad_27"></a></li>
+            <li><a href="#"><img src="images/mad_29.jpg" alt="mad_29"></a></li>
+            <li><a href="#"><img src="images/mad_31.jpg" alt="mad_31"></a></li>
+        </ul>
+        <div class="event">
+            <div class="left">
+                <img src="images/mad_39.jpg" alt="mad_39">
+            </div>
+            <div class="right">
+                <div class="notice">
+                    <h2>공지사항</h2>
+                    <p><strong>MAD SURPRISE</strong>매월 지정일 매드서프라이즈!<span>2017-06-28</span></p>
+                    <p><strong>MAD CELEBRATION</strong>생일, 결혼기념일 스페셜!<span>2017-06-28</span></p>
+                    <p><strong>MAD DAY</strong>매월 마지막 주 수요일 기억하세요!<span>2017-06-28</span></p>
+                    <p><strong>MAD 10%</strong>멤버십이라면 언제나 10% 할인제공!<span>2017-06-28</span></p>
+                    <p><strong>MAD REWARD</strong>올수록 커지는 리워즈 혜택!<span>2017-06-28</span></p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="foot">
+                <ul>
+                    <li><a href="#">서비스이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">기기운영관리방침</a></li>
+                    <li><a href="#">고객서비스센터</a></li>
+                    <li><a href="#">관리자문의</a></li>
+                </ul>
+                <p>서울특별시 강남구 압구정로 222(신사동) ㈜엠에프지코리아</p>
+                <p>COPYRIGHT ⓒ MFGKOREA ALL RIGHTS RESERVED.</p>
+            </div>            
+        </footer>        
+    </div>
+</body>
+</html>

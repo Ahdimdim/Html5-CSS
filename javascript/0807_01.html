@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFunction(){
+            document.getElementById("demo").innerHTML = "변경하였습니다";
+        }
+    </script>
+</head>
+<body>
+    <h2>Demo JavaScript in Body</h2>
+    <p id="demo">A Paragraph</p>
+    <button type="button" onclick="myFunction()">Try it</button>
+    <p class="example">변경 전</p>
+    <p class="example">변경 전</p>
+    <p class="example">변경 전</p>
+    <script>
+        document.title = "자바스크립트";
+        document.getElementById("demo").innerHTML = "Paragraph Changed";
+        document.getElementById("demo").style.color = "blue";
+        document.getElementsByClassName("example")[2].innerHTML = "변경 후";
+        document.getElementsByTagName("p")[0].style.backgroundColor = "skyblue"
+    </script>
+    <!-- document.getElementsByClassName("example")[2].innerHTML = "변경 후";
+    샘플 중 3번째 샘플을 선택 id 같이 하나면 괜찮지만 getElements 들은 [] 무조건 해줘야하고 0부터 시작 -->
+</body>
+</html>

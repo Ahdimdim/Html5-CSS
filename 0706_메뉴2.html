@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* gnb는 가로 고정값을 주고 gnb1은 가로값을 주지 않고
+        글이 길어져도 알아서 길어지게 만듬 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        .gnb{
+            padding: 200px 0;
+        }
+        .gnb>li{
+            position: relative;
+            width: 100px;
+            background: #ccc;
+            float: left;
+        }
+        .gnb>li:first-child{
+            width: 300px;
+        }
+        .gnb>li>a{
+            display: block;
+            line-height: 40px;
+        }
+        .gnb>li>a:hover{
+            background: #ddd;
+        }
+        .gnb>li:hover .lnb{
+            display: block;
+        }
+        .gnb1{
+            clear: both;
+        }
+        .gnb1>li{
+            position: relative;
+            float: left;
+            background: beige;
+        }
+        .gnb1>li>a{
+            padding: 0 20px;
+            display: block;
+            line-height: 40px;
+        }
+        .gnb1>li>a:hover{
+            background-color: burlywood;
+        }
+        .gnb1>li:hover .lnb{
+            display: block;
+        }
+        .lnb{
+            position: absolute;
+            left:0;
+            top:40px;
+            /* 굳이 자표값 주는 이유는 원하는 위치에 있고,
+               부모와는 겹치지 않아도 나중에 오는 다른 컨텐츠와 겹칠 수 있기 때문에 줌*/
+            display: none;
+            z-index: 10; /* 레이어 위로 올려주는 거 */
+            background: skyblue;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <ul class="gnb">
+        <li><a href="#">menu1menu2menu3menu4menu5menu6menu7</a>
+            <ul class="lnb">
+                <li><a href="#">서브메뉴1111111111</a></li>
+                <li><a href="#">서브메뉴2</a></li>
+                <li><a href="#">서브메뉴3</a></li>
+                <li><a href="#">서브메뉴4</a></li>
+            </ul>
+        </li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+    </ul>
+    <ul class="gnb1">
+        <li><a href="#">menu1menu2menu3menu4menu5menu6menu7</a>
+            <ul class="lnb">
+                <li><a href="#">submenu1submenu1submenu1submenu1submenu1</a></li>
+                <li><a href="#">submenu2</a></li>
+                <li><a href="#">submenu3</a></li>
+                <li><a href="#">submenu4</a></li>
+            </ul>
+        </li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, "나눔고딕", Dotum, sans-serif;
+      }
+      p{
+        width: 500px;
+        border: 1px solid #000;  
+      }
+      p.normal{
+        white-space: normal;
+      }
+      /* 디폴트 */
+      p.nowrap{
+        white-space: nowrap;
+        text-overflow: ellipsis; /* visibility: hidden; 화면에 있지만 안 보이게 해줌 opacity랑 같음 */
+        overflow: hidden;
+      }
+      /* 연속 공백을 하나로 처리 하고 줄바꿈이 안 일어남 */
+      /*  text-overflow: ellipsis; 말줄임표 (...)
+        overflow: hidden; 크기영역을 벗어난 글을 숨김 보통 두 개 같이 씀*/
+
+      p.pre{
+        white-space: pre;
+      }
+      /* 보이는 입력값 그대로를 출력 */
+      p.pre-wrap{
+        white-space: pre-wrap;
+      }
+      /* 크기영역을 넘을 시 줄바꿈 */
+      p.pre-line{
+        white-space: pre-line;
+      }
+      /* 의미 없는 공백 무시, 행이 길면 줄바꿈*/
+    </style>
+  </head>
+  <body>
+    <p class="normal">
+      normal          감사원의 조직·직무범위·감사위원의 자격·감사대상공무원의 범위 기타
+      필요한 사항은 법률로 정한다. 
+      국가는 국민 모두의 생산 및 생활의 기반이 되는
+      국토의 효율적이고 균형있는 이용·개발과 보전을 위하여 법률이 정하는 바에
+      의하여 그에 관한 필요한 제한과 의무를 과할 수 있다.
+    </p>
+    <p class="nowrap">
+      nowrap          감사원의 조직·직무범위·감사위원의 자격·감사대상공무원의 범위 기타
+      필요한 사항은 법률로 정한다. 
+      국가는 국민 모두의 생산 및 생활의 기반이 되는
+      국토의 효율적이고 균형있는 이용·개발과 보전을 위하여 법률이 정하는 바에
+      의하여 그에 관한 필요한 제한과 의무를 과할 수 있다.
+    </p>
+    <p class="pre">
+      pre          감사원의 조직·직무범위·감사위원의 자격·감사대상공무원의 범위 기타
+      필요한 사항은 법률로 정한다. 
+      국가는 국민 모두의 생산 및 생활의 기반이 되는
+      국토의 효율적이고 균형있는 이용·개발과 보전을 위하여 법률이 정하는 바에
+      의하여 그에 관한 필요한 제한과 의무를 과할 수 있다.
+    </p>
+    <p class="pre-wrap">
+      pre-wrap          감사원의 조직·직무범위·감사위원의 자격·감사대상공무원의 범위 기타
+      필요한 사항은 법률로 정한다. 
+      국가는 국민 모두의 생산 및 생활의 기반이 되는
+      국토의 효율적이고 균형있는 이용·개발과 보전을 위하여 법률이 정하는 바에
+      의하여 그에 관한 필요한 제한과 의무를 과할 수 있다.
+    </p>
+    <p class="pre-line">
+      pre-line          감사원의 조직·직무범위·감사위원의 자격·감사대상공무원의 범위 기타
+      필요한 사항은 법률로 정한다. 
+      국가는 국민 모두의 생산 및 생활의 기반이 되는
+      국토의 효율적이고 균형있는 이용·개발과 보전을 위하여 법률이 정하는 바에
+      의하여 그에 관한 필요한 제한과 의무를 과할 수 있다.
+    </p>
+  </body>
+</html>

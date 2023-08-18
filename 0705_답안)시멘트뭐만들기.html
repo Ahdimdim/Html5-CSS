@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 패딩+테두리+가로크기=총크기가 되기 때문에 1280초과가 됨
+           그래서 box-sizing:border-box(패딩, 테두리를 빼주는 거)로 만들어야됨
+           가로값을 따로 주지 않는다면 width: auto 이 기본이기때문에 부모의 1280을 초과하지 않게 됨
+           nac30%, section50%, aside20%를 주고 마진 20px 씩 주면 패딩 테두리를 빼도 초과가 되기때문에
+           계산을 해주는 calc()를 사용하여 width:calc(50% - 40px)을
+           섹션에 들어간 양옆 마진 20px 씩 총 40px이 들어간 걸 가로값에서 빼줘야함 */
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #wrap{
+            width: 1280px;
+            margin: 0 auto;
+            background-color: #ccc;
+        }
+        #wrap div{
+            border-radius: 5px;
+        }
+        .header{
+            height: 100px;
+            border: 1px solid;
+            line-height: 100px;
+            padding: 20px;
+        }
+        .content{
+            margin: 20px 0;
+            overflow: hidden;
+            /* 플롯으로 높이를 잃어 마진을 주면 위 아래 마진이 안 먹기 때문에
+               높이를 다시 찾아줘야한다 */
+        }
+        .content>div{
+            height: 500px;
+            float: left;
+            border: 1px solid;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        .content>div:first-child{
+            margin-left: 0px;
+        }
+        .nav{
+            width: 30%;
+        }
+        .section{
+            width: calc(50% - 40px);
+            margin: 0 20px;
+        }
+        .aside{
+            width: 20%;
+        }
+        .footer{
+            border: 1px solid;
+            height: 100px;
+            clear: both;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+  <div id="wrap">
+        <div class="header">header</div>
+        <div class="content">        
+            <div class="nav">nav</div>
+            <div class="section">section</div>
+            <div class="aside">aside</div>
+        </div>
+        <div class="footer">footer</div>
+  </div>
+</body>
+</html>

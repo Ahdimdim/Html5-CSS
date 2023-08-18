@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        details{
+            cursor: pointer;
+            /* 커서 모양 바꿔주는 거 */
+        }    
+        details>summary:first-of-type{
+            list-style-image:url(images/ico_bbslist.gif);
+        }
+        details[open]>summary{
+            /* list-style-image:url(images/menu2.jpg); */
+        }
+        /* 기본은 삼각형이고 리스트 이미지로 오픈 됐을 때 안됐을 때 따로 지정 가능 하지만
+           일반 리스트 스타일은 먹지 않음 */
+        
+    </style>
+</head>
+<body>
+    <details>
+        <!-- 디테일 접었다 펼 수 있는 목록을 만들어주는 거 -->
+        <summary>
+            웹디자인
+        </summary>
+        <ul>
+            <li>Html</li>
+            <li>CSS</li>
+            <li>CSS3</li>
+            <li>Javascript</li>
+            <li>JQuery</li>
+        </ul>
+        <summary>
+            웹디자인
+        </summary>
+        <ul>
+            <li>Html</li>
+            <li>CSS</li>
+            <li>CSS3</li>
+            <li>Javascript</li>
+            <li>JQuery</li>
+        </ul>
+    </details>
+</body>
+</html>

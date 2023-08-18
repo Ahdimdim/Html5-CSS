@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .list{
+            color : skyblue;
+            border: 1px solid;
+            padding: 20px;
+            text-align: center;
+        }
+        .new{
+            background: #ccc;
+            color: #000;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="add">add</button>
+    <button id="remove">remove</button>
+    <button id="toggle">toggle</button>
+    <button id="replace">replace</button>
+    <div id="DEMO" class="list">replace method</div>
+    <div id="my">ClassList 속성</div>
+    <p id="demo"></p>
+    <p id="p01" class="a1 b1 c1">1</p>
+    <p id="p02"></p>
+    <script>
+        document.getElementById("add").onclick = function(){
+            let ele = document.getElementById("my").classList;
+            ele.add("list")
+        }
+        document.getElementById("remove").onclick = function(){
+            let ele = document.getElementById("my").classList;
+            ele.remove("list")
+        }
+        document.getElementById("toggle").onclick = function(){
+            let ele = document.getElementById("my").classList;
+            ele.toggle("list")
+        }
+        let a = document.getElementById("my").classList.contains("add");
+        document.getElementById("demo").innerHTML = a;
+        let num = document.getElementById("p01").classList.length;
+        let b = document.getElementById("p01").classList;
+        let c = "";
+        let d = "";
+        console.log(num + b);
+        b.forEach(function(keys,item){
+            c = "keys" + item + "=" + keys + "\r";
+            d = "keys" + item + "=" + keys + "<br>";
+            console.log(c + num);
+            document.getElementById("p02").innerHTML = d;
+        });
+        //forEach() 메서드는 각 배열 요소에 대해 한 번씩 함수(콜백 함수)를 호출합니다.
+        //콘솔 내 줄바꿈은 \r
+        document.getElementById("replace").onclick=function(){
+            let e = document.getElementById("DEMO").classList;
+            e.replace("list","new")
+        }
+    </script>
+</body>
+</html>

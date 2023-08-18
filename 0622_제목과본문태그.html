@@ -1,0 +1,48 @@
+<!-- 초기설정 html:5 or !+tab -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제목과 본문 태그</title>
+    <style>
+      h1 {
+        font-size: 16px;
+        color: deepskyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="font-size: 18px">제목태그1</h1>
+    <!-- 내부<인라인이라 16px보다 18px우선순위로 먹힘 -->
+    <h2>제목태그2</h2>
+    <h3>제목태그3</h3>
+    <h4>제목태그4</h4>
+    <h5>제목태그5</h5>
+    <h6>제목태그6</h6>
+    <p>문단<br />태그</p>
+    <!-- 주석 ctrl+/ -->
+    <p>본문 문단 생성</p>
+    <p>본문 문단 생성</p>
+    <hr />
+    <!-- hr 수평선 -->
+    <div>
+      <h1>제&nbsp;&nbsp;&nbsp;&nbsp;목태그</h1>
+      <p>&lt;문단태그&gt;</p>
+      <!-- 특수문자 : &nbsp;(공백), &lt;(<), &gt;(>), &amp;(&) -->
+    </div>
+    <pre>
+      하        나
+      둘
+      셋
+      넷
+    </pre>
+    <!-- pre 입력 그대로 출력 -->
+    <p>
+      하&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;나<br />
+      둘<br />
+      셋<br />
+    </p>
+  </body>
+</html>

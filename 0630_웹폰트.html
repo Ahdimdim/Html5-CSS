@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>폰트</title>
+
+    <style>
+      @font-face {
+        font-family: 나눔스퀘어, sans-serif;
+        src: url(webfonts/NanumSquareRoundOTFR.woff) format("woff"),
+          url(webfonts/NanumSquareRoundR.ttf) format("ttf");
+      }
+      @font-face {
+        font-family: noto;
+        src: url(webfonts/NotoSansKR-Medium.otf) format(otf);
+      }
+      /* sns-sefif 앞에 글꼴이 없으면 고딕으로 바꿔줭 */
+
+      body {
+        font-family: "Open Sans", sans-serif;
+      }
+      /* 끌어온 폰트 적용 */
+      /* 영문폰트-한글폰트 순으로 하는게 나음 앞에 쓸수록 우선 순위*/
+      h1.first {
+        font-family: "나눔스퀘어", sans-serif;
+        font-weight: normal;
+      }
+      h1.second {
+        font-family: "noto";
+        font-weight: bold;
+      }
+      h1.third {
+        font-size: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <p>green 그린</p>
+    <h1 class="first">green 그린</h1>
+    <h1 class="second">green 그린</h1>
+    <h1 class="therd">green 그린</h1>
+  </body>
+</html>

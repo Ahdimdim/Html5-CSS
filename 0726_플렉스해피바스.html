@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transform</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      body {
+        font-family: Arial, "맑은 고딕", sans-serif;
+      }
+      header {
+        border-bottom: 1px solid #ccc;
+      }
+      .head {
+        width: 990px;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        justify-content: flex-end;
+      }
+      .head .top {
+        width: calc(50% + 47.5px);
+        /* 로고 사이즈 반만큼 뺌 */
+        display: flex;
+        justify-content: space-between;
+      }
+      .head .top ul {
+        display: flex;
+        align-items: center;
+      }
+      .head .top ul li {
+        position: relative;
+        margin-left: 20px;
+      }
+      .head .top ul li::after{
+        content: "";
+        height: 10px;
+        width: 1px;
+        background: #ccc;
+        top: 7px;
+        right: -10px;
+        position: absolute
+      }
+      .head .top ul li:last-child::after{
+        content: none;
+      }
+      .head .top ul li img{
+        width: 18px;
+        height: 18px;
+      }
+      .topmenu ul{
+        display: flex;
+        justify-content: center;
+      }
+      .topmenu ul li{
+        padding: 20px 40px;
+      }
+      .topmenu ul>li>ul{
+        display: none;
+      }
+      .slide{
+        margin: 0 auto;
+        width: 1600px;
+        height: 520px;
+        background-size: 100% 520px;
+        background-position: center;
+        object-fit: cover;
+        animation-name: slide;
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        background-image: url(images/20220413_final_original-collection-bodywash_main_kv_pc.jpg);
+      }
+      @keyframes slide {
+        0%, {
+            animation-timing-function: linear;
+            background-image: url(images/20220413_final_original-collection-bodywash_main_kv_pc.jpg);
+        }
+        40% {
+            animation-timing-function: linear;
+            background-image: url(images/20220413_final_matinee-perfume-bodywash_main_kv_pc.jpg);
+        }
+        70%{
+            animation-timing-function: linear;
+            background-image: url(images/221102_final_micro-micellar-low-pH-deep-cleansing-foam_main_kv_desktop.jpg);
+        }
+        100%{
+            animation-timing-function: linear;
+            background-image: url(images/221121_final_natural-cleansing-foam_desktop.jpg);
+        }
+      }
+      .content{
+        width: 1600px;
+        margin: 0 auto;
+        background: url(images/item-bg.png) no-repeat;
+        background-position: left 80%;
+      
+      }
+      .content h2{
+        position: relative;
+        text-align: center;
+        padding: 40px 0px;
+        width: 990px;
+        margin: 0 auto;
+        color: #333;
+      }
+      .content h2::before{
+        content: "";
+        width: 350px;
+        height: 1px;
+        background: #ccc;
+        position: absolute;
+        left: 0;
+        top: 55px;
+      }
+      .content h2::after{
+        content: "";
+        width: 350px;
+        height: 1px;
+        background: #ccc;
+        position: absolute;
+        right: 0;
+        top: 55px;
+      }
+      .content ul{
+        width: 990px;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+      }
+      .content ul li p{
+        padding: 20px;
+      }
+      .content ul li:hover img{
+        transform: scale(105%);
+      }
+      .content ul li img{
+        transform: scale(1);
+        transition: 1s;
+      }
+      .content ul li:hover p{
+        font-weight: bold;
+      }
+      .event{
+        width: 990px;
+        margin: 0 auto;
+      }
+      .event .text{
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .review{
+        width: 70%;
+      }
+      .news{
+        width: 30%;
+        display: flex;
+      }
+      .news div{
+        width: 285px;
+        height: 250px;
+        animation-name: news;
+        background-position: center;
+        object-fit: cover;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        background-image: url(images/220600_final_Happybath_news-banner_main_pc.jpg);        
+      }
+      @keyframes news {
+        0%, {
+            animation-timing-function: linear;
+            background-image: url(images/220600_final_Happybath_news-banner_main_pc.jpg);
+        }
+        100%{
+            animation-timing-function: linear;
+            background-image: url(images/220405_final_Happybath_news_banner_pc.jpg);
+        }
+      }
+      .happy {
+        width: 990px;
+        margin: 50px auto;
+        display: flex;
+        justify-content: space-around;
+      }
+      .happy > div {
+        display: flex;
+        width: 463px;
+        height: 400px;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .happy ul {
+        width: 100%;
+        height: 306px;
+        display: flex;
+        /* overflow: hidden; */
+      }
+      .happy ul li {
+        position: relative;
+        flex: 1 1 30%;
+        transition: flex-basis 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+        cursor: pointer;
+      }
+      .happy ul li.first {
+        background: url(images/sample01.jpg);
+      }
+      .happy ul li.second {
+        background: url(images/sample02.jpg);
+      }
+      .happy ul li.third {
+        background: url(images/sample03.jpg);
+      }
+      .happy .left ul:hover,
+      .happy .right div:hover{
+        outline: 1px solid #333;
+      }
+      .left .title {
+        text-align: center;
+        line-height: 306px;
+        font-size: 20px;
+        color: #fff;
+      }
+      .left .box {
+        position: absolute;
+        width: 300px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        color: #fff;
+        opacity: 0;
+        text-align: center;
+      }
+      .left ul:hover .title {
+        display: none;
+      }
+      .left ul li:hover .box {
+        opacity: 1;
+      }
+      .left ul:hover li:hover {
+        flex-basis: 60%;
+      }
+      .left ul:hover li:not(:hover) {
+        flex-basis: 20%;
+      }
+      .left .box a,
+      .right div a{
+        display: inline-block;
+        border: 1px solid #fff;
+        color: #fff;
+        font-size: 14px;
+        padding: 5px 20px;
+        margin-top: 30px;
+      }
+      .left .box a:hover,
+      .right div a:hover{
+        background: #fff;
+        color: #333;
+        opacity: 0.7;
+      }
+      .left h2,
+      .right h2{
+        color: #444;
+        font-size: 18px;
+      }
+      .right div {
+        width: 465px;
+        height: 306px;
+        background: url(images/beautytalk.jpg) center/100%;
+        margin: 0 auto;
+        text-align: center;
+        transition: 1s;
+        cursor: pointer;
+      }
+      .right div p{
+        color: #fff;
+        font-size: 20px;
+        padding-top: 100px;
+      }
+      .right div:hover{
+        background-size: 120%;
+      }
+      .sns{
+        display: flex;
+        margin: 30px auto;
+        justify-content: center;
+        height: 58px;
+        background: rgb(248, 248, 248);
+      }
+      .foot{
+        width: 1000px;
+        height: 175px;
+        margin: 0 auto;
+        text-align: center;
+        background: url(images/img_wa_20221129.png) no-repeat;
+        background-size: 60px 60px;    
+        background-position: right 20%;    
+      }
+      .foot ul{
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        justify-content: center;
+      }
+      .foot ul li{
+        position: relative;
+        padding: 5px 10px;
+      }
+      .foot ul li a{
+        font-size: 12px;
+      }
+      .foot p{
+        font-size: 12px;
+        padding: 10px;
+        color: #aaa;
+      }
+      .foot ul li::after{
+        content: "";
+        height: 12px;
+        width: 1px;
+        background: #000;
+        top: 8px;
+        right: -1px;
+        position: absolute
+      }
+      .foot ul li:last-child::after{
+        content: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="head">
+          <div class="top">
+            <div class="logo"><img src="images/img-logo_01.png" alt="img-logo_01"></div>
+            <ul>
+              <li><a href="#">로그인</a></li>
+              <li><a href="#">구매하기</a></li>
+              <li><a href="#">매장찾기</a></li>
+              <li><a href="#"><img src="images/bg-header-searchbtn.png" alt="bg-header-searchbtn"></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="topmenu">
+          <nav>
+            <ul>
+              <li><a href="#">해피바스 <strong>이야기</strong></a>
+                <ul>
+                  <li><a href="#">브랜드 히스토리</a></li>
+                  <li><a href="#">영상 갤러리</a></li>
+                </ul>
+              </li>
+              <li><a href="#">해피바스 <strong>선물</strong></a>
+                <ul>
+                  <li><a href="#">행복의 순간</a></li>
+                  <li><p><a href="#">네추럴 성분</a></p></li>
+                  <li><p><a href="#">풍성한 향</a></p></li>
+                  <li><p><a href="#">즐거운 경험</a></p></li>
+                </ul>
+              </li>
+              <li><a href="#">해피바스 <strong>뷰티톡</strong></a>
+                <ul>
+                  <li><a href="#">피부고민X뷰티팁</a></li>
+                  <li><a href="#">자산화 원료</a></li>
+                </ul>
+              </li>
+              <li><a href="#">해피바스 <strong>제품</strong></a>
+                <ul>
+                  <li><a href="#">유형별 제품</a></li>
+                  <li><a href="#">고민별 제품</a></li>
+                  <li><a href="#">전체 제품 보기</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <div class="slide">
+      </div>
+      <div class="content">
+        <h2>베스트셀러 아이템</h2>
+        <ul>
+          <li><a href="#"><img src="images/20220608_micro-micellar_deep-cleansing_front(120x300)_1.png" alt=""><p>해피바스 마이크로미셀라<br>딥 클렌징 폼</p></a></li>
+          <li><a href="#"><img src="images/220405_final_Happybath_bestseller_thumbnail01_pc.png" alt=""><p>해피바스 오리지널컬렉션<br>오리지널 바디워시</p></a></li>
+          <li><a href="#"><img src="images/220405_final_Happybath_bestseller_thumbnail02_pc.png" alt=""><p>해피바스 오리지널컬렉션<br>베이비파우더 바디워시</p></a></li>
+          <li><a href="#"><img src="images/220405_final_Happybath_bestseller_thumbnail03_pc.png" alt=""><p>해피바스 오리지널컬렉션<br>솝 라벤더 바디워시</p> </a></li>
+        </ul>
+      </div>
+      <div class="event">
+        <div class="text">
+          <h2>제품 리뷰</h2>
+          <h2>해피바스 소식</h2>
+        </div>
+        <div class="review">
+          <div class="review1">
+            <div><img src="images/20220607_micro-micellar_deep-cleansing_231x251.png" alt=""></div>
+            <div class="review2">
+              <h3>[해피바스 마이크로미셀라 딥 클렌징 폼]</h3>
+              <ul>
+                <li>pcs0***</li>
+                <li><img src="images/detail-review-star5.png" alt=""></li>
+              </ul>
+              <p>항상 마이크로 미셀라 딥 클렌징 폼을 사용하는데 역시 세정력 우수하고 피부가 개운해요 확실히 마무리가 촉촉한 느낌이 있어요!</p>
+            </div>
+          </div>
+        </div>
+        <div class="news">
+          
+          <div></div>
+        </div>
+      </div>
+      <div class="happy">
+        <div class="left">
+          <h2>해피바스 선물</h2>
+          <ul>
+            <li class="first">
+              <p class="title">내추럴 성분</p>
+              <div class="box">
+                <p>해피바스가 담고 있는<br />'내추럴 성분'이 궁금하다면?</p>
+                <a href="#">more</a>
+              </div>
+            </li>
+            <li class="second">
+              <p class="title">풍성한 향</p>
+              <div class="box">
+                <p>해피바스가 펼쳐지는<br />'풍성한 향'이 궁금하다면?</p>
+                <a href="#">more</a>
+              </div>
+            </li>
+            <li class="third">
+              <p class="title">즐거운 경험</p>
+              <div class="box">
+                <p>해피바스가 이끄는<br />'즐거운 경험'이 궁금하다면?</p>
+                <a href="#">more</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="right">
+          <h2>해피바스 뷰티톡</h2>
+          <div>
+            <p>피부고민에 따른 뷰티팁을 드려요</p>
+            <a href="#">more</a>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <ul class="sns">
+          <li><a href="#"><img src="images/sns-facebook.png" alt="sns-facebook"></a></li>
+          <li><a href="#"><img src="images/sns-youtube_new.png" alt="sns-youtube_new"></a></li>
+          <li><a href="#"><img src="images/sns-instar.png" alt="sns-instar"></a></li>
+        </ul>
+        <div class="foot">          
+          <ul>
+            <li><a href="#">서비스 이용약관</a></li>
+            <li><a href="#"><strong>개인정보처리방침</strong></a></li>
+            <li><a href="#">영상처리방침</a></li>
+            <li><a href="#">뷰티포인트</a></li>
+            <li><a href="#">사이트맵</a></li>
+          </ul>
+          <ul>  
+            <li><a href="#">고객상담팀(수신자 요금 부담) 080-023-5454</a></li>
+            <li><a href="#">상담시간 월~금 : AM 09:00 ~ PM 06:00</a></li>
+          </ul>
+          <p>© AMOREPACIFIC CORPORATION. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*  ease - 느린 시작, 빠르게 시작, 느리게 종료하는 전환 효과를 지정합니다(기본값).
+            linear - 처음부터 끝까지 동일한 속도로 전환 효과를 지정합니다. ease-in - 느린 시작으로 전환 효과 지정
+            ease-out - 느린 끝으로 전환 효과를 지정합니다. ease-in-out - 느린 시작과 끝으로 전환 효과 지정
+            cubic-bezier(n,n,n,n)- 큐빅-베지어 함수에서 자신만의 값을 정의할 수 있습니다. */
+        p{
+            width: 10px;
+            height: 10px; 
+            background: #ccc;
+            transition: width 2s;
+        }
+        div:hover p{
+            width: 500px;
+        }
+        p:nth-child(2){transition-timing-function:ease;}
+        p:nth-child(3){transition-timing-function:ease-in;}
+        p:nth-child(4){transition-timing-function:ease-in-out;}
+        p:nth-child(5){transition-timing-function:ease-out;}
+        p:nth-child(6){transition-timing-function:cubic-bezier(.04,1.25,.53,-0.08);}
+        p:nth-child(6){transition-timing-function:linear}
+        /* 큐빅은 커스텀 느낌 https://cubic-bezier.com/ 여기서 커스텀 */
+    </style>
+</head>
+<body>
+    <div>
+        <p>default</p>
+        <p>ease</p>
+        <p>ease-in</p>
+        <p>ease-in-out</p>
+        <p>ease-out</p>
+        <p>cubic</p>
+        <p>linear</p>
+    </div>
+</body>
+</html>

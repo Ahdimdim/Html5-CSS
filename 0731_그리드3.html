@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+            grid-template-areas: 
+                "h h h h"
+                "a a b b"
+                "c c c c"
+                "c c c c"
+                "c c c c"
+                "f f f f"
+            ;
+        }
+        /* .은 비어있게*/
+
+        header {
+            grid-area: h;
+            background-color: #D0021B;
+        }
+
+        section.a {
+            grid-area: a;
+            background-color: #9013FE;
+        }
+
+        section.b {
+            grid-area: b;
+            background-color: #F8E71C;
+        }
+        section.c {
+            grid-area: c;
+            background-color: #f85;
+        }
+
+        section.d {
+            grid-area: d;
+            background-color: green;
+        }
+
+        footer {
+            grid-area: f;
+            background-color: #50E3C2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>Header</header>
+        <section class="a">Section A</section>
+        <section class="b">Section B</section>
+        <section class="c">Section C</section>
+        <section class="d">Section D</section>
+        <footer>Footer</footer>
+    </div>
+</body>
+</html>

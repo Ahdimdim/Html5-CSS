@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instory</title>
+    <style>
+        /* 빈 부분이 생기면 먼저 높이를 제대로 설정 해주고
+        높이로 해결이 안된다면 폰트 사이즈 0을 전체적으로 준 다음
+        폰트가 들어가는 부분에 따로 사이즈 설정 해줘야 됨 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: arial, "맑은고딕" sans-serif;
+            background: #D3232A;
+        }
+        #wrap{
+            width: 100%;
+        /* 창이 작아지면 밑으로 내려가는 걸 방지하기 위해 부모에 가로값을 만들어줌 */
+            margin: 0 auto;
+            }
+        .top{
+            background: #D3232A;
+            text-align: right;
+        }
+        .inner{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .head{
+            height: 82px;
+            background: url(images/pattern.gif);
+        }
+        .content{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .content > div{
+            float: left;
+            height: 625px;
+        }
+        .content > .right{
+            width: 514px;
+            background: url(images/index_main_02.gif);
+        }
+        .foot{
+            clear: both;
+            height: 100px;
+            background: #fff;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="top">
+            <div class="inner">
+                <img src="images/index_top.gif" alt="top">
+            </div>
+        </div>
+        <div class="head">
+            <div class="inner">
+                <img src="images/index_pattern.gif" alt="index_pattern">
+            </div>
+        </div>
+        <div class="content">
+            <div class="left"><img src="images/index_main_01.gif" alt="01"></div>
+            <div class="right">메인페이지입니다.</div>
+        </div>
+        <div class="foot">
+            <div class="inner"><img src="images/copyright.gif" alt="copyright"></div>
+        </div>
+    </div>
+</body>
+</html>

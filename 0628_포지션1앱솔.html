@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        position: relative;
+        /*현재 위치에서 설정하는 위치로 바꿈
+        position: absolute로 지정된 요소의 부모 요소 역할 
+        이거 설정 안 해두면 absolute 따로 놈*/
+        width: 500px;
+        height: 500px;
+        border: 1px solid #000;
+      }
+      /* left, top, right, bottom 속성으로 위치 지정할 수 있음
+      창 중앙으로 옮길수록 + 바깥 - */
+      ul:nth-child(2) {
+        position: absolute; /* 독단적으로 새로운 위치를 정하고 부모가 있을 경우 부모 박스 기준*/
+        width: 100px;
+        height: 100px;
+        background: #ccc;
+        list-style: none;
+        opacity: 0.5;
+        top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div>
+      <ul>
+        <li><a href="#">링크태그1</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">링크태그2</a></li>
+      </ul>
+      <p>새로운 컨텐츠 새로운 컨텐츠 새로운 컨텐츠</p>
+    </div>
+  </body>
+</html>

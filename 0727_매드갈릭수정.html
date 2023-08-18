@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #333;
+        }
+        .list{
+            width: 1504px;
+            margin: 0 auto;
+            font-size: 0;
+        }
+        .list>ul{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        /* 이미지 사이에 공백이 생기는 거 인라인이라 그럼
+        없애는 법 세가지 폰트 사이즈 0, 높이 설정, 창에서 스페이스바까지 다 주석처리 */
+        .list>ul>li{
+            position: relative;
+            overflow: hidden;
+        }
+        .list>ul>li .over{
+            position: absolute;
+            text-align: center;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            color: #fff;
+            font-size: 17px;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s;
+        }
+        .list>ul>li .over span{
+            opacity: 0;
+            transition: 0.5s ease-in 0.1s;
+        }
+        .list>ul>li .over p{
+            font-weight: bold;
+        }
+        .list>ul>li .over a{
+            display: inline-block;
+            padding: 15px 30px;
+            background: #fff;
+            font-size: 14px;
+            margin-top: 20px;
+            opacity: 0;
+
+        }
+        .list>ul>li .over a:hover{
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            transition: 0s;
+        }
+        .list>ul>li:hover .over{
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .list>ul>li:hover .over span{
+            opacity: 1;
+        }
+        .list>ul>li:hover .over a{
+            opacity: 1;
+            transition-delay: 0.2s;
+        }
+        .list>ul>li .inner{
+            transform: translateY(0px);
+            transition: 0.7s;
+        }
+        .list>ul>li:hover .inner{
+            transform: translateY(-30px);
+        }
+        .list>ul>li img{
+            transform: scale(1);
+            transition: 0.5s;
+        }
+        .list>ul>li:hover>img{
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="list">
+        <ul>
+            <li>
+                <img src="images/mad_main1.png" alt="mad_main1">
+                <div class="over">
+                    <div class="inner">
+                        <span><img src="images/m-icon_brand.png" alt=""></span>
+                        <p>bread & starter</p>
+                        <a href="#">자세히 보기</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <ul>
+                    <li><img src="images/mad_main2.png" alt=""></li>
+                    <li><img src="images/mad_main3.png" alt=""></li>
+                </ul>
+            </li>
+            <li>
+                <img src="images/mad_main4.jpg" alt="">
+                <div class="over">
+                    <div class="inner">
+                        <span><img src="images/m-icon_starter.png" alt=""></span>
+                        <p>SALAD</p>
+                        <a href="#">자세히 보기</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="images/mad_main5.png" alt="">
+                <div class="over">
+                    <div class="inner">
+                        <span><img src="images/m-icon_pasta.png" alt=""></span>
+                        <p>PASTA</p>
+                        <a href="#">자세히 보기</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="images/mad_main6.jpg" alt="">
+                <div class="over">
+                    <div class="inner">
+                        <span><img src="images/m-icon_pizza.png" alt=""></span>
+                        <p>PIZZA</p>
+                        <a href="#">자세히 보기</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="images/mad_main7.jpg" alt="">
+                <div class="over">
+                    <div class="inner">
+                        <span><img src="images/m-icon_ricerisotto.png" alt=""></span>
+                        <p>RICE & RISOTTO</p>
+                        <a href="#">자세히 보기</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="images/mad_main8.jpg" alt="">
+                <div class="over">
+                    <div class="inner">
+                        <span><img src="images/m-icon_steak.png" alt=""></span>
+                        <p>STEAK</p>
+                        <a href="#">자세히 보기</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

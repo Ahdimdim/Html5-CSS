@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     *{
+        margin: 0;
+        padding: 0;
+     }
+     input[type="radio"]{
+            display: none;
+        }
+     div{
+        text-align: center;
+     }
+     label{
+        display: inline-block;
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid;
+        margin: 0px 25px;
+        text-align: center;
+        border-radius: 50px;
+     }
+     p{
+        width: 0;
+        height: 0;
+        margin: 50px auto;
+        animation-name: move;
+        border-right: none;
+        border-left: 10px solid;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+     }
+     @keyframes move{
+        0%{
+            transform:translateX(0px);
+        }
+        100%{
+            transform: translateX(10px);
+        }
+     }
+     #start:checked~.move{
+        /* animation-name: move;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite; */
+        animation: move 1s alternate linear infinite;
+
+     }
+     #off:checked~.box .pro{
+        animation-play-state: paused;
+     }
+     #start:checked~label:first-of-type,
+     #stop:checked~label:nth-of-type(2){
+        background: #000;
+        color: #fff;
+     }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="radio" name="btn" id="start">
+        <input type="radio" name="btn" id="stop" checked>
+        <p class="move"></p>
+        <label for="start">START</label>
+        <label for="stop">STOP</label>
+    </div>
+</body>
+</html>

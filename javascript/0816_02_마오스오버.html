@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        display: none;
+      }
+      button:hover ~ p {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <p>body 요소에 배경색이 변경됩니다.</p>
+    <!-- <button onmouseover="show()" onmouseout="hide()">배경색 바꾸기</button> -->
+    <!-- ommouseover 마우스 올렸을 때 onmouseout 마우스 이탈 -->
+
+    <button onmouseover="show()" onmouseout="hide()">배경색 바꾸기</button>
+    <div>
+      <p>body 요소에 배경색이 변경됩니다.</p>
+    </div>
+    <script>
+      //1번 show hide 함수 만듦
+      function show() {
+        document.getElementsByTagName("p")[0].style.display = "block";
+      }
+      function hide() {
+        document.getElementsByTagName("p")[0].style.display = "none";
+      }
+      //2번 1번에 함수 만든 거 끌어서 적용
+      document.getElementsByTagName("button")[0].onmouseover = function () {
+        //document.getElementsByTagName('p')[0].style.display = 'block';//
+        show();
+      };
+      document.getElementsByTagName("button")[0].onmouseout = function () {
+        // document.getElementsByTagName('p')[0].style.display = 'none';//
+        hide();
+      };
+      //3번
+      document.getElementsByTagName("button")[0].onmouseover = function () {
+        document.getElementsByTagName("p")[0].style.display = "block";
+      };
+      document.getElementsByTagName("button")[0].onmouseout = function () {
+        document.getElementsByTagName("p")[0].style.display = "none";
+      };
+    </script>
+  </body>
+</html>

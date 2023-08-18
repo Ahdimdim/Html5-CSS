@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <!-- while(조건){실행할 코드 블록} 조건이 만족하지 않으면 실행하지 않음 -->
+    <!-- do while은 조건이 만족하지 않아도  -->
+    <script>
+      let text = "";
+      let i = 0;
+      while (i < 10) {
+        text += "<br>The number is " + i;
+        i++;
+      }
+      document.write(text);
+    </script>
+    <script>
+      let txt = "";
+      let j = 0;
+      do {
+        txt += "<br>The number is " + j;
+        j++;
+      } while (j < 10);
+      document.write(txt);
+    </script>
+  </body>
+</html>

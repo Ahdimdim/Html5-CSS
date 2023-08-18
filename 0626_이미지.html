@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지 태그</title>
+  </head>
+  <body>
+    <img src="images/menu1.jpg" alt="메뉴1" />
+    <img src="images/menu0.jpg" alt="이미지출력오류문자" />
+    <img src="images/menu3.jpg" alt="출처를 적거나 이미지 이름" />
+    <img src="images/menu4.jpg" alt="menu4" style="width: 50px" height="50px" />
+    <img src="images/photo1.jpg" alt="포토1" width="150" height="150" />
+    <!-- 스타일 속성을 사용할 경우 단위 생략 못 함 -->
+    <img
+      src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png"
+      alt="다음로고"
+    />
+    <a href="http://www.daum.net"
+      ><img
+        src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png"
+        alt="다음로고"
+    /></a>
+
+    <p>
+      <a href=""><img src="images/map.jpg" alt="지도" /></a>
+    </p>
+
+    <img src="images/map.jpg" alt="지도" usemap="#korea" />
+    <map name="korea">
+      <area
+        shape="rect"
+        coords="55,504,129,539"
+        href="https://www.jejusi.go.kr/index.ac"
+        alt="제주시" />
+      <area
+        shape="circle"
+        coords="328,310,20"
+        href="https://www.pohang.go.kr/pohang/index.do"
+        alt="포항시" />
+      <area
+        shape="poly"
+        coords="164,254,134,295,184,293,180,273"
+        href="https://www.daejeon.go.kr/"
+        alt="대전광역시"
+    /></map>
+    <!-- map name = usemep 파일명을 같아야하고 
+        shape는 왼쪽상단,오른쪽하단 좌표
+        circle은 원의 중심,반지름
+        poly는 각 꼭짓점-->
+  </body>
+</html>

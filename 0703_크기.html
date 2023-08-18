@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            font-size: 180%;
+        }
+        .wrap>div{
+            border: 1px solid #000;
+        }
+        .a{
+            width: 2em;
+            /* em 폰트 사이즈가 지정이 안되어 있을 때
+            부모요소 크기를 기준으로 n배 (설정 안한 기본 크기는 16px)*/
+        }
+        .b{
+            font-size: 2em;
+            width: 2em;
+        }
+        .c{
+            width: 2rem;
+            /* 부모요소가 아닌 최상위(html)의 기준으로 n배 */
+        }
+        .d{
+            width: 160px;
+        }
+        .e{
+            width: 10em;
+        }
+        .h{
+            font-size : 16px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="a">a</div>
+        <div class="b">b</div>
+        <div class="c">c</div>
+        <div class="d">d</div>
+        <div class="e">e</div>
+        <div class="h">h</div>
+    </div>
+</body>
+</html>

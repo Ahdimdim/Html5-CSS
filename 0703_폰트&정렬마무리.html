@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        /* 수평정렬 : inline은 [text-align:center;] block은 [가로값을 주고margin: 0auto;] 가로값을 모르는 경우 [부모 요소 text-align:center; 가운데 보낼 자식요소 display :inline-block;]
+
+         수직정렬 : inline은 [vertical-aligin: middle;]
+         block 하위 요소가 한줄의 텍스트일 경우 [line-height: 높이값;]
+         하위요소가 이미지인 경우 [해당 img에 vertical-aligin: middie]도 해줘야 함
+         하위 요소가 두줄의 텍스트일 경우 [상위요소 display: table; 하위요소 display: table-cell;과 vertical-aligin: middle;] */
+      body {
+        font-family: Arial, "나눔고딕", Dotum, sans-serif;
+      }
+      p {
+        letter-spacing: 10px;
+        /* 자간 */
+        word-spacing: 20px;
+        /* 띄어쓰기 거리 */
+        /* text-decoration: line-through; */
+        /* 취소선 */
+        text-transform: capitalize;
+        text-align: center;
+        vertical-align: middle;
+        height: 50px;
+        border: 1px solid #000;
+      }
+      div {
+        border: 1px solid #000;
+        vertical-align: middle;
+        display: inline-block;
+        width: 100px;
+        text-indent: 10px;
+        /* 들여쓰기 */
+      }
+      div.one {
+        height: 100px;
+        line-height: 100px;
+        /* 높이를 먼저 주고 행간을 주자
+        두줄 이상을 경우 수직 정렬이 안됨*/
+      }
+      div.two {
+        height: 50px;
+        line-height: 50px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 255, 1);
+        /* 가로 세로 블러 rgba */
+      }
+      .justify {
+        width: 500px;
+        text-align: justify;
+        /* 양쪽정렬 */
+      }
+      span img{
+        vertical-align: middle;
+      }
+      /* 제일 높은 크기 기준으로 정렬이 됨 */
+    </style>
+  </head>
+  <body>
+    <p>green computer academy</p>
+    <p>그린 컴퓨터 아카데미</p>
+    <span>green computer academy</span><br />
+    <span>그린 컴퓨터 아카데미</span>
+    <div class="one">one<br />one</div>
+    <div class="two">two</div>
+    <div class="justify">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text ever since the
+      1500s, when an unknown printer took a galley of type and scrambled it to
+      make a type specimen book. It has survived not only five centuries, but
+      also the leap into electronic typesetting, remaining essentially
+      unchanged. It was popularised in the 1960s with the release of Letraset
+      sheets containing Lorem Ipsum passages, and more recently with desktop
+      publishing software like Aldus PageMaker including versions of Lorem
+      Ipsum.
+    </div>
+    <div class="justify">
+      감사원의 조직·직무범위·감사위원의 자격·감사대상공무원의 범위 기타 필요한
+      사항은 법률로 정한다. 국가는 국민 모두의 생산 및 생활의 기반이 되는 국토의
+      효율적이고 균형있는 이용·개발과 보전을 위하여 법률이 정하는 바에 의하여
+      그에 관한 필요한 제한과 의무를 과할 수 있다. 국가는 재해를 예방하고 그
+      위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 대법원과 각급법원의
+      조직은 법률로 정한다. 비상계엄하의 군사재판은 군인·군무원의 범죄나 군사에
+      관한 간첩죄의 경우와 초병·초소·유독음식물공급·포로에 관한 죄중 법률이 정한
+      경우에 한하여 단심으로 할 수 있다. 다만, 사형을 선고한 경우에는 그러하지
+      아니하다.
+    </div>
+    <span>이미지 <img src="images/menu1.jpg" alt=""></span>
+  </body>
+</html>

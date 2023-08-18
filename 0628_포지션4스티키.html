@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrap {
+        display: flex;
+      }
+      /* 양쪽으로 컨텐츠를 나눠서 보여줌 나중에 배움 */
+      .wrap div:first-child {
+        position: sticky;
+        top: 0px;
+        /* 스티키는 어디 붙일지 위치값을 설정 해줘야함 */
+        width: 50%;
+        height: 500px;
+        background: #ccc;
+        opacity: 0.5;
+      }
+      .wrap div:last-child {
+        width: 50%;
+        height: 1500px;
+        background: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div><h1>고정</h1></div>
+      <div><h1>이동</h1></div>
+    </div>
+  </body>
+</html>

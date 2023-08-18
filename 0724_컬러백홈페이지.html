@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        input[type="radio"]{
+            display: none;
+        }
+        .top{
+            margin: 0 auto;
+            width: 242px;
+            overflow: hidden;
+        }
+        .topmini ul li {
+            float: left;
+            padding-bottom: 20px;
+        }
+        nav{
+            background: rgb(66, 91, 113);
+            height: 33px;
+        }
+        .menu{
+            width: 1000px;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .menu li{
+            float: left;
+        }
+        .content1{
+            width: 999px;
+            margin: 0 auto;
+        }
+        .main{
+            width: 999px;
+            height: 377px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        .main :first-of-type{
+            background: url(images/color_main1.jpg);
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .main :nth-of-type(2){
+            background: url(images/color_main2.jpg);
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .main :nth-of-type(3){
+            background: url(images/color_main3.jpg);
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        #one:checked~.main div:first-child,
+        #two:checked~.main div:nth-child(2),
+        #three:checked~.main div:nth-child(3){
+            display: block;
+        }
+        label{
+            float: left;
+            width: calc(999px / 3);
+            height: 50px;
+            line-height: 50px;            
+            cursor: pointer;
+            text-align: center;
+            color: #fff;
+            background: rgb(154, 204, 205);
+        }
+        .content2{
+            width: 999px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .content2 ul li{
+            float: left;
+            width: calc(999px / 4);
+            padding: 20px 0px;
+        }
+        .content2 ul li a{
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="top">
+            <div class="logo">
+                <img src="images/color_toplogo.jpg" alt="color_toplogo">
+            </div>
+            <div class="topmini">
+                <ul>
+                    <li><img src="images/color_topmini1.jpg" alt="color_topmini1"></li>
+                    <li><img src="images/color_topmini2.jpg" alt="color_topmini2"></li>
+                    <li><img src="images/color_topmini3.jpg" alt="color_topmini3"></li>
+                    <li><img src="images/color_topmini4.jpg" alt="color_topmini4"></li>
+                    <li><img src="images/color_topmini5.jpg" alt="color_topmini5"></li>
+                    <li><img src="images/color_topmini6.jpg" alt="color_topmini6"></li>
+                </ul>
+            </div>
+        </div>
+        <nav>
+            <div class="menu">
+                <ul>
+                    <li><a href="#"><img src="images/color_topmenu1.jpg" alt="color_topmenu1"></a></li>
+                    <li><a href="#"><img src="images/color_topmenuline.jpg" alt="color_topmenuline"></a></li>
+                    <li><a href="#"><img src="images/color_topmenu2.jpg" alt="color_topmenu2"></a></li>
+                    <li><a href="#"><img src="images/color_topmenuline.jpg" alt="color_topmenuline"></a></li>
+                    <li><a href="#"><img src="images/color_topmenu3.jpg" alt="color_topmenu3"></a></li>
+                    <li><a href="#"><img src="images/color_topmenuline.jpg" alt="color_topmenuline"></a></li>
+                    <li><a href="#"><img src="images/color_topmenu4.jpg" alt="color_topmenu4"></a></li>
+                    <li><a href="#"><img src="images/color_topmenuline.jpg" alt="color_topmenuline"></a></li>
+                    <li><a href="#"><img src="images/color_topmenu5.jpg" alt="color_topmenu5"></a></li>
+                    <li><a href="#"><img src="images/color_topmenuline.jpg" alt="color_topmenuline"></a></li>
+                    <li><a href="#"><img src="images/color_topmenu6.jpg" alt="color_topmenu6"></a></li>
+                    <li><a href="#"><img src="images/color_topmenuline.jpg" alt="color_topmenuline"></a></li>
+                    <li><a href="#"><img src="images/color_topmenu7.jpg" alt="color_topmenu7"></a></li>
+                    <li><a href="#"><img src="images/color_topmenuline.jpg" alt="color_topmenuline"></a></li>
+                    <li><a href="#"><img src="images/color_topmenu8.jpg" alt="color_topmenu8"></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="content1">
+            <input type="radio" name="btn" id="one" checked>
+            <input type="radio" name="btn" id="two">
+            <input type="radio" name="btn" id="three">
+            <div class="main">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <label for="one">스퀘어 토드 숄더백(합성피혁)</label>
+            <label for="two">사각 누빔 체인백(합성피혁)</label>
+            <label for="three">사각 퀄딩 백(합성피혁)</label>
+        </div>
+        <div class="content2">
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="pro"><img src="images/pro1.jpg" alt=""></div>
+                        <p>사각 누빔 체인백</br>콤인디핑크/아이보리/에나멜블랙</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pro"><img src="images/pro2.jpg" alt=""></div>
+                        <p>뱀피 라인 체인백</br>아이보리/블랙/브라운</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pro"><img src="images/pro3.jpg" alt=""></div>
+                        <p>골드 체인라인 백</br>합성피혁/블랙</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pro"><img src="images/pro4.jpg" alt=""></div>
+                        <p>밍크백</br>블랙/Free</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pro"><img src="images/pro5.jpg" alt=""></div>
+                        <p>스퀘어 토드 숖더백</br>핑크/레드/블랙/소라</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pro"><img src="images/pro6.jpg" alt=""></div>
+                        <p>레오파트 비비드 백</br>그레이/민트/핫핑크</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pro"><img src="images/pro7.jpg" alt=""></div>
+                        <p>마르젤라 클러치 백</br>블랙/아이보리/핑크/핫핑크</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pro"><img src="images/pro8.jpg" alt=""></div>
+                        <p>엠보싱클러치 백</br>골드/실버/블랙</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pro"><img src="images/pro9.jpg" alt=""></div>
+                        <p>Free 숄더백</br>블랙/브라운</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pro"><img src="images/pro10.jpg" alt=""></div>
+                        <p>은징 장식 클러치백</br>블랙/아이보리/핑크/핫핑크</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pro"><img src="images/pro11.jpg" alt=""></div>
+                        <p>구슬 백팩</br>블랙/아이보리/핑크/핫핑크</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pro"><img src="images/pro12.jpg" alt=""></div>
+                        <p>숄더백</br>브라운/블랙/아이보리/핑크/핫핑크</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

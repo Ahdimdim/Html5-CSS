@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+          color: #ccc;
+          text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+            text-underline-offset: 10px; /* 밑줄 간격 조절 */
+            text-decoration-color: aqua;
+        }
+            /* display: none; */
+            /* height: 0;
+            overflow: hidden; 
+            둘 다 있지만 안 보이게 해주는 거*/
+        #new1,span{
+            display: none;
+        }
+        #new1:target,#new1:target ~ span{ /* ~가 형제 선택할 때*/
+            display: block; /* 이동 됐을 때 보이게 해주는 거 */
+        }
+    </style>
+</head>
+<body>
+    <div id="html5">
+        <a href="#new1">jump to new content</a>
+        <p id="new1">html5</p>
+        <span>하나</span>
+        <div>div태그입니다</div>
+    </div>
+</body>
+</html>

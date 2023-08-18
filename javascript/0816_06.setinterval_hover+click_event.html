@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            div {
+                width: 500px;
+                height: 300px;
+                margin: 0 auto;
+            }
+            div img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            p {
+                width: 500px;
+                margin: 20px auto;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <img src="images/photo1.jpg" alt="photo1" />
+        </div>
+        <p>
+            <button id="prev">이전</button>
+            <button id="next">다음</button>
+        </p>
+        <script>
+            let x = document.getElementsByTagName('img')[0];
+            let i = 1;
+            function slide() {
+                x.setAttribute('src', 'images/photo' + i + '.jpg');
+                i++;
+                console.log(i);
+                if (i > 6) {
+                    i = 1;
+                }
+            }
+
+            let interval;
+            function slideStart() {
+                interval = setInterval(slide, 1000);
+            }
+            slideStart();
+            document.getElementsByTagName('p')[0].onmouseenter = function () {
+                clearInterval(interval); //마우스를 올리면 인터벌을 클리어함 => 이미지슬라이드 중지
+            };
+            document.getElementsByTagName('p')[0].onmouseleave = function () {
+                slideStart(interval); //마우스 떠나면 위에 지정한 슬라이드스타트 변수를 진행함
+                //=> 인터벌을 1초간격으로 슬라이드하겟다. 이미지슬라이드 시작
+            };
+            document.getElementById('next').onclick = function () {
+                slide(); //다음을 눌렀을때 위에 slide 변수를 실행함
+            };
+            document.getElementById('prev').onclick = function () {
+                x.setAttribute('src', 'images/photo' + i + '.jpg');
+                i--;
+                console.log(i);
+                if (i < 1) {
+                    i = 6;
+                }
+            };
+        </script>
+    </body>
+</html>

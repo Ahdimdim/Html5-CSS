@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container{
+            width: 1200px;
+            height: 500px;
+            margin: 10px auto;
+            display: grid;
+            background: #ccc;
+            grid-template-columns: repeat(5,10%);
+            align-items: center;
+            /* 
+            align-content: center;
+            justify-content: center;
+            아이템이랑 컨텐츠 다름 */
+            justify-items: center;
+            justify-content: center;
+        }
+        .grid-item{
+            background: #ddd;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">111111111111111111111111</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item"><h1>3</h1></div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</br>555<br>66666</div>
+    </div>
+</body>
+</html>

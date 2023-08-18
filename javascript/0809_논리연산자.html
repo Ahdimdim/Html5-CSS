@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script></script>
+  </head>
+  <body>
+    <h1>논리연산자</h1>
+    <p>&& [logical and](논리곱)</p>
+    <p>|| [logical or](논리합)</p>
+    <p>! [logical not](논리부정)</p>
+    <h1>유형연산자</h1>
+    <p>typeof [Returns the type of a variable] (변수의 유형을 반환합니다.)</p>
+    <p>
+      instanceof [Returns true if an object is an instance of an object type]
+      (객체가 객체 유형의 인스턴스인 경우 true를 반환합니다.)
+    </p>
+    <h1>반환메서드</h1>
+    <p>Number() 인수에서 변환된 숫자를 반환합니다.</p>
+    <p>parseFloat() 문자열을 구문 분석하고 부동 소수점 숫자를 반환합니다</p>
+    <p>parseInt() 문자열을 구문 분석하고 정수를 반환합니다.</p>
+
+    <script>
+      let a = 10;
+      let b = 20;
+      let c = 30;
+      let d = 40;
+      let e = "10";
+      document.write(a > b && c < d, "<br>");
+      document.write(a < b || c < d, "<br>");
+      document.write(!(a > b) || c < d, "<br>");
+      document.write(a == e, "<br>");
+      document.write(a === e, "<br>");
+      document.write(typeof a, "<br>");
+      document.write(typeof e, "<br>");
+      let f = Number("10");
+      document.write(typeof f, "<br>");
+      document.write(f, "<br>");
+      let g = Number("하나");
+      document.write(typeof g, "<br>"); //숫자가 아닌 문자열을 숫자로 변환했을 때 NaN이 뜸
+      document.write(g, "<br>");
+      document.write(parseFloat(10.33), "<br>");
+      document.write(typeof parseFloat(10.33), "<br>");
+      document.write(parseFloat("10.33"), "<br>");
+      document.write(typeof parseFloat("10.33"), "<br>");
+      document.write(parseFloat("40 50 60"), "<br>");
+      document.write(parseFloat("40h"), "<br>");
+      document.write(parseFloat("h40"), "<br>"); //문자가 처음으로 오면 반환 안됨
+      document.write(parseInt("10.33"), "<br>");
+      document.write(parseInt(10.33), "<br>");
+
+      let y = "5";
+      let x = +y;
+      document.write(typeof y + "<br>" + typeof x + "<br>");
+    </script>
+  </body>
+</html>

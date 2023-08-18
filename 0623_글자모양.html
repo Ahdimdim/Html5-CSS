@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>글자모양</title>
+    <style>
+      mark {
+        background-color: rgb(168, 198, 255);
+      }
+      #first {
+        background-color: rgb(240, 126, 255);
+      }
+      .txt {
+        background-color: blueviolet !important;
+      }
+    </style>
+    <!-- 내부방식으로 하이라이트 색 바꾸기 -->
+    <!-- 우선순위 [type선택자 < class 선택자 < id 선택자 < 인라인 스타일 < !important] -->
+  </head>
+  <body>
+    <p><b>굵은글자</b></p>
+    <p><strong>굵은글자</strong></p>
+    <!-- strong은 사용자 입장에서 똑같아 보이지만 중요한 걸 강조할 때 사용 -->
+    <p><i>기울어진글자</i></p>
+    <p><em>기울어진글자</em></p>
+    <!-- em도 디자이너 강조 -->
+    <p><small>작은글자</small></p>
+    <p>x<sup>2</sup></p>
+    <p>H<sub>2</sub>0</p>
+    <p><ins>밑줄문자</ins></p>
+    <p><del>취소선문자</del></p>
+
+    <!-- id 중복 지정 불가능 class 중복 지정 가능 -->
+    <!-- 인라인 방식으로 하나씩 찾아가며 바꾸는 것은 비효율적이기때문에
+      id or class 설정을 통해 내부방식으로 색상을 바꾼다 -->
+    <p><mark id="first">하이라이트글자</mark></p>
+    <p><mark id="second" class="txt">하이라이트글자</mark></p>
+    <p>
+      <mark style="background-color: rgb(202, 225, 255)" class="txt"
+        >하이라이트글자</mark
+      >
+    </p>
+    <p>
+      <mark style="background-color: rgb(202, 225, 255)">하이라이트글자</mark>
+    </p>
+    <!-- 인라인방식으로 하이라이트 색 바꾸기 -->
+
+    <p><sub>이거숫자만됨?아니넹ㅎㅅㅎㅋㅋ</sub>하위</p>
+    <p><sup>얜어케되는뎅</sup>하위</p>
+
+    <blockquote cite="http://www.naver.com">
+      For 60 years, WWF has worked to help people and nature thrive. As the
+      world's leading conservation organization, WWF works in nearly 100
+      countries. At every level, we collaborate with people around the world to
+      develop and deliver innovative solutions that protect communities,
+      wildlife, and the places in which they live.
+    </blockquote>
+    <!-- 긴 인용문 자동 들여쓰기 <blockquote>만 써도 ㄱㅊ 출처남길 때 cite -->
+    <p>네이버 논문 : <q cite="http:/www.naver.com">환경논문</q></p>
+    <!-- 짧은 인용문 ""씌워짐 q만 써도 굴러감 -->
+
+    <p>
+      The <abbr title="World Health Organization">WHO</abbr> was founded in
+      1948.
+    </p>
+    <!-- 약어 -->
+  </body>
+</html>

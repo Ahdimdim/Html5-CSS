@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 설치를 하지 않고 구글폰트에서 끌어온 폰트 -->
+    <title>폰트</title>
+
+    <style>
+      body {
+        font-family: "Noto Sans", "Noto Sans KR", sans-serif;
+      }
+      /* 끌어온 폰트를 적용 */
+      /* 영문폰트-한글폰트 순으로 하는게 나음 앞에 쓸수록 우선 순위
+         많이 써도 2개 정도 쓰는게 낫고 보통 고딕체계열을 씀 */
+      h1 {
+      }
+      h1.first {
+        font-weight: 100;
+      }
+      h1.second {
+        font-weight: 400;
+      }
+      h1.third {
+        font-size: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <p>green 그린</p>
+    <h1 class="first">green 그린</h1>
+    <h1 class="second">green 그린</h1>
+    <h1 class="therd">green 그린</h1>
+  </body>
+</html>

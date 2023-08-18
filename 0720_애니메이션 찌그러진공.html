@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            color: #fff;
+        }
+        .square{
+            position: relative;
+            margin: 100px auto;
+            width: 300px;
+            height: 300px;
+        }
+        span{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border: 1px solid;
+            border-radius: 40% 60% 65% 35%/ 40% 45% 55% 60%;
+            animation-iteration-count: infinite;
+            animation-name: move;
+            animation-timing-function: linear;
+        }
+        span:first-child{
+            animation-duration: 6s;
+        }
+        span:nth-child(2){
+            animation-duration: 4s;
+            animation-duration: reverse;
+            /* 방향 반대로 */
+        }
+        span:nth-child(3){
+            animation-duration: 10s;
+        }
+         @keyframes move{
+            0{
+                transform: rotate(0);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        .square:hover span{
+            background-color: dodgerblue;
+            border: none;
+
+        }
+        .square:hover span:first-child{
+            opacity: 0.3;
+        }
+        .square:hover span:nth-child(2){
+            opacity: 0.5;
+        }
+        .square:hover span:nth-child(3){
+            opacity: 0.9;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="square">
+        <span></span>
+        <span></span>
+        <span></span>
+        <div><a href="#">Html</a></div>
+    </div>
+</body>
+</html>

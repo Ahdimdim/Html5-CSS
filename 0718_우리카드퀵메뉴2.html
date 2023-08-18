@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .clearfix::before,
+      .clearfix::after{
+        content: "";
+        display: block;
+      }
+      .clearfix::after{
+        clear: both;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      .quickmenu {
+        width: 1080px;
+        margin: 0 auto;
+        /* overflow: hidden; */
+      }
+      .quickmenu li {
+        position: relative;
+        width: 25%;
+        float: left;
+        text-align: center;
+        background: #ccc;
+        /* border-right: 1px solid #333; */
+      }
+      .quickmenu .inner img{
+        position: relative;
+        border: 1px solid #333
+      }
+      .quickmenu li .desc {
+        width: 184px;
+        text-align: center;
+      }
+      .quickmenu li .desc span {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .quickmenu li .desc p:first-child{
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="quickmenu clearfix">
+      <li>
+        <div class="inner">
+          <img src="images/special_mbnf_1_obj.png" alt="" />
+        </div>
+        <div class="desc">
+          <p><span>해외이용의 정석</span></p>
+          <p>여행, 직구, 항공<br />무엇이든 우리 카드로</p>
+        </div>
+      </li>
+      <li>
+        <div class="inner">
+          <img src="images/special_mbnf_2_obj.png" alt="" />
+        </div>
+        <div class="desc">
+          <p><span>MY Pick 서비스</span></p>
+          <p>혜택도 맞춤!<br />나만을 위한 맞춤 혜택</p>
+        </div>
+      </li>
+      <li>
+        <div class="inner">
+          <img src="images/special_mbnf_3_obj.png" alt="" />
+        </div>
+        <div class="desc">
+          <p><span>우리V클럽</span></p>
+          <p>특별함을 원하는<br />고객을 위한 VIP우대 혜택</p>
+        </div>
+      </li>
+      <li>
+        <div class="inner">
+          <img src="images/special_mbnf_4_obj.png" alt="" />
+        </div>
+        <div class="desc">
+          <p><span>우리 Point</span></p>
+          <p>차곡차곡 쌓아<br />다양한 곳에서 사용가능</p>
+        </div>
+      </li>
+    </ul>
+  </body>
+</html>

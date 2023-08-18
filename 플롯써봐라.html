@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrap {
+        max-width: 1280px;
+        /*max-widt 12 
+        + width: 100% 하면 스크롤이 안 뜬다는데 안 해도 안 뜨지 왱 */
+        background: #aaa;
+        margin: 0 auto;
+        text-align: center;
+        overflow: hidden;
+        /* overflow 플롯으로 잃어버린 높이를 찾아줌 */
+      }
+      .wrap2 {
+        width: 25%;
+        background: #000;
+        color: #fff;
+        text-align: left;
+      }
+      .wrap > div {
+        float: left;
+      }
+      .left {
+        float: left;
+      }
+      .right {
+        clear: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="wrap2">자식요소</div>
+      <div class="wrap2">자식요소</div>
+      <div class="wrap2">자식요소</div>
+      <p class="wrap2">자식요소</p>
+    </div>
+    <div class="wrap3">
+      <div class="left">렢</div>
+      <div class="left">렢</div>
+      <div class="right">라</div>
+    </div>
+    <div class="wrap4">
+      <div class="left">렢</div>
+      <div class="left">렢</div>
+      <div class="right">라</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clearfix::before,
+        .clearfix::after{
+            content: "";
+            display: block;
+        }
+        .clearfix::after{
+            clear: both;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        header{
+            background: gray;
+            
+        }
+        header ul{
+            margin: 0 auto;
+            width: 1000px;
+            height: 30px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        header ul li{
+            padding: 0 10px;
+            color: #fff;
+        }
+        header ul li:last-child{
+            padding: 0;
+            vertical-align: middle;
+        }
+        .top{
+            background: rgb(22, 22, 22);
+            height: 70px;
+        }
+        .top2{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul{
+            display: flex;
+        }
+        nav>ul>li>a{
+            color: #fff;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+        .top2{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .slide{
+            background: #ccc;
+            height: 400px;
+        }
+        .slide>p{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .content{
+            background: rgb(22, 22, 22);
+        }
+        .content>ul{
+            display: flex;
+            justify-content: space-between;
+            width: 1000px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        .notice{
+            background: rgb(22, 22, 22);
+        }
+        .notice>div{
+            display: flex;
+            justify-content: space-between;
+            width: 1000px;
+            margin: 0 auto;
+            padding-bottom: 20px;
+        }
+        footer{
+            background: rgb(22, 22, 22);
+        }
+        footer>.foot>ul{
+            border-top: 1px solid rgb(129, 129, 129);
+            display: flex;
+            justify-content: center;
+        }
+        footer>.foot>ul>li{
+            color: rgb(129, 129, 129);
+            padding: 20px 20px 0px 0px;
+        }
+        footer>.foot>p{
+            text-align: center;
+            color: rgb(129, 129, 129);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <ul>
+                <li>LOG IN</li>
+                <li>JOIN</li>
+                <li>GUST</li>
+                <li>
+                    <input
+                    type="text"
+                    placeholder="검색어를 입력해주세요"
+                    size="20"
+                    >
+                </li>
+                <li><img src="images/zoom.png" alt="zoom"></li>
+            </ul>
+        </header>
+        <div class="top">
+            <div class="top2">
+                <div class="logo">
+                 <img src="images/mad_12.gif" alt="mad_12">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">BRAND</a></li>
+                        <li><a href="#">MENU</a></li>
+                        <li><a href="#">STORE</a></li>
+                        <li><a href="#">MEMBERSHIP</a></li>
+                        <li><a href="#">EVENT</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>    
+        <div class="slide">
+            <p><img src="images/mad_17.jpg" alt="mad_17"></p>
+        </div>
+        <div class="content">
+            <ul>
+                <li><a href="#"><img src="images/mad_25.jpg" alt="mad_25"></a></li>
+                <li><a href="#"><img src="images/mad_27.jpg" alt="mad_27"></a></li>
+                <li><a href="#"><img src="images/mad_29.jpg" alt="mad_29"></a></li>
+                <li><a href="#"><img src="images/mad_31.jpg" alt="mad_31"></a></li>
+            </ul>
+        </div>
+        <div class="notice">
+            <div>
+                <img src="images/mad_39.jpg" alt="mad_39">
+                <img src="images/mad_41.gif" alt="mad_41">
+            </div>
+        </div>
+        <footer>
+            <div class="foot">
+                <ul>
+                    <li>서비스이용약관</li>
+                    <li>개인정보처리방침</li>
+                    <li>기기운영관리방침</li>
+                    <li>고객서비스센터</li>
+                    <li>관리자문의</li>
+                </ul>
+                <p>
+                    서울특별시 강남구 압구정로 222(신사동) ㈜엠에프지코리아<br>
+                    COPYRIGHT ⓒ MFGKOREA ALL RIGHTS RESERVED.
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

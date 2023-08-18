@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    </script>
+</head>
+<body>
+    <h2>Demo JavaScript in Body</h2>
+
+    <script>
+        document.getElementsByTagName("h2")[0].innerHTML = "heading tag";
+        var x = 10;
+        x = "하나"
+        var x = "재선언"
+        {
+            var x = "코드블록실행문";
+        }
+        var y = 20;
+        var z = 30;
+        console.log("x : " + x); // 문자와 숫자를 결합
+        console.log(y + z); // 덧셈 연산
+        let a = 100; // 변수 선언
+        a = 200; // 변수 재할당
+        {
+            let a = 500;  //var은 블럭 안에서도 재선언 가능 let과 const는 불가
+        }
+        // let a = 300; // let은 변수 재선언 안되고 var은 재선언 가능
+        console.log("a : " + a);
+        const b = 400;
+        {
+            const b = 500;
+            console.log("b : " + b);
+        }
+        // b = 500; // 변수 재할당 불가
+    </script>
+</body>
+</html>

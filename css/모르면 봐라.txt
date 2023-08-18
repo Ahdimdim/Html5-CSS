@@ -1,0 +1,8 @@
+httpsfontawesome.comiconshousef=classic&s=solid
+가서 스타또 - web free로 다운 - 다운 받은 파일에 all.css 받아오고
+웹폰트도 다 받아와서 폰트 폴더에 넣어둬랑
+글고 프리 아이콘 링크 긁어서 복붙
+
+
+https://fonts.google.com/icons
+여기도 아이콘 있음ㅎㅅㅎ

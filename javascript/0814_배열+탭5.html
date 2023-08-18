@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .tabcon {
+        padding: 50px;
+        text-align: center;
+        color: #fff;
+      }
+      .tabButton {
+        display: flex;
+      }
+      .tabButton .tablink {
+        width: 25%;
+        padding: 10px 0;
+        text-align: center;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tabcon">
+      <h1>content1</h1>
+    </div>
+    <div class="tabButton">
+      <p class="tablink">photo1</p>
+      <p class="tablink">photo2</p>
+      <p class="tablink">photo3</p>
+      <p class="tablink">photo4</p>
+    </div>
+    <script>
+      let content = document.querySelector(".tabcon");
+      let btn = document.querySelectorAll(".tablink");
+      content.style.backgroundImage = "url(images/photo1.jpg)";
+      btn.forEach(function (item, keys) {
+        console.log("item : " + item + "\n" + "keys : " + keys);
+        item.onclick = function (e) {
+          let j = Array.from(btn).indexOf(e.target);
+          console.log("j : " + j);
+          content.style.backgroundImage =
+            "url(images/photo" + [j + 1] + ".jpg)";
+        };
+      });
+    </script>
+  </body>
+</html>

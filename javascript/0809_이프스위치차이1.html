@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*let num = prompt("점수를 입력하세요");
+      let result = "";
+      if (num >= 90) {
+        result = "A";
+      } else if (num >= 80) {
+        result = "B";
+      } else if (num >= 70) {
+        result = "C";
+      } else if (num >= 60) {
+        result = "D";
+      } else {
+        result = "F";
+      }*/
+
+      let num = Number(prompt("점수를 입력하세요"));
+      let level = parseInt(num / 10);
+      let result = "";
+      switch (level) {
+        case 9:
+        case 10:
+          result = "A";
+          break;
+        case 8:
+          result = "B";
+          break;
+        case 7:
+          result = "C";
+          break;
+        case 6:
+          result = "D";
+          break;
+        default:
+          result = "F";
+          break;
+      }
+      //실수로 변환했기때문에 "" 빼줘랑~.~ 스위치는 비교식 못 넣기때문에 변수를 더 만들어줘야함
+      document.write(
+        "당신이 입력한 점수 " + num + "는 " + result + "학점입니다"
+      );
+    </script>
+  </body>
+</html>

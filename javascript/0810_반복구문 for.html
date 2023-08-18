@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- for(초기값; 조건식; 증감값) 을 계속 반복-->
+    <script>
+      /*for (let i = 0; i < 5; i++) {
+          document.write(i + "<br>");
+        }*/
+      for (let i = 0; i < 5; ++i) {
+        document.write(i + "<br>");
+      }
+      for (let i = 100; i >= 1; i--) {
+        document.write(i + ",");
+      }
+
+      document.write("<br>");
+      for (let i = 1; i <= 100; i++) {
+        if (i % 2 == 0) {
+          document.write(i + " ");
+        } else {
+        }
+      }
+
+      document.write("<br>");
+      for (let i = 1; i <= 100; i += 2) {
+        document.write(i + " ");
+      }
+
+      document.write("<br>");
+      for (let i = 0; i <= 100; i += 2) {
+        document.write(i + " ");
+      }
+
+      document.write("<br>");
+      let sum = 0;
+      for (let i = 1; i <= 100; i++) {
+        sum = sum + i;
+      }
+      document.write("1부터 100까지의 합계 : " + sum + "<br>");
+
+      let even = 0;
+      //   document.write("<br>");
+      //   for (let i = 0; i <= 100; i += 2) {
+      //     even = even + i;
+      //   }
+      //   document.write("1부터 100까지의 짝수 합계 : " + even + "<br>");
+
+      let odd = 0;
+      //   document.write("<br>");
+      //   for (let i = 1; i <= 100; i += 2) {
+      //     odd = odd + i;
+      //   }
+      //   document.write("1부터 100까지의 홀수 합계 : " + odd + "<br>");
+
+      for (let i = 1; i <= 100; i++) {
+        if (i % 2 == 0) {
+          even += i;
+        } else {
+          odd += i;
+        }
+      }
+      document.write(
+        "1부터 100까지의 짝수 합계 : " +
+          even +
+          "<br>" +
+          "1부터 100까지의 홀수 합계 : " +
+          odd +
+          "<br>"
+      );
+    </script>
+  </body>
+</html>

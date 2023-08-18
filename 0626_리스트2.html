@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body > ul {
+        list-style: upper-roman;
+      }
+      body > ul > li > ul {
+        list-style: disc;
+      }
+      ul li {
+        border: 1px solid #000;
+      }
+      /* 색 지정 시 숫자 3,6개로 */
+      ul.second .list ~ li {
+        color: blue;
+      }
+      /* .list 앞에 띄어쓰기 하위 선택자를 나타냄*/
+      ul,
+      p,
+      h1 {
+        background-color: beige;
+      }
+
+      p {
+        margin: 10px 20px 30px 40px;
+      }
+      h1 {
+        padding: 50px;
+      }
+      /* mrgin 바깥여백 padding 안쪽여백 -> 단위 필수*/
+      /* 위에서부터 시계방향으로 조정됨
+      margin or padding-top,-right,-bottom,-left로도 가능
+      지정하지 않을 시 마주보고 있는 값으로 맞춰짐*/
+      * {
+        모든 마진 패딩 0으로 다 설정할 때 주로 쓰임
+      }
+      /* 모든 선택자 '*' */
+      dd {
+        margin: 0 0 0 50px ;
+       }
+       /* 0은 단위 생략 가능 */
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <ul class="second">
+          <li class="list">1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+      </li>
+    </ul>
+    <p>문단태그</p>
+    <h1>하이</h1>
+    <dl>
+      MENU
+
+      <br /><br />
+      <dt>Coffee</dt>
+      <dd>black hot drink</dd>
+      <dd>black ice drink</dd>
+      <dt>Milk</dt>
+      <dd>white cold drink</dd>
+    </dl>
+    <!--
+    di 설명 목록 정의
+    dd 설명목록의 용어 정의
+    dt 설명목록의 용어 설명
+    -->
+  </body>
+</html>

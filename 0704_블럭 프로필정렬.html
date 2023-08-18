@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      body{
+        font-family: arial, "맑은고딕", sans-serif;
+      }
+      .col{
+        width: calc(180px * 4 + 20px * 3);
+        margin: 0 auto;
+        /* 마진오토를 주려면 가로값이 있어야 됨 */
+        background: #ccc;
+        overflow: hidden;
+        /* 백그라운드는 가로세로값이 모두 있어야한다
+        밑의 플롯으로 세로값을 잃었기때문에 따로 지정해주거나
+        overflow: hidden;으로 잃은 세로값을 찾아줘야 넣을 수 있다*/
+      }
+      .col > div {
+        float: left;
+        margin-left: 20px;
+      }
+      .col > div:first-child {
+        margin-left: 0px;
+      }
+      .user{
+        width: 180px;
+        height: 180px;
+        border-radius: 10px;
+        overflow: hidden;
+        /* 넘치는 부분을 안보이게 숨기는 요소 */
+      }
+      .title{
+        width: 180px;
+        height: 35px;
+        background: #A5DEFF;
+        border-radius: 10px;
+        font-size: 20px;
+        color: #fff;
+        margin: 10px 0;
+      }
+      .title p {
+        height: 35px;
+        line-height: 35px;
+        /* 글자와 이미지 수직정렬 */
+      }
+      .title p:first-child{
+        float: left;
+        margin-left:20px;
+        line-height: 35px;
+      }
+      .title p:last-child{
+        float: right;
+        margin-right: 20px;
+      }
+      .title img{
+        vertical-align: middle;
+      }
+      .desc {
+        width: 180px;
+        font-size: 12px;
+        text-indent: 10px;
+        line-height: 1.5;
+        /* 행간 픽셀로 줘도 되고 단위 생략 가능 */
+
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        /* 표시 줄 수 */
+        -webkit-box-orient: vertical;
+        /* 세로로? */
+        overflow: hidden;
+        margin-bottom: 20px;
+        /* overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        이 방법은 한줄일 때만 사용 가능  */
+      }
+   </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="col">
+            <div>
+                <p class="user"><img src="images/user.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow 17.svg" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow.png" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow.png" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow.png" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow 17.svg" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow.png" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow.png" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow.png" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow 17.svg" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow.png" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow.png" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow.png" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow 17.svg" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow.png" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow.png" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+            <div>
+                <p class="user"><img src="images/user01.jpg" alt="user01"></p>
+                <div class="title">
+                    <p>List Title</p>
+                    <p><img src="images/Arrow.png" alt="Arrow"></p>
+                </div>
+                <p class="desc">공간만 결과물에 이런 문장 용도로 때로 같은 출판이나 글로도 요소나 결과물에 분야에서 용도로 로렘 로렘 입숨은 폰트, 용어로도 채우기 디자인 용어로도 로렘 공간만 요소나 그리킹이라고도 보여줄 용어로도 레이아웃 시각 문장 용도로 공간만 부르며, 내용이 결과물에 공간만 로렘 채워지기
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
