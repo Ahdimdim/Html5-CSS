@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>document</title>
+  </head>
+  <style></style>
+  <body>
+    <p id="demo"></p>
+    <script>
+      function clock() {
+        let now = new Date();
+        let hour = now.getHours();
+        let minute = now.getMinutes();
+        let second = now.getSeconds();
+        // let time = hour + ":" + minute + ":" + second;
+        let time =
+          hour.toString().padStart(2, "0") +
+          ":" +
+          minute.toString().padStart(2, "0") +
+          ":" +
+          second.toString().padStart(2, "0");
+        document.getElementById("demo").innerHTML = time;
+      }
+      setInterval(clock, 1000);
+    </script>
+  </body>
+</html>

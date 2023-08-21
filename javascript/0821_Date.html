@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>document</title>
+  </head>
+  <style></style>
+  <body>
+    <script>
+      let x = new Date();
+      document.write(x + "<br>");
+      document.write("년도 : " + x.getFullYear() + "<br>");
+      document.write("월 : " + (x.getMonth() + 1) + "<br>");
+      document.write("일 : " + x.getDate() + "<br>");
+      let m = x.getMinutes() < 10 ? "0" + x.getMinutes() : "0" + x.getMinutes();
+      document.write(
+        "오늘은 " +
+          x.getFullYear() +
+          "년 " +
+          (x.getMonth() + 1) +
+          "월 " +
+          x.getDate() +
+          "일 " +
+          x.getHours() +
+          "시 " +
+          x.getMinutes() +
+          "분 " +
+          x.getSeconds() +
+          "." +
+          x.getMilliseconds() +
+          "초 " +
+          x.getTime()
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>document</title>
+  </head>
+  <style></style>
+  <body>
+    <script>
+      document.write(String(1234) + 1234 + " 숫자를 문자로 변환함<br>");
+      document.write((1234).toString() + 1234 + " 숫자를 문자로 변환함<br>");
+      let num = 5.6789;
+      document.write(
+        num.toExponential(3) +
+          " 지수 표기법을 사용하여 반올림되고 작성된 숫자가 포함된 문자열을 반환합니다<br>"
+      );
+      document.write(
+        num.toFixed(2) +
+          " 숫자를 반올림하고 지정된 소수점 이하 자릿수로 쓴 문자열을 반환합니다<br>"
+      );
+      document.write(
+        num.toPrecision(2) +
+          " 지정된 길이로 쓰여진 숫자가 포함된 문자열을 반환합니다.<br>"
+      );
+    </script>
+  </body>
+</html>
