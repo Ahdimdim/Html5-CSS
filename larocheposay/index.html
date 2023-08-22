@@ -194,6 +194,7 @@
         text-align: center;
       }
       .bestseller {
+        position: relative;
         width: 1280px;
         height: 461px;
         margin: 80px auto 80px auto;
@@ -202,13 +203,17 @@
         text-align: center;
         padding-bottom: 30px;
       }
-      .bestseller .btn_next,
-      .bestseller .btn_prev {
-        width: 50px;
-        height: 100%;
-        border: none;
-        background: none;
-        color: #009ee3;
+      .bestseller .btn img {
+        position: absolute;
+        width: 70px;
+        top: 170px;
+        cursor: pointer;
+      }
+      .bestseller .btn_prev img {
+        left: -10px;
+      }
+      .bestseller .btn_next img {
+        right: -18px;
       }
       .bestseller ul {
         display: flex;
@@ -223,8 +228,89 @@
         height: 100%;
         text-align: center;
       }
+      .bestseller ul li a {
+        line-height: 15px;
+        color: #333;
+      }
       .bestseller ul li img {
         width: 210px;
+      }
+      .bestseller ul li .product_price {
+        color: #009ee3;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 30px;
+      }
+      .video_product {
+        width: 1280px;
+        height: 529px;
+        padding: 80px 0;
+        margin: 0 auto;
+        display: flex;
+      }
+      .video_product .new_product {
+        position: relative;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .video_product .new_product > span {
+        position: absolute;
+        left: 130px;
+        top: 140px;
+      }
+      .video_product .new_product ul {
+        display: flex;
+        justify-content: center;
+      }
+      .video_product .new_product ul li {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        padding: 30px 0;
+        z-index: 1;
+      }
+      .new_product .slide_bar {
+        position: relative;
+      }
+      .new_product .slide_bar .slide_barP {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .review {
+        width: 1280px;
+        padding: 80px 0;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .review h2 {
+        padding-bottom: 80px;
+      }
+      .review .review_img {
+        display: flex;
+      }
+      .review .review_img .left img {
+        width: 365px;
+        height: 664px;
+        object-fit: cover;
+        border-radius: 200px 0 0 0;
+        padding-right: 13.5px;
+      }
+      .review .review_img .right {
+        height: 664px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .review .review_img .right img {
+        width: 291px;
+        height: 325px;
+        object-fit: cover;
+        padding-right: 13.5px;
+      }
+      .review .review_img .right img:last-child {
+        border-radius: 0 0 200px 0;
       }
     </style>
   </head>
@@ -273,6 +359,7 @@
               <li><a href="#">바디케어</a></li>
               <li><a href="#">UV케어</a></li>
               <li><a href="#">리얼리뷰</a></li>
+              <li><a href="#">이벤트</a></li>
             </ul>
           </div>
           <div class="submenu">
@@ -555,45 +642,137 @@
       <h2><img src="images/title_best.png" alt="" /></h2>
       <div class="btn">
         <button class="btn_prev">
-          <img src="images/arrow_prev.svg" alt="" />
+          <img src="images/arrow_prev.png" alt="" />
         </button>
         <button class="btn_next">
-          <img src="images/arrow_next.svg" alt="" />
+          <img src="images/arrow_next.png" alt="" />
         </button>
       </div>
       <ul>
         <li>
           <a href="#"
             ><img src="images/product_210x210 (6).png" alt="" />
-            <span class="product_price">29,000</span>
             <span class="product_name"
               >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-              화장품]</span
-            >
+              화장품]<br
+            /></span>
+            <span class="product_price">29,000원</span>
           </a>
         </li>
         <li>
           <a href="#"
             ><img src="images/product_210x210 (7).png" alt="" />
-            <span class="product_price">39,000</span>
-            <span class="product_name">시카플라스트밤 B5+</span>
+            <span class="product_name">시카플라스트밤 B5+<br /></span>
+            <span class="product_price">39,000원</span>
           </a>
         </li>
         <li>
           <a href="#"
             ><img src="images/product_210x210 (13).png" alt="" />
-            <span class="product_price">35,000</span>
-            <span class="product_name">에빠끌라K(+) 토너 [200ml]</span>
+            <span class="product_name">에빠끌라K(+) 토너 [200ml]<br /></span>
+            <span class="product_price">35,000원</span>
           </a>
         </li>
         <li>
           <a href="#"
             ><img src="images/product_1040x1040.png" alt="" />
-            <span class="product_price">28,000</span>
-            <span class="product_name">에빠끌라 딥 클렌징 포밍 크림 125ml</span>
+            <span class="product_name"
+              >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+            /></span>
+            <span class="product_price">28,000원</span>
           </a>
         </li>
       </ul>
+    </section>
+    <section class="video_product">
+      <div class="video">
+        <iframe
+          width="733"
+          height="529"
+          src="https://www.youtube.com/embed/HbmJ4CNMpI0"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="new_product">
+        <h2><img src="images/title_new.png" alt="title_new" /></h2>
+        <span><img src="images/new_productBg.png" alt="" /></span>
+        <ul>
+          <li>
+            <a href="#"><img src="images/new_product(1).png" alt="" /></a>
+          </li>
+        </ul>
+        <div class="slide_bar">
+          <img src="images/slide_bar.png" alt="" />
+          <div class="slide_barP">
+            <img src="images/slide_barP.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bestseller">
+      <h2><img src="images/title_hot.png" alt="" /></h2>
+      <div class="btn">
+        <button class="btn_prev">
+          <img src="images/arrow_prev.png" alt="" />
+        </button>
+        <button class="btn_next">
+          <img src="images/arrow_next.png" alt="" />
+        </button>
+      </div>
+      <ul>
+        <li>
+          <a href="#"
+            ><img src="images/product_210x210 (6).png" alt="" />
+            <span class="product_name"
+              >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
+              화장품]<br
+            /></span>
+            <span class="product_price">29,000원</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><img src="images/product_210x210 (7).png" alt="" />
+            <span class="product_name">시카플라스트밤 B5+<br /></span>
+            <span class="product_price">39,000원</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><img src="images/product_210x210 (13).png" alt="" />
+            <span class="product_name">에빠끌라K(+) 토너 [200ml]<br /></span>
+            <span class="product_price">35,000원</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><img src="images/product_1040x1040.png" alt="" />
+            <span class="product_name"
+              >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+            /></span>
+            <span class="product_price">28,000원</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section class="review">
+      <h2><img src="images/title_review.png" alt="title_review" /></h2>
+      <div class="review_img">
+        <div class="left">
+          <img src="images/review (1).jpg" alt="" />
+        </div>
+        <div class="right">
+          <img src="images/review (2).jpg" alt="" />
+          <img src="images/review (3).jpg" alt="" />
+          <img src="images/review (4).jpg" alt="" />
+          <img src="images/review (5).jpg" alt="" />
+          <img src="images/review (6).jpg" alt="" />
+          <img src="images/review (7).jpg" alt="" />
+        </div>
+      </div>
     </section>
   </body>
 </html>

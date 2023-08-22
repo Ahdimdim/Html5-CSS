@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const fruits = ["Banana", "Orange", "Apple", "Mango"];
+      const drink = ["coffee", "milk", "tea"];
+      document.write(fruits.join(" * ") + "<br>");
+      //결합해줌
+
+      document.write(fruits.pop() + "<br>");
+      //마지막 요소 제거
+      document.write(fruits + "<br>");
+
+      fruits.push("Kiwi");
+      //마지막 요소에 추가
+      document.write(fruits + "<br>");
+
+      fruits.shift();
+      //처음 요소를 제거
+      document.write(fruits + "<br>");
+
+      fruits.unshift("Lemon");
+      //처음 요소에 추가
+      document.write(fruits + "<br>");
+
+      const cafe = fruits.concat(drink);
+      //배열을 병합하여 새 배열을 만듬
+      document.write(cafe + "<br>");
+
+      cafe.splice(1, 0, "new", "new1");
+      //넣을 위치의 인덱스번호, 삭제할 갯수
+      document.write(cafe + "<br>");
+
+      document.write(cafe.slice(1, 3) + "<br>");
+      document.write(cafe.slice(-2) + "<br>");
+      //배열의 일부를 가져와 새 배열로 만듬
+
+      document.write(cafe.sort() + "<br>");
+      //알파벳 순으로 정렬
+
+      document.write(cafe.reverse(cafe.sort()) + "<br>");
+      //반대로 정렬
+
+      const numbers = [45, 4, 9, 16, 25];
+      let txt = "";
+      let txt1 = "";
+      /*numbers.forEach(myFunction);
+      document.write(txt);
+      function myFunction(value, index, array) {
+        txt += value + "<br>";
+      }*/
+      numbers.forEach(function (value, index, array) {
+        txt += value + " index :" + index + "<br>";
+        txt1 = array;
+      });
+      document.write(txt + "<br>");
+      document.write(txt1 + "<br>");
+
+      const fruits1 = ["Apple", "Orange", "Apple", "Mango"];
+      let position = fruits1.indexOf("Apple");
+      document.write(position + "<br>");
+
+      document.write(typeof fruits1 + "<br>");
+      // 배열의 타입은 오브젝트
+      document.write(Object.keys(fruits1) + "<br>");
+      //오브젝트의 인덱스 번호를 가져옴
+
+      let a = fruits1 instanceof Array;
+      document.write(a + "<br>");
+      //객체가 주어진 생성자에 의해 생성된 경우 true를 반환합니다.
+      //위의 예시는 배열로 이루어져있냐고 물어보는 거임
+    </script>
+  </body>
+</html>

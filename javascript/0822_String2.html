@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //string : 자바스크립트에서 문자열을 다루는 객체
+      //   let str = "nice to meet you";
+      let str = new String("nice to meet to meet you");
+      document.write(str.search("me") + "<br>");
+      //search 문자를 찾아 찾은 자리의 인덱스번호로 반환 없으면 -1 대소문자 구분 함
+      document.write(str.replace("nice", "happy") + "<br>");
+      //특정 문자를 변경
+      document.write(str.indexOf("to") + "<br>");
+      document.write(str.lastIndexOf("to") + "<br>");
+      //문자를 앞에서부터/뒤에서부터 찾아 찾은 자리의 인덱스 번호로 반환 없으면 -1 대소문자 구분
+      document.write("match : " + str.match("to") + "<br>");
+      //찾은 문자 그대로를 반환 하고 찾고자하는 문자가 없으면 null
+      document.write("charAt : " + str.charAt(3) + "<br>");
+      //특정 인덱스 열에 문자를 반환
+      document.write("substr : " + str.substr(0, 3) + "<br>");
+      //인덱스 시작번호와 n개의 문자를 설정하면 문자로 반환 -를 쓰면 끝에서부터
+      //시작번호만 설정 시 끝까지 가져옴
+      document.write("substring : " + str.substring() + "<br>");
+      document.write("substring : " + str.substring(0, 3) + "<br>");
+      document.write("substring : " + str.substring(-5, 3) + "<br>");
+      //인덱스 시작번호와 끝번호 전까지를 문자로 반환 음수는 0으로 취급됨
+      let txt = "123456-1234567";
+      document.write(txt.replace(txt.substr(8), "******") + "<br>");
+      document.write(txt.replace(txt.substring(8), "******") + "<br>");
+      document.write(
+        txt.replace(txt.substr(txt.length - 6), "******") + "<br>"
+      );
+      document.write(txt.slice(0, 8) + "<br>");
+      //slice(star,end) 인덱스 시작번호와 끝번호 전까지를 문자로 반환 -가능
+      document.write(str.split("") + "<br>");
+      document.write(str.split(" ") + "<br>");
+      let arr = str.split(" ");
+      document.write(arr[0] + "<br>");
+      // 배열에 새 항목을 추가하는 데 사용할 수 있음
+      let txt2 = "nice,to,meet,you";
+      let arr2 = txt2.split(",");
+      let n = arr2.length;
+      for (let i = 0; i < n; i++) {
+        document.write(arr2[i] + "<br>");
+      }
+      document.write(txt2.toUpperCase() + "<br>");
+      // 소문자를 대문자로 변환
+      let txt3 = "Microsoft and microsoft and microsoft";
+      document.write(txt3.replaceAll("microsoft", "마이크로소프트") + "<br>");
+      //replaceAll은 모든 microsoft를 선택하여 마이크로소프트로 바꿔줌 All안하면 하나만 됨
+      document.write(txt3.replace(/microsoft/i, "마이크로소프트") + "<br>");
+      document.write(txt3.replace(/microsoft/g, "마이크로소프트") + "<br>");
+      document.write(txt3.replace(/Microsoft/g, "마이크로소프트") + "<br>");
+      // /-/i는 대소문자 구분을 하지 않겠다, /-/g는 선택한 모든 문자를 바꾸겠다 All에는 안됨
+    </script>
+  </body>
+</html>
