@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      section {
+        height: 100vh;
+      }
+      section:first-child {
+        background: red;
+      }
+      section:nth-child(2) {
+        background: green;
+      }
+      section:nth-child(3) {
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <section></section>
+    <section></section>
+    <section></section>
+    <script>
+      //   console.log(window.outerHeight);
+      //윈도우 창 + 상단바(그 외에 것들 다 포함)의 높이
+      console.log(window.innerHeight);
+      //윈도우 창의 높이
+      window.addEventListener("wheel", function (e) {
+        // console.log(e.deltaY);
+        // console.log(e.wheelDelta);//스크롤 위로 가는지 아래로 가는지 양수 음수로 알려줌
+        // window.scrollTo(0, 1000);//스크롤을 고정시켜주는 애
+        console.log(e.deltaY);
+        console.log("window.pageYOffset : " + window.pageYOffset);
+        let delta = e.deltaY || e.wheelDelta; // || ~ 아니면 ~ 로 ㄱㄱ
+        let down = delta < 0;
+        let ht = document.documentElement.scrollTop || window.pageYOffset;
+        let nextPage = down
+          ? Math.floor(ht / window.innerHeight) * window.innerHeight // ? 참일 때 ~
+          : Math.ceil(ht / window.innerHeight) * window.innerHeight; // : 거짓일 때 ~
+        window.scrollTo({
+          top: nextPage,
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
+</html>

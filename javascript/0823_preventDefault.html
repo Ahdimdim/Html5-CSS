@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#">하나</a>
+    <p id="demo">서식변경</p>
+
+    <script>
+      /*document.getElementsByTagName("a")[0].onclick = function (e) {
+        e.preventDefault(); 
+        //기본적으로 설정 되어 있는 이벤트를 막음 
+        구문 앞에 사용
+        ex) a태그 링크를 막고 설정한 컬러만 변경
+        document.getElementById("demo").style.color = "skyblue";
+      };*/
+      document.getElementsByTagName("a")[0].onclick = function (e) {
+        document.getElementById("demo").style.color = "skyblue";
+        // location.href = "0823_onLoad.html";
+        // location.href = "http://www.naver.com";
+        window.open("http://www.naver.com");
+        return false;
+        //기본적으로 설정 되어 있는 이벤트를 막음 구문 뒤에 사용ex) a태그 링크를 막고 설정한 컬러만 변경
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #div1 {
+        width: 250px;
+        height: 250px;
+        overflow: auto;
+        /* overflow-x: scroll; */
+        /* x,y축 따로 설정 가능 오버플로 히든 해놓고 */
+      }
+      #content {
+        width: 2000px;
+        height: 2000px;
+        background: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">
+      <div id="content">Scroll Me!</div>
+    </div>
+    <p id="demo"></p>
+    <button>스크롤 원위치</button>
+    <script>
+      let ele = document.getElementById("div1");
+      ele.onscroll = function () {
+        let x = ele.scrollLeft;
+        let y = ele.scrollTop;
+        console.log("x : " + x + "y : " + y);
+        document.getElementById("demo").innerHTML =
+          "x : " + x.toFixed() + "<br>y : " + y.toFixed();
+        //Fixed 넣는 이유 - 소수점으로 떨어지는 좌표를 정수로 떨어지게 하려고
+        if (y > 0) {
+          document.getElementById("content").style.backgroundColor = "red";
+        } else {
+          document.getElementById("content").style.backgroundColor = "#ccc";
+        }
+      };
+      document.getElementsByTagName("button")[0].onclick = function () {
+        ele.scrollLeft = 0;
+        ele.scrollTop = 0;
+      };
+    </script>
+  </body>
+</html>
