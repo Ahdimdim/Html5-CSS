@@ -1,0 +1,8 @@
+♣웹디자인&웹퍼블리셔(스마트 UXUI )디지털디자인 양성과정A
+웹디자인 ⇒ css ⇒ scrollbar
+
+참고url
+https://bit.ly/2DOxjnK
+::webkit-scrollbar{width:스크롤바 넓이px;}
+::webkit-scrollbar-track {background-color: 트랙배경색상;}
+thumb  {background-color: 바색상; border-radius: 바 둥근 정도px;}
