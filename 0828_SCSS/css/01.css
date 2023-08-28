@@ -1,0 +1,15 @@
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  display: block;
+}
+
+header nav ul li {
+  width: 200px;
+}/*# sourceMappingURL=01.css.map */

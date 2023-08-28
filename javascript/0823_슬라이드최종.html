@@ -106,7 +106,7 @@
       let slides = document.querySelector(".slides");
       let slideImg = document.querySelectorAll(".slides li");
       let dots = document.querySelectorAll(".dot");
-      let currentIdx = 0; //인덱스 번호 초기값?.?...
+      let currentIdx = 0;
       let slideCount = slideImg.length;
       dots[0].className += " active";
       let prev = document.querySelector(".prev"); //이전 버튼
@@ -118,7 +118,7 @@
         let cloneSlide_first = slideImg[0].cloneNode(true);
         let cloneSlide_last = slides.lastElementChild.cloneNode(true);
         slides.append(cloneSlide_first); //선택한 요소를 마지막 배치
-        slides.insertBefore(cloneSlide_last, slides.firstElementChild); //선택한 요소를 첫번째로?.?..
+        slides.insertBefore(cloneSlide_last, slides.firstElementChild);
       }
       function initfunction() {
         slides.style.width = slideWidth * (slideCount + 2) + "px";
