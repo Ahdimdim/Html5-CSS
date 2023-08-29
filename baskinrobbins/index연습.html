@@ -267,7 +267,7 @@
         text-align: center;
       }
       .event-list {
-        width: 1152px;
+        width: 1200px;
         height: 500px;
         position: relative;
         margin: 0 auto;
@@ -286,6 +286,7 @@
         width: 288px;
         display: flex;
         justify-content: center;
+        padding-right: 16px;
       }
       .event-list > ul > li:not(:last-child) {
         float: left;
@@ -319,7 +320,8 @@
         background-color: #ccc;
         border-radius: 50%;
       }
-      .event-list .Edot:hover {
+      .event-list .Edot:hover,
+      .act {
         background-color: #333;
         height: 10px;
         width: 10px;
@@ -737,6 +739,8 @@
                   <span class="period">상시진행</span>
                 </a>
               </li>
+            </ul>
+            <ul class="eSlides">
               <li>
                 <a href="#">
                   <img src="images/banner_img(1).jpg" alt="" />
@@ -781,6 +785,8 @@
                   <span class="period">상시진행</span>
                 </a>
               </li>
+            </ul>
+            <ul class="eSlides">
               <li>
                 <a href="#">
                   <img src="images/banner_img(5).png" alt="" />
@@ -821,6 +827,27 @@
             </div>
           </div>
         </section>
+        <script>
+          let Eslides = document.querySelector(".event-list");
+          let EslideImg = document.querySelectorAll(".eSlides");
+          let Edots = document.querySelectorAll(".Edot");
+          let currentIdx = 0;
+          let EslideCount = EslideImg.length;
+          let slideWidth = 1000; //슬라이드이미지 넓이
+
+          function showSlide(n) {
+            for (i = 0; i < EslideImg.length; i++) {
+              Edots[i].className = Edots[i].className.replace(" act", "");
+            }
+            Edots[n].className += " act";
+            Eslides.style.left = -(n + 1) * slideWidth + "px";
+            slides.style.transition = "0.5s";
+          }
+          function currentSlide(n) {
+            showSlide((currentIdx = n));
+          }
+        </script>
+
         <section class="br-menu">
           <h3 class="title"><img src="images/h_menu.png" alt="" /></h3>
           <div class="menu_list">

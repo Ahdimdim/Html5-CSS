@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ccc;
+      }
+      section div {
+        width: 200px;
+        height: 200px;
+        background: skyblue;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <section></section>
+    <section>
+      <div data-aos="fade-up"></div>
+      <div data-aos="fade-down"></div>
+      <div data-aos="fade-right"></div>
+      <div data-aos="fade-left"></div>
+    </section>
+    <section>
+      <div data-aos="fade-up-right"></div>
+      <div data-aos="fade-up-left"></div>
+      <div data-aos="fade-down-right"></div>
+      <div data-aos="fade-down-left"></div>
+    </section>
+    <section>
+      <div data-aos="flip-left"></div>
+      <div data-aos="flip-right"></div>
+      <div data-aos="flip-up"></div>
+      <div data-aos="flip-down"></div>
+    </section>
+    <section>
+      <div data-aos="zoom-in"></div>
+      <div data-aos="zoom-in-up"></div>
+      <div data-aos="zoom-in-down"></div>
+      <div data-aos="zoom-in-left"></div>
+      <div data-aos="zoom-in-right"></div>
+    </section>
+    <section>
+      <div data-aos="zoom-out"></div>
+      <div data-aos="zoom-out-up"></div>
+      <div data-aos="zoom-out-down"></div>
+    </section>
+    <script src="../postcss.config.js"></script>
+  </body>
+</html>

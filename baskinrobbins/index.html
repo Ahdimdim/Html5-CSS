@@ -266,7 +266,19 @@
         padding: 100px 0 50px;
         text-align: center;
       }
+      .event-list {
+        width: 1200px;
+        height: 500px;
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
+      }
       .event-list > ul {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        transition: 0.5s ease-out;
         display: flex;
         justify-content: space-between;
       }
@@ -274,6 +286,10 @@
         width: 288px;
         display: flex;
         justify-content: center;
+        padding-right: 16px;
+      }
+      .event-list > ul > li:not(:last-child) {
+        float: left;
       }
       .event-list > ul > li > a {
         width: 288px;
@@ -288,6 +304,27 @@
       }
       .event-list .period {
         margin: 11px 0;
+      }
+      .event-list .Epage {
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        text-align: center;
+      }
+      .event-list .Edot {
+        display: inline-block;
+        cursor: pointer;
+        height: 8px;
+        width: 8px;
+        margin: 0px 10px;
+        background-color: #ccc;
+        border-radius: 50%;
+      }
+      .event-list .Edot:hover {
+        background-color: #333;
+        height: 10px;
+        width: 10px;
+        margin: 0px 9px;
       }
       .br-menu {
         margin: 0 auto;
@@ -656,7 +693,7 @@
         <section class="br-event">
           <h3><img src="images/h_event.png" alt="" /></h3>
           <div class="event-list">
-            <ul>
+            <ul class="eSlides">
               <li>
                 <a href="#">
                   <img src="images/banner_delivery.png" alt="" />
@@ -701,7 +738,88 @@
                   <span class="period">상시진행</span>
                 </a>
               </li>
+              <li>
+                <a href="#">
+                  <img src="images/banner_img(1).jpg" alt="" />
+                  <span class="type"
+                    ><img src="images/stit_store.gif" alt=""
+                  /></span>
+                  <span class="title"
+                    >해피오더 딜리버리로 간편하게 주문하세요!</span
+                  >
+                  <span class="period">상시진행</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="images/banner_img(2).jpg" alt="" />
+                  <span class="type"
+                    ><img src="images/stit_store.gif" alt=""
+                  /></span>
+                  <span class="title">배달의 민족에서 빠르게 주문하세요!</span>
+                  <span class="period">상시진행</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="images/banner_img(3).png" alt="" />
+                  <span class="type"
+                    ><img src="images/stit_store.gif" alt=""
+                  /></span>
+                  <span class="title">요기요에서 손쉽게 주문하세요!</span>
+                  <span class="period">상시진행</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="images/banner_img(4).jpg" alt="" />
+                  <span class="type"
+                    ><img src="images/stit_store.gif" alt=""
+                  /></span>
+                  <span class="title"
+                    >카카오톡 주문하기에서 편리하게 주문하세요!</span
+                  >
+                  <span class="period">상시진행</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="images/banner_img(5).png" alt="" />
+                  <span class="type"
+                    ><img src="images/stit_store.gif" alt=""
+                  /></span>
+                  <span class="title"
+                    >해피오더 딜리버리로 간편하게 주문하세요!</span
+                  >
+                  <span class="period">상시진행</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="images/banner_img(6).png" alt="" />
+                  <span class="type"
+                    ><img src="images/stit_store.gif" alt=""
+                  /></span>
+                  <span class="title">배달의 민족에서 빠르게 주문하세요!</span>
+                  <span class="period">상시진행</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="images/banner_img(7).jpg" alt="" />
+                  <span class="type"
+                    ><img src="images/stit_store.gif" alt=""
+                  /></span>
+                  <span class="title">요기요에서 손쉽게 주문하세요!</span>
+                  <span class="period">상시진행</span>
+                </a>
+              </li>
             </ul>
+            <div class="Epage">
+              <span class="Edot" onclick="eSlide(0)"></span>
+              <span class="Edot" onclick="eSlide(1)"></span>
+              <span class="Edot" onclick="eSlide(2)"></span>
+            </div>
           </div>
         </section>
         <section class="br-menu">

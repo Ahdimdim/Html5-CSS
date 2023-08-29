@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- <script>
+      $(function () {
+        $("p").text("변경되었습니다");
+      });
+    </script> -->
+  </head>
+  <body>
+    <div></div>
+    <p>문단태그</p>
+    <p>문단태그</p>
+    <p>문단태그</p>
+    <p>문단태그</p>
+    <p>문단태그</p>
+    <p>문단태그</p>
+
+    <script>
+      //   $("p").text("변경되었습니다");
+      //   for (let i = 0; i <= 5; i++) {
+      //     document.getElementsByTagName("p")[i].textContent = "변경되었습니다";
+      //   }   jquery쓰지 않으면
+
+      // $("p:nth(0)").text("변경되었습니다");
+      // $("p").eq(0).text("변경되었습니다");
+      // $("p:eq(0)").text("변경되었습니다");
+      // $("p:first").text("변경되었습니다");
+      // $("p:first-child").text("변경되었습니다");
+
+      //$("p:gt(2)").text("변경되었습니다");  2보다 큰 p
+      //$("p:lt(2)").text("변경되었습니다");  2보다 작은 p
+      //$("p:even").text("변경되었습니다"); 짝수만
+      //$("p:odd").text("변경되었습니다"); 홀수만
+      //$("div ~ p").text("변경되었습니다"); div와 형제인 p 전부
+      //$("div + p").text("변경되었습니다"); div와 형제인 p
+      $(":empty").html("<h1>제목태그</h1>"); //비어있는 곳에
+      $(":header").text("h1태그"); //제목태그
+      $("h1:contains('h1')").css("color", "red"); //h1태그에 h1라는 문자가 포함 되어 있냐
+    </script>
+  </body>
+</html>
