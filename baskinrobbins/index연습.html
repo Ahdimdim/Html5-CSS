@@ -267,14 +267,15 @@
         text-align: center;
       }
       .event-list {
-        width: 1200px;
+        /* width: 1200px; */
         height: 500px;
         position: relative;
         margin: 0 auto;
         overflow: hidden;
+        display: flex;
       }
       .event-list > ul {
-        position: absolute;
+        /* position: absolute; */
         width: 100%;
         left: 0;
         top: 0;
@@ -288,7 +289,7 @@
         justify-content: center;
         padding-right: 16px;
       }
-      .event-list > ul > li:not(:last-child) {
+      .event-list > ul:not(:last-child) {
         float: left;
       }
       .event-list > ul > li > a {
@@ -834,18 +835,17 @@
           let currentIdx = 0;
           let EslideCount = EslideImg.length;
           let slideWidth = 1000; //슬라이드이미지 넓이
-
-          function showSlide(n) {
-            for (i = 0; i < EslideImg.length; i++) {
-              Edots[i].className = Edots[i].className.replace(" act", "");
-            }
-            Edots[n].className += " act";
-            Eslides.style.left = -(n + 1) * slideWidth + "px";
-            slides.style.transition = "0.5s";
-          }
-          function currentSlide(n) {
-            showSlide((currentIdx = n));
-          }
+          document.querySelectorAll(".Edots .Edot").forEach((a, index) => {
+            a.addEventListener("click", (e) => {
+              document.querySelectorAll(".Edots .Edot").forEach((b) => {
+                b.classList.remove("act");
+              });
+              a.classList.add("act");
+              EslideImg.style.left = `${-((index + 1) * sliderWidth)}px`;
+              EslideImg.classList.add("transition");
+              currentIndex = index;
+            });
+          });
         </script>
 
         <section class="br-menu">

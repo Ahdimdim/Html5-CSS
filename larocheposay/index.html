@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>라로슈포제</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
     <style>
       * {
         margin: 0;
@@ -89,8 +90,11 @@
         border-bottom: 1px solid #adadad;
       }
       .topmenu {
-        border-bottom: 1px solid #adadad;
         border-top: 1px solid #d4d4d4;
+        box-sizing: border-box;
+      }
+      .topmenu:hover {
+        border-bottom: 1px solid #d4d4d4;
       }
       .topmenu .menu ul {
         display: flex;
@@ -139,7 +143,10 @@
         height: 0;
         overflow: hidden;
         transition: height 0.5s;
+        z-index: 10;
+        border-bottom: 1px solid #d4d4d4;
       }
+
       .submenu .lnb {
         width: 1280px;
         margin: 0 auto;
@@ -194,8 +201,8 @@
         text-align: center;
       }
       #slideShow {
-        width: 1000px;
-        height: 300px;
+        width: 1280px;
+        height: 448px;
         position: relative;
         margin: 50px auto;
         overflow: hidden;
@@ -207,7 +214,7 @@
         transition: 0.5s ease-out;
       }
       .slides img {
-        width: 1000px;
+        width: 1280px;
       }
       .slides li:not(:last-child) {
         float: left;
@@ -218,7 +225,7 @@
         text-align: center;
         border-radius: 50%;
         padding: 10px 20px;
-        top: 50%;
+        top: 45%;
         font-size: 1.3em;
         cursor: pointer;
         transition: 0.5s;
@@ -238,15 +245,15 @@
       .page {
         position: absolute;
         width: 100%;
-        bottom: 0;
+        bottom: 10px;
         text-align: center;
       }
       .dot {
         display: inline-block;
         cursor: pointer;
-        height: 15px;
-        width: 15px;
-        margin: 0 2px;
+        height: 10px;
+        width: 10px;
+        margin: 0 7px;
         background-color: #bbb;
         border-radius: 50%;
         transition: background-color 0.6s ease;
@@ -268,19 +275,21 @@
       .bestseller .btn img {
         position: absolute;
         width: 70px;
-        top: 170px;
+        top: 200px;
         cursor: pointer;
+        height: 20px;
+        width: 20px;
       }
       .bestseller .btn_prev img {
-        left: -10px;
+        left: 0px;
       }
       .bestseller .btn_next img {
-        right: -18px;
+        right: 0px;
       }
       .bestseller ul {
         display: flex;
         width: 1280px;
-        height: 300px;
+        height: 350px;
         margin: 0 auto;
         align-items: center;
         justify-content: space-around;
@@ -296,6 +305,7 @@
       }
       .bestseller ul li img {
         width: 210px;
+        padding-bottom: 20px;
       }
       .bestseller ul li .product_price {
         color: #009ee3;
@@ -333,6 +343,14 @@
       }
       .new_product .slide_bar {
         position: relative;
+      }
+      .new_product .slide_bar > img {
+        width: 530px;
+        height: 3px;
+      }
+      .new_product .slide_bar .slide_barP > img {
+        width: 128px;
+        height: 3px;
       }
       .new_product .slide_bar .slide_barP {
         position: absolute;
@@ -373,6 +391,16 @@
       }
       .review .review_img .right img:last-child {
         border-radius: 0 0 200px 0;
+      }
+      .banner_wraper {
+        height: 100px;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+      .banner_wraper img {
+        height: 100%;
+        position: absolute;
       }
     </style>
   </head>
@@ -672,6 +700,7 @@
         </div>
       </section>
     </div>
+    <script src="js/slide.js"></script>
     <section class="bestseller">
       <h2><img src="images/title_best.png" alt="" /></h2>
       <div class="btn">
@@ -808,5 +837,23 @@
         </div>
       </div>
     </section>
+    <section>
+      <div class="banner_wraper left">
+        <img src="images/event (1).jpg" />
+        <img src="images/event (1).jpg" />
+        <img src="images/event (1).jpg" />
+        <img src="images/event (1).jpg" />
+        <img src="images/event (1).jpg" />
+      </div>
+      <hr />
+      <div class="banner_wraper right">
+        <img src="images/event (1).jpg" />
+        <img src="images/event (1).jpg" />
+        <img src="images/event (1).jpg" />
+        <img src="images/event (1).jpg" />
+        <img src="images/event (1).jpg" />
+      </div>
+    </section>
+    <script src="js/banner.js"></script>
   </body>
 </html>

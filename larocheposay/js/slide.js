@@ -7,18 +7,9 @@ let slideCount = slideImg.length;
 dots[0].className += " active";
 let prev = document.querySelector(".prev"); //이전 버튼
 let next = document.querySelector(".next"); //다음 버튼
-let slideWidth = slideImg[0].offsetWidth; //슬라이드이미지 넓이
-window.addEventListener("resize", function () {
-  slides.style.width = slideWidth;
-  location.reload();
-});
-
-console.log(slideWidth);
-// let bg = ["red", "blue", "green", "skyblue", "yellow", "yellow", "yellow"];
-//document.querySelector(".show").style.backgroundColor = bg[0];
+let slideWidth = 1280; //슬라이드이미지 넓이
 makeClone(); // 처음이미지와 마지막 이미지 복사 함수
 initfunction(); //슬라이드 넓이와 위치값 초기화 함수
-
 function makeClone() {
   let cloneSlide_first = slideImg[0].cloneNode(true);
   let cloneSlide_last = slides.lastElementChild.cloneNode(true);
@@ -46,7 +37,6 @@ next.onclick = function () {
     slides.style.left = -(currentIdx + 2) * slideWidth + "px";
     slides.style.transition = "0.5s";
   }
-
   if (currentIdx === slideCount - 1) {
     //마지막 슬라이드 일때
     setTimeout(function () {
@@ -61,7 +51,6 @@ next.onclick = function () {
     dots[i].className = dots[i].className.replace(" active", "");
   }
   dots[currentIdx].className += " active";
-  // document.querySelector(".show").style.backgroundColor = bg[currentIdx];
 };
 prev.onclick = function () {
   //이전 버튼 눌렀을때
@@ -70,7 +59,6 @@ prev.onclick = function () {
     slides.style.left = -currentIdx * slideWidth + "px";
     slides.style.transition = "0.5s";
   }
-
   if (currentIdx === 0) {
     setTimeout(function () {
       slides.style.left = -slideCount * slideWidth + "px";
@@ -83,18 +71,17 @@ prev.onclick = function () {
     dots[i].className = dots[i].className.replace(" active", "");
   }
   dots[currentIdx].className += " active";
-  // document.querySelector(".show").style.backgroundColor = bg[currentIdx];
 };
 let interval = setInterval(function () {
   next.onclick();
-}, 4000);
+}, 3000);
 function slide_stop() {
   clearInterval(interval);
 }
 function slide_start() {
   interval = setInterval(function () {
     next.onclick();
-  }, 4000);
+  }, 3000);
 }
 slideani.addEventListener("mouseenter", function () {
   slide_stop();
