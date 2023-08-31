@@ -30,6 +30,9 @@
       body {
         font-family: NanumBarunGothic, "나눔 고딕", sans-serif;
       }
+      h2 img {
+        height: 30px;
+      }
       .login {
         justify-content: flex-end;
       }
@@ -270,7 +273,7 @@
       }
       .bestseller h2 {
         text-align: center;
-        padding-bottom: 30px;
+        padding-bottom: 50px;
       }
       .bestseller .btn img {
         position: absolute;
@@ -356,6 +359,42 @@
         position: absolute;
         left: 0;
         top: 0;
+      }
+      .skinwrap {
+        width: 100%;
+        height: 800px;
+        background: rgb(211, 238, 253);
+        text-align: center;
+        padding: 80px 0;
+      }
+      .skinwrap h2 {
+        padding-bottom: 50px;
+      }
+      .skinwrap .skin_btn {
+        width: 1280px;
+        display: flex;
+        justify-content: space-around;
+        margin: 0 auto;
+        padding-bottom: 30px;
+      }
+      .skinwrap .skin_btn li a {
+        display: block;
+        width: 190px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+        background: #fff;
+        border: 1px solid #009ee3;
+        border-radius: 35px;
+        color: #333;
+      }
+      .skinwrap .skin_product {
+        width: 1280px;
+        height: 600px;
+        border: 1px solid #009ee3;
+        margin: 0 auto;
+        border-radius: 30px;
+        background: #fff;
       }
       .review {
         width: 1280px;
@@ -704,12 +743,12 @@
     <section class="bestseller">
       <h2><img src="images/title_best.png" alt="" /></h2>
       <div class="btn">
-        <button class="btn_prev">
+        <span class="btn_prev">
           <img src="images/arrow_prev.png" alt="" />
-        </button>
-        <button class="btn_next">
+        </span>
+        <span class="btn_next">
           <img src="images/arrow_next.png" alt="" />
-        </button>
+        </span>
       </div>
       <ul>
         <li>
@@ -778,12 +817,12 @@
     <section class="bestseller">
       <h2><img src="images/title_hot.png" alt="" /></h2>
       <div class="btn">
-        <button class="btn_prev">
+        <span class="btn_prev">
           <img src="images/arrow_prev.png" alt="" />
-        </button>
-        <button class="btn_next">
+        </span>
+        <span class="btn_next">
           <img src="images/arrow_next.png" alt="" />
-        </button>
+        </span>
       </div>
       <ul>
         <li>
@@ -817,6 +856,27 @@
               >에빠끌라 딥 클렌징 포밍 크림 125ml<br
             /></span>
             <span class="product_price">28,000원</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section class="skinwrap">
+      <h2><img src="images/title_skin.png" alt="title_skin" /></h2>
+      <ul class="skin_btn">
+        <li><a href="#">트러블케어</a></li>
+        <li><a href="#">민감피부케어</a></li>
+        <li><a href="#">외부자극피부케어</a></li>
+        <li><a href="#">탄력&주름케어</a></li>
+      </ul>
+      <ul class="skin_product">
+        <li>
+          <a href="#"
+            ><img src="images/product_210x210 (6).png" alt="" />
+            <span class="product_name"
+              >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
+              화장품]<br
+            /></span>
+            <span class="product_price">29,000원</span>
           </a>
         </li>
       </ul>

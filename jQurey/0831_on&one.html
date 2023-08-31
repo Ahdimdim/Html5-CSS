@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+      $(function () {
+        let i = 0;
+        $("button").on("click", function () {
+          console.log(++i);
+          if (i >= 5) {
+            $(this).off("click");
+          }
+        });
+        //one은 한번만 이벤트 발생
+        // $("button").one("click", function () {
+        //     console.log(++i)
+        // });
+      });
+    </script>
+    <style></style>
+  </head>
+  <body>
+    <button>클릭</button>
+  </body>
+</html>
