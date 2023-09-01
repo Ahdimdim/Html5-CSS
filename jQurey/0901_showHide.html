@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+      //speed : "slow","fase",1000(ms)
+      //easing : "swing","linear"
+      //callback : 메서드가 완료된 후 실행 될 구문
+      $(function () {
+        $("#hide").click(function () {
+          //$(this).text("show");
+          let txt = $("#hide").text();
+          if (txt == "hide") {
+            $("p").hide(1000, function () {
+              $("#hide").text("show");
+              console.log(txt);
+            });
+          } else {
+            $("p").show(1000, function () {
+              $("#hide").text("hide");
+            });
+          }
+        });
+        // $("#show").click(function () {
+        //   $("p").show();
+        // });
+        $("#toggle").click(function () {
+          $("p").toggle();
+        });
+
+        // $("a").click(function (e) {
+        //   e.preventDefault(); //a태그의 경로를 막음 (실행구문 처음에 넣어야 함)
+        //   $("div").fadeOut();
+        // });
+        $("a").click(function () {
+          let txt = $("a").text();
+          if (txt == "fadeOut") {
+            $("div").fadeOut(1000, function () {
+              $("a").text("fadeIn");
+            });
+          } else {
+            $("div").fadeIn(1000, function () {
+              $("a").text("fadeOut");
+            });
+          }
+          return false; //a태그의 경로를 막음 (실행구문 마지막에 넣어야 함)
+        });
+      });
+    </script>
+    <style>
+      p,
+      div {
+        width: 100px;
+        height: 100px;
+        background: #ccc;
+      }
+      section {
+        height: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <p></p>
+    <!-- <button id="show">show</button> -->
+    <button id="hide">hide</button>
+    <button id="toggle">toggle</button>
+    <section></section>
+    <div></div>
+    <a href="#">fadeOut</a>
+  </body>
+</html>

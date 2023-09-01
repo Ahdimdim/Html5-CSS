@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+      $(function () {
+        $(".lnb>ul>li").css("display", "none");
+        $(".gnb li a").hover(
+          function () {
+            let i = $(this).parent().index();
+            console.log(i);
+            $(".lnb>ul>li").eq(i).stop().slideDown();
+          },
+          //.stop 반복되는 애니메이션을 한번 끊어주는 거
+          function () {
+            $(".lnb>ul>li").stop().slideUp();
+          }
+        );
+        $(".lnb>ul>li").hover(
+          function () {
+            let i = $(this).index();
+            $(".gnb ul li").eq(i).find("a").addClass("on");
+            $(this).stop().slideDown();
+          },
+          function () {
+            $(".gnb ul li a").removeClass("on");
+            $(".lnb>ul>li").stop().slideUp();
+          }
+        );
+      });
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+      }
+      .gnb {
+        width: 1280px;
+        margin: 0 auto;
+      }
+      .gnb ul {
+        display: flex;
+        justify-content: center;
+      }
+      .gnb ul li a {
+        display: block;
+        padding: 20px;
+      }
+      .gnb ul li a:hover,
+      .gnb ul li a.on {
+        background: #ccc;
+      }
+      .lnb {
+        background: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gnb">
+      <ul>
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴4</a></li>
+        <li><a href="#">메뉴5</a></li>
+      </ul>
+    </div>
+    <div class="lnb">
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#">서브메뉴1</a></li>
+            <li><a href="#">서브메뉴1</a></li>
+            <li><a href="#">서브메뉴1</a></li>
+            <li><a href="#">서브메뉴1</a></li>
+            <li><a href="#">서브메뉴1</a></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li><a href="#">서브메뉴2</a></li>
+            <li><a href="#">서브메뉴2</a></li>
+            <li><a href="#">서브메뉴2</a></li>
+            <li><a href="#">서브메뉴2</a></li>
+            <li><a href="#">서브메뉴2</a></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li><a href="#">서브메뉴3</a></li>
+            <li><a href="#">서브메뉴3</a></li>
+            <li><a href="#">서브메뉴3</a></li>
+            <li><a href="#">서브메뉴3</a></li>
+            <li><a href="#">서브메뉴3</a></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li><a href="#">서브메뉴4</a></li>
+            <li><a href="#">서브메뉴4</a></li>
+            <li><a href="#">서브메뉴4</a></li>
+            <li><a href="#">서브메뉴4</a></li>
+            <li><a href="#">서브메뉴4</a></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li><a href="#">서브메뉴5</a></li>
+            <li><a href="#">서브메뉴5</a></li>
+            <li><a href="#">서브메뉴5</a></li>
+            <li><a href="#">서브메뉴5</a></li>
+            <li><a href="#">서브메뉴5</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

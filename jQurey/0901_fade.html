@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+      $(function () {
+        $("#fadeout").click(function () {
+          $("p").removeClass().addClass("out");
+        });
+        $("#fadein").click(function () {
+          $("p").removeClass().addClass("in");
+        });
+        let fade = true;
+        $("#fadetoggle").click(function () {
+          if (fade) {
+            $("p").removeClass().addClass("in");
+          } else {
+            $("p").removeClass().addClass("out");
+          }
+          fade = !fade; //참의 값을 부정해서 반복하게 함
+        });
+        //미리 만들어놓은 애니메이션을 클래스 적용으로 작동하게 하는 방식
+        //클래스를 추가하는 방식이라 많이 추가하다보면 코드 꼬일 수도 있으니까 id로 만들자!
+
+        $("#fadeIn").click(function () {
+          $("div").fadeIn("slow", "swing");
+        });
+        $("#fadeOut").click(function () {
+          $("div").fadeOut("fast", "linear");
+        });
+        $("#fadeToggle").click(function () {
+          $("div").fadeToggle(1000, function () {
+            $("div").text("fadeToggle");
+          });
+        });
+        //speed : "slow","fase",1000(ms)
+        //easing : "swing","linear"
+        //callback : fadeIn()메서드가 완료된 후 실행 될 구문
+      });
+    </script>
+    <style>
+      p,
+      div {
+        width: 100px;
+        height: 100px;
+        background: #ccc;
+      }
+      @keyframes hide {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      .out {
+        animation: hide 1s forwards;
+      }
+      @keyframes show {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .in {
+        animation: show 1s forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <p></p>
+    <button id="fadein">fadein</button>
+    <button id="fadeout">fadeout</button>
+    <button id="fadetoggle">fadetoggle</button>
+    <div></div>
+    <button id="fadeIn">fadein</button>
+    <button id="fadeOut">fadeout</button>
+    <button id="fadeToggle">fadetoggle</button>
+  </body>
+</html>

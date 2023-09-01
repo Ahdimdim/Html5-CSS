@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+      //페이드는 오파시티 값으로 주고 , 하이드는 디스플레이 논을 줌
+      $(function () {
+        $("#fadeOut").click(function () {
+          $("p").hide(1000, function () {
+            console.log($("p").css("display"));
+          });
+        });
+      });
+    </script>
+    <style>
+      p {
+        width: 100px;
+        height: 100px;
+        background: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <p></p>
+    <button id="fadeOut">fadeOut</button>
+  </body>
+</html>
