@@ -57,9 +57,9 @@ window.onload = function () {
   var $imgRightWidth = $(".banner_wraper.right img").width();
   var $mainWidth = $(".banner_wraper").width();
   var bannerRight = -$imgRightWidth + $mainWidth;
-  var rightFirst = 6; // 배너이미지 숫자 + 1
+  var rightFirst = 10; // 배너이미지 숫자 + 1
   var rightLast;
-  var rightImgCnt = 5; // 배너이미지 숫자
+  var rightImgCnt = 9; // 배너이미지 숫자
   var $imgRight = $(".banner_wraper.right img");
   var $rightFirst;
   var $rightLast;
@@ -88,10 +88,10 @@ window.onload = function () {
         rightFirst++;
         rightLast++;
         if (rightLast > rightImgCnt) {
-          rightLast = 6; // 배너이미지 숫자 + 1
+          rightLast = 10; // 배너이미지 숫자 + 1
         }
         if (rightFirst > rightImgCnt) {
-          rightFirst = 6; // 배너이미지 숫자 + 1
+          rightFirst = 10; // 배너이미지 숫자 + 1
         }
       }
     }, 30); //여기 값을 조정하면 속도를 조정할 수 있다.
