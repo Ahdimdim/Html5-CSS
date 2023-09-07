@@ -23,19 +23,23 @@
       section:nth-child(3) {
         background: slateblue;
       }
-      .scroll {
-        position: relative;
+      .dot {
+        position: fixed;
+        top: 50%;
+        right: 50px;
+        transform: translateY(-50%);
       }
-      .span {
-        position: absolute;
-        top: 5px;
-        right: 50%;
-        color: #fff;
-        z-index: 999;
+      span {
+        display: block;
+        padding: 10px;
+      }
+      span::after {
+        content: url(images/icon_cloud2.png);
       }
     </style>
     <script>
       $(function () {
+        $(".dot span").eq(0).css("color", "red");
         $("section").each(function (index) {
           $(this).on("mousewheel", function () {
             console.log(event.wheelDelta);
@@ -45,15 +49,24 @@
               if ($(elsel).next() != undefined) {
                 try {
                   moveTop = $(elsel).next().offset().top;
+                  $(".dot span").css("color", "#333");
+                  $(".dot span")
+                    .eq(index + 1)
+                    .css("color", "red");
                 } catch (e) {}
               }
             } else {
               if ($(elsel).prev() != undefined) {
                 try {
                   moveTop = $(elsel).prev().offset().top;
+                  $(".dot span").css("color", "#333");
+                  $(".dot span")
+                    .eq(index - 1)
+                    .css("color", "red");
                 } catch (e) {}
               }
             }
+
             $("html,body")
               .stop()
               .animate({ scrollTop: moveTop + "px" }, 500);
@@ -64,9 +77,11 @@
   </head>
   <body style="overflow: hidden">
     <div class="scroll">
-      <section></section>
-      <section></section>
-      <section></section>
+      <section>1</section>
+      <section>2</section>
+      <section>3</section>
+    </div>
+    <div class="dot">
       <span>1</span>
       <span>2</span>
       <span>3</span>

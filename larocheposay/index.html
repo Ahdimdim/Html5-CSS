@@ -465,22 +465,81 @@
         padding-right: 13.5px;
       }
 
+      .banner_w {
+        padding: 80px 0;
+      }
       .banner_wrap .left {
         margin-bottom: 10px;
       }
       .banner_wraper {
-        height: 160px;
+        height: 130px;
         width: 100%;
         position: relative;
         overflow: hidden;
-        margin: 0 auto;
+        margin: 0px auto;
         display: flex;
-        background: #cacaca;
+        background: rgb(211, 238, 253);
       }
       .banner_wraper img {
-        height: 150px;
+        height: 120px;
         position: absolute;
-        margin: 5px 0;
+        margin: 5px;
+      }
+      footer {
+        border-top: 1px solid #ddd;
+      }
+      .foot {
+        width: 1280px;
+        margin: 0 auto;
+      }
+      .foot .sns {
+        width: 500px;
+        height: 50px;
+        margin: 0 auto;
+      }
+      .foot .sns > ul {
+        display: flex;
+        justify-content: space-between;
+        line-height: 50px;
+      }
+      .foot .sns > ul li {
+        position: relative;
+      }
+      .foot .sns > ul li a {
+        color: #333;
+      }
+      .foot .sns > ul li a span {
+        color: #009ee3;
+        font-weight: bold;
+      }
+      .foot .sns > ul li a p::before {
+        position: absolute;
+        content: "|";
+        color: #d4d4d4;
+        right: -15px;
+        top: -1px;
+        font-weight: 100;
+      }
+      .foot .sns img {
+        width: 25px;
+        margin-top: 13px;
+      }
+      .foot .leri {
+        width: 1280px;
+        margin: 0 auto;
+        padding: 30px 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      .foot .leri li {
+        font-size: 14px;
+        color: #717171;
+      }
+      .foot .leri .middle {
+        text-align: center;
+      }
+      .foot .leri .middle img {
+        width: 150px;
       }
     </style>
   </head>
@@ -1254,30 +1313,84 @@
         </div>
       </div>
     </section>
-    <section class="banner_wrap">
-      <div class="banner_wraper left">
-        <img src="images/event (1).jpg" />
-        <img src="images/event (2).jpg" />
-        <img src="images/event (3).jpg" />
-        <img src="images/event (1).jpg" />
-        <img src="images/event (2).jpg" />
-        <img src="images/event (3).jpg" />
-        <img src="images/event (1).jpg" />
-        <img src="images/event (2).jpg" />
-        <img src="images/event (3).jpg" />
+    <div class="banner_w">
+      <section class="banner_wrap">
+        <div class="banner_wraper left">
+          <img src="images/event (1).jpg" />
+          <img src="images/event (2).jpg" />
+          <img src="images/event (3).jpg" />
+          <img src="images/event (1).jpg" />
+          <img src="images/event (2).jpg" />
+          <img src="images/event (3).jpg" />
+          <img src="images/event (1).jpg" />
+          <img src="images/event (2).jpg" />
+          <img src="images/event (3).jpg" />
+        </div>
+        <div class="banner_wraper right">
+          <img src="images/event (1).jpg" />
+          <img src="images/event (1).jpg" />
+          <img src="images/event (1).jpg" />
+          <img src="images/event (1).jpg" />
+          <img src="images/event (1).jpg" />
+          <img src="images/event (1).jpg" />
+          <img src="images/event (1).jpg" />
+          <img src="images/event (1).jpg" />
+          <img src="images/event (1).jpg" />
+        </div>
+      </section>
+    </div>
+    <footer>
+      <div class="foot">
+        <div class="sns">
+          <ul>
+            <li>
+              <a href="#"><p>ABOUT US</p></a>
+            </li>
+            <li>
+              <a href="#"><p>이용약관</p></a>
+            </li>
+            <li>
+              <a href="#"
+                ><span><p>개인정보처리방침</p></span></a
+              >
+            </li>
+            <li>
+              <a href="#"><img src="images/sns_facebook.png" alt="" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="images/sns_youtube.png" alt="" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="images/sns_naver.png" alt="" /></a>
+            </li>
+          </ul>
+        </div>
+        <div class="leri">
+          <ul class="left">
+            <li>
+              <span>엘오케이(유)</span>대표 : 사무엘 티보 부티에 뒤 리테일
+            </li>
+            <li>구매/배송/사이트 이용 문의 080-844-0088</li>
+            <li>상담 시간 : 평일 09:30 - 17:30 (점심시간 12:30 - 13:30)</li>
+            <li>COPYRIGHT © 2018 LA ROCHE-POSAY ALL RIGHTS RESERVED</li>
+          </ul>
+          <ul class="middle">
+            <li>
+              <a href="#"><img src="images/logo.png" alt="" /></a>
+            </li>
+          </ul>
+          <ul class="right">
+            <li>서울특별시 강남구 영동대로 517(삼성동, 아셈타워 31층)</li>
+            <li>
+              <span>사업자등록번호 220-81-73483</span> 통신판매업신고번호
+              2012-서울강남-01663
+            </li>
+            <li>개인정보보호책임자 신은경 (IMC&E-commerce Director)</li>
+            <li>호스팅서비스사업자 : (주)아이네트</li>
+          </ul>
+        </div>
       </div>
-      <div class="banner_wraper right">
-        <img src="images/event (1).jpg" />
-        <img src="images/event (1).jpg" />
-        <img src="images/event (1).jpg" />
-        <img src="images/event (1).jpg" />
-        <img src="images/event (1).jpg" />
-        <img src="images/event (1).jpg" />
-        <img src="images/event (1).jpg" />
-        <img src="images/event (1).jpg" />
-        <img src="images/event (1).jpg" />
-      </div>
-    </section>
+    </footer>
     <script src="js/banner.js"></script>
   </body>
 </html>
