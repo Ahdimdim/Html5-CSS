@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      body {
+        width: 100%;
+        height: 23000px;
+        font-family: "Orbitron", sans-serif;
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+      .bg {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: url(images/space.jpg) center top/cover no-repeat;
+      }
+      section {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        perspective: 2300px;
+      }
+      section article {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0.5;
+      }
+      section article:first-child {
+        transform: translateZ(-25000px);
+      }
+      section article:nth-child(2) {
+        transform: translateZ(-20000px);
+      }
+      section article:nth-child(3) {
+        transform: translateZ(-15000px);
+      }
+      section article:nth-child(4) {
+        transform: translateZ(0px);
+      }
+      section article img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      section article.on {
+        opacity: 1;
+        z-index: 1;
+      }
+    </style>
+    <script>
+      //스크롤이벤트
+      $(function () {
+        $("html,body").stop().animate({ scrollTop: 0 }, 1500); //문서 새로고침 때 맨 위로
+        $(window).scroll(function () {
+          let scroll = $(this).scrollTop();
+          console.log(scroll);
+          for (
+            let i = 0;
+            i < 1; //아티클이 갯수
+            i++
+          ) {
+            $("section article")
+              .eq(i)
+              .css({
+                transform: "translateZ(" + parseInt(-5000 * i + scroll) + "px)",
+              }); // css에 5000씩 증가 했던 값 * 이미지레이어 스크롤 연동
+            if (scroll >= i * 5000 && scroll < (i + 1) * 5000) {
+              $("section article").removeClass("on");
+              $("section article").eq(i).addClass("on");
+            }
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <section>
+      <article class="on">
+        <img src="images/blue-planet.png" alt="" />
+      </article>
+    </section>
+  </body>
+</html>
