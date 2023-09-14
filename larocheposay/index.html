@@ -295,12 +295,14 @@
         height: 350px;
         margin: 0 auto;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
+        overflow: hidden;
       }
       .bestseller ul li {
         width: 210px;
         height: 100%;
         text-align: center;
+        padding: 50px;
       }
       .bestseller ul li a {
         line-height: 15px;
@@ -309,8 +311,6 @@
       .bestseller ul li img {
         width: 210px;
         padding-bottom: 20px;
-      }
-      .bestseller ul li:hover img {
       }
       .bestseller ul li .product_price {
         color: #009ee3;
@@ -414,11 +414,13 @@
         height: 250px;
         padding: 20px;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
       }
       .skinwrap .skin_product li:hover {
         transform: scale(1.109);
         background: #009ee3;
+      }
+      .skinwrap .skin_product a:hover {
       }
       .skinwrap .skin_product li a {
         color: #333;
@@ -836,52 +838,98 @@
         </div>
       </section>
     </div>
-    <script src="js/slide.js"></script>
     <section class="bestseller">
       <h2><img src="images/title_best.png" alt="" /></h2>
-      <div class="btn">
-        <span class="btn_prev">
-          <img src="images/arrow_prev.png" alt="" />
-        </span>
-        <span class="btn_next">
-          <img src="images/arrow_next.png" alt="" />
-        </span>
+      <div class="pslideShow">
+        <div class="btn">
+          <span class="btn_prev">
+            <img src="images/arrow_prev.png" alt="" />
+          </span>
+          <span class="btn_next">
+            <img src="images/arrow_next.png" alt="" />
+          </span>
+        </div>
+        <ul class="pslides">
+          <li>
+            <a href="#"
+              ><img src="images/product_210x210 (6).png" alt="" />
+              <span class="product_name"
+                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
+                화장품]<br
+              /></span>
+              <span class="product_price">29,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_210x210 (7).png" alt="" />
+              <span class="product_name">시카플라스트 밤 B5+<br /></span>
+              <span class="product_price">39,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_210x210 (13).png" alt="" />
+              <span class="product_name">에빠끌라K(+) 토너 [200ml]<br /></span>
+              <span class="product_price">35,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_1040x1040.png" alt="" />
+              <span class="product_name"
+                >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_1040x1040.png" alt="" />
+              <span class="product_name"
+                >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_1040x1040.png" alt="" />
+              <span class="product_name"
+                >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_1040x1040.png" alt="" />
+              <span class="product_name"
+                >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_1040x1040.png" alt="" />
+              <span class="product_name"
+                >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_1040x1040.png" alt="" />
+              <span class="product_name"
+                >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+        </ul>
       </div>
-      <ul>
-        <li>
-          <a href="#"
-            ><img src="images/product_210x210 (6).png" alt="" />
-            <span class="product_name"
-              >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-              화장품]<br
-            /></span>
-            <span class="product_price">29,000원</span>
-          </a>
-        </li>
-        <li>
-          <a href="#"
-            ><img src="images/product_210x210 (7).png" alt="" />
-            <span class="product_name">시카플라스트밤 B5+<br /></span>
-            <span class="product_price">39,000원</span>
-          </a>
-        </li>
-        <li>
-          <a href="#"
-            ><img src="images/product_210x210 (13).png" alt="" />
-            <span class="product_name">에빠끌라K(+) 토너 [200ml]<br /></span>
-            <span class="product_price">35,000원</span>
-          </a>
-        </li>
-        <li>
-          <a href="#"
-            ><img src="images/product_1040x1040.png" alt="" />
-            <span class="product_name"
-              >에빠끌라 딥 클렌징 포밍 크림 125ml<br
-            /></span>
-            <span class="product_price">28,000원</span>
-          </a>
-        </li>
-      </ul>
     </section>
     <section class="video_product">
       <div class="video">
@@ -911,7 +959,7 @@
         </div>
       </div>
     </section>
-    <section class="bestseller">
+    <section class="hotdeal bestseller">
       <h2><img src="images/title_hot.png" alt="" /></h2>
       <div class="btn">
         <span class="btn_prev">
@@ -935,7 +983,7 @@
         <li>
           <a href="#"
             ><img src="images/product_210x210 (7).png" alt="" />
-            <span class="product_name">시카플라스트밤 B5+<br /></span>
+            <span class="product_name">시카플라스트 밤 B5+<br /></span>
             <span class="product_price">39,000원</span>
           </a>
         </li>
@@ -969,7 +1017,40 @@
         <ul class="skin_product">
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
+              ><div><img src="images/productTypeA (1).png" alt="" /></div>
+              <span class="product_name">에빠끌라 A.I.에센스<br /></span>
+              <span class="product_price">18,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeA (2).png" alt="" /></div>
+              <span class="product_name">에바끌라 K(+)토너[200ml] <br /></span>
+              <span class="product_price">35,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeA (3).png" alt="" /></div>
+              <span class="product_name"
+                >에빠끌라 울트라 컨센트레이티드 세럼 30ml <br
+              /></span>
+              <span class="product_price">48,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeA (4).png" alt="" /></div>
+              <span class="product_name"
+                >에빠끌라H 아이소바이옴 울트라 수딩 클렌저<br />[병원판매
+                화장품]<br
+              /></span>
+              <span class="product_price">25,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeA (5).png" alt="" /></div>
               <span class="product_name"
                 >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
                 화장품]<br
@@ -979,324 +1060,198 @@
           </li>
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
+              ><div><img src="images/productTypeA (6).png" alt="" /></div>
               <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
+                >에빠끌라 MAT 세보 컨트롤링 모이스춰라이저[40ml]<br
               /></span>
-              <span class="product_price">29,000원</span>
+              <span class="product_price">34,000원</span>
             </a>
           </li>
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
+              ><div><img src="images/productTypeA (7).png" alt="" /></div>
+              <span class="product_name">에빠끌라 듀오(+) 에센스<br /></span>
+              <span class="product_price">31,000원</span>
             </a>
           </li>
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
+              ><div><img src="images/productTypeA (8).png" alt="" /></div>
               <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
+                >에빠끌라 딥 클렌징 포밍 크림 [125ml]<br
               /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
+              <span class="product_price">28,000원</span>
             </a>
           </li>
         </ul>
         <ul class="skin_product">
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
+              ><div><img src="images/productTypeB (1).png" alt="" /></div>
               <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
+                >똘러리앙 퓨리파잉 포밍 크림[125ml]<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeB (2).png" alt="" /></div>
+              <span class="product_name"
+                >똘러리앙 덤알레르고<br />[병원판매 화장품]<br
+              /></span>
+              <span class="product_price">45,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeB (3).png" alt="" /></div>
+              <span class="product_name"
+                >똘러리앙 울트라 더모-하이드레이팅 포밍젤[150ml]<br
+              /></span>
+              <span class="product_price">31,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeB (4).png" alt="" /></div>
+              <span class="product_name"
+                >똘러리앙 덤알레르고 플루이드[40ml]<br
               /></span>
               <span class="product_price">29,000원</span>
             </a>
           </li>
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
+              ><div><img src="images/productTypeB (5).png" alt="" /></div>
               <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
+                >똘러리앙 울트라 로션[400ml]<br
               /></span>
-              <span class="product_price">29,000원</span>
+              <span class="product_price">48,000원</span>
             </a>
           </li>
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
+              ><div><img src="images/productTypeB (6).png" alt="" /></div>
               <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
+                >똘러리앙 덤알레르고 크림[40ml]<br
               /></span>
-              <span class="product_price">29,000원</span>
+              <span class="product_price">32,000원</span>
             </a>
           </li>
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
+              ><div><img src="images/productTypeB (7).png" alt="" /></div>
               <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
+                >똘러리앙 울트라 로션 [200ml]<br
               /></span>
-              <span class="product_price">29,000원</span>
+              <span class="product_price">31,000원</span>
+            </a>
+          </li>
+          <li></li>
+        </ul>
+        <ul class="skin_product">
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeC (1).png" alt="" /></div>
+              <span class="product_name"
+                >시카플라스트 라방 B5 클렌저<br
+              /></span>
+              <span class="product_price">22,000원</span>
             </a>
           </li>
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
+              ><div><img src="images/productTypeC (2).png" alt="" /></div>
               <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
+                >시카플라스트 멀티 리페어 크림 B5[100ml]<br
               /></span>
-              <span class="product_price">29,000원</span>
+              <span class="product_price">46,000원</span>
             </a>
           </li>
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
+              ><div><img src="images/productTypeC (3).png" alt="" /></div>
               <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
+                >시카플라스트 마스크 B5 시트 1매<br
               /></span>
-              <span class="product_price">29,000원</span>
+              <span class="product_price">12,000원</span>
             </a>
           </li>
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
+              ><div><img src="images/productTypeC (4).png" alt="" /></div>
               <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
+                >시카플라스트 리페어 세럼 B5[30ml]<br
               /></span>
-              <span class="product_price">29,000원</span>
+              <span class="product_price">48,000원</span>
             </a>
           </li>
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
+              ><div><img src="images/productTypeC (5).png" alt="" /></div>
               <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
+                >시카플라스트 밤 B5[100ml] + 히알루 B5 세럼[30ml] <br
               /></span>
-              <span class="product_price">29,000원</span>
+              <span class="product_price">76,588원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeC (6).png" alt="" /></div>
+              <span class="product_name"
+                >시카플라스트 젤 B5 [40ml]<br />[병원판매 화장품]<br
+              /></span>
+              <span class="product_price">27,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeC (7).png" alt="" /></div>
+              <span class="product_name">시카플라스트 밤 B5+[100ml]<br /></span>
+              <span class="product_price">39,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeC (8).png" alt="" /></div>
+              <span class="product_name"
+                >시카플라스트 B5 세럼 더블 세트<br
+              /></span>
+              <span class="product_price">75,500원</span>
             </a>
           </li>
         </ul>
         <ul class="skin_product">
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
+              ><div><img src="images/productTypeD (1).png" alt="" /></div>
+              <span class="product_name">히알루 B5 세럼[30ml]<br /></span>
+              <span class="product_price">54,000원</span>
             </a>
           </li>
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
+              ><div><img src="images/productTypeD (2).png" alt="" /></div>
+              <span class="product_name">히알루 B5 세럼[50ml]<br /></span>
+              <span class="product_price">73,000원</span>
             </a>
           </li>
           <li>
             <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
+              ><div><img src="images/productTypeD (3).png" alt="" /></div>
+              <span class="product_name">퓨어 비타민 C10 세럼[30ml]<br /></span>
+              <span class="product_price">54,000원</span>
             </a>
           </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-        </ul>
-        <ul class="skin_product">
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (5).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              ><div><img src="images/product_210x210 (6).png" alt="" /></div>
-              <span class="product_name"
-                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
-                화장품]<br
-              /></span>
-              <span class="product_price">29,000원</span>
-            </a>
-          </li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
       </div>
     </section>
-    <script src="js/skin.js"></script>
     <section class="review">
       <h2><img src="images/title_review.png" alt="title_review" /></h2>
       <div class="review_img">
@@ -1327,15 +1282,15 @@
           <img src="images/event (3).jpg" />
         </div>
         <div class="banner_wraper right">
-          <img src="images/event (1).jpg" />
-          <img src="images/event (1).jpg" />
-          <img src="images/event (1).jpg" />
-          <img src="images/event (1).jpg" />
-          <img src="images/event (1).jpg" />
-          <img src="images/event (1).jpg" />
-          <img src="images/event (1).jpg" />
-          <img src="images/event (1).jpg" />
-          <img src="images/event (1).jpg" />
+          <img src="images/event (4).jpeg" />
+          <img src="images/event (5).jpeg" />
+          <img src="images/event (4).jpeg" />
+          <img src="images/event (5).jpeg" />
+          <img src="images/event (4).jpeg" />
+          <img src="images/event (5).jpeg" />
+          <img src="images/event (4).jpeg" />
+          <img src="images/event (5).jpeg" />
+          <img src="images/event (4).jpeg" />
         </div>
       </section>
     </div>
@@ -1391,6 +1346,6 @@
         </div>
       </div>
     </footer>
-    <script src="js/banner.js"></script>
+    <script src="js/larocheposay.js"></script>
   </body>
 </html>
