@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      @font-face {
+        font-family: "Neodgm";
+        src: url(webfonts/neodgm.woff) format("woff");
+      }
+      @font-face {
+        font-family: "Neo특수";
+        font-style: normal;
+        src: url(webfonts/neodgm_code.woff) format("woff");
+      }
+      body {
+        font-family: "Neodgm", "Neo특수", sans-serif;
+      }
+      section {
+        height: 100vh;
+      }
+      .bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+      }
+      .bg video {
+        object-fit: cover;
+        width: 100vw;
+        height: 100vh;
+      }
+      section:first-child {
+        background: silver;
+      }
+      section:nth-child(2) {
+        background: skyblue;
+      }
+      section:nth-child(3) {
+        background: slateblue;
+      }
+      .dot {
+        position: fixed;
+        top: 50%;
+        right: 50px;
+        transform: translateY(-50%);
+      }
+      span {
+        display: block;
+        padding: 10px;
+      }
+      .dot span.on:after {
+        content: url(images/icon_cloud2.png);
+        position: relative;
+        top: 10px;
+        left: 5px;
+      }
+    </style>
+    <script>
+      $(function () {
+        $(".dot span").eq(0).css("color", "red");
+        $("section").each(function (index) {
+          $(this).on("mousewheel", function () {
+            console.log(event.wheelDelta);
+            let moveTop = $(window).scrollTop();
+            let elsel = $("section").eq(index);
+            if (event.wheelDelta < 0) {
+              if ($(elsel).next() != undefined) {
+                try {
+                  moveTop = $(elsel).next().offset().top;
+                  $(".dot span").css("color", "#333");
+                  $(".dot span")
+                    .eq(index + 1)
+                    .css("color", "red");
+                } catch (e) {}
+              }
+            } else {
+              if ($(elsel).prev() != undefined) {
+                try {
+                  moveTop = $(elsel).prev().offset().top;
+                  $(".dot span").css("color", "#333");
+                  $(".dot span")
+                    .eq(index - 1)
+                    .css("color", "red");
+                } catch (e) {}
+              }
+            }
+
+            $("html,body")
+              .stop()
+              .animate({ scrollTop: moveTop + "px" }, 500);
+          });
+        });
+      });
+    </script>
+  </head>
+  <body style="overflow: hidden">
+    <div class="scroll">
+      <section>
+        <div class="bg">
+          <video autoplay muted loop src="video/sky.mp4"></video>
+        </div>
+      </section>
+      <section>2</section>
+      <section>3</section>
+    </div>
+    <div class="dot">
+      <span class="on">1</span>
+      <span>2</span>
+      <span>3</span>
+    </div>
+  </body>
+</html>
