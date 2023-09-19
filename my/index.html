@@ -121,7 +121,7 @@
         color: #66c2ff;
         overflow: hidden;
         animation: animate 7s linear infinite;
-        border-right: 4px solid #66c2ff;
+        border-right: 4px solid rgb(102, 194, 255);
       }
 
       @keyframes animate {
@@ -239,7 +239,7 @@
         //별색상과 별그림자색
         context.lineTo(0, this.length);
         context.closePath();
-        context.fillStyle = "rgba(200, 235, 255, " + this.opacity + ")";
+        context.fillStyle = "rgba(102, 194, 255, " + this.opacity + ")";
         context.shadowBlur = 5;
         context.shadowColor = "#ffff33";
         context.fill();
@@ -250,7 +250,7 @@
       //행성--------------------------------------
       $(function () {
         $(".planet,.planetC").click(function () {
-          $(".planet").css({ transform: "scale(80)" });
+          $(".planet").css({ transform: "scale(20)" });
           setTimeout(function () {
             $(".planet").hide();
           }, 800);

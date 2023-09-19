@@ -42,9 +42,7 @@
       section:first-child {
         background: silver;
       }
-      section:nth-child(2) {
-        background: skyblue;
-      }
+
       section:nth-child(3) {
         background: slateblue;
       }
@@ -55,19 +53,33 @@
         transform: translateY(-50%);
       }
       span {
+        position: relative;
         display: block;
-        padding: 10px;
+        padding: 18px;
       }
       .dot span.on:after {
         content: url(images/icon_cloud2.png);
-        position: relative;
-        top: 10px;
-        left: 5px;
+        position: absolute;
+        top: 9px;
+        left: 7px;
+        z-index: -1;
+        transition: animate 1s;
+      }
+      @keyframes animate {
+        0% {
+          width: 0;
+        }
+        50% {
+          width: 99%;
+        }
+        100% {
+          width: 0;
+        }
       }
     </style>
     <script>
       $(function () {
-        $(".dot span").eq(0).css("color", "red");
+        $(".dot span").eq(0).css("color", "#bbb");
         $("section").each(function (index) {
           $(this).on("mousewheel", function () {
             console.log(event.wheelDelta);
@@ -77,20 +89,22 @@
               if ($(elsel).next() != undefined) {
                 try {
                   moveTop = $(elsel).next().offset().top;
-                  $(".dot span").css("color", "#333");
+                  $(".dot span").css("color", "#bbb").removeClass("on");
                   $(".dot span")
                     .eq(index + 1)
-                    .css("color", "red");
+                    .css("color", "#333")
+                    .addClass("on");
                 } catch (e) {}
               }
             } else {
               if ($(elsel).prev() != undefined) {
                 try {
                   moveTop = $(elsel).prev().offset().top;
-                  $(".dot span").css("color", "#333");
+                  $(".dot span").css("color", "#bbb").removeClass("on");
                   $(".dot span")
                     .eq(index - 1)
-                    .css("color", "red");
+                    .css("color", "#333")
+                    .addClass("on");
                 } catch (e) {}
               }
             }
