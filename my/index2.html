@@ -27,6 +27,79 @@
       section {
         height: 100vh;
       }
+      :root {
+        --mask-size: 50px;
+        --mask-x: -25px;
+        --mask-y: -25px;
+      }
+      .main {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .main .page {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+      }
+      .main .page .inner {
+        position: absolute;
+      }
+      .main .page .innerCont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+      }
+      .main .page h2 {
+        font-size: 50px;
+        line-height: 1;
+      }
+      .main .page p {
+        font-size: 30px;
+        margin-top: 40px;
+      }
+      .main .page .night {
+        position: absolute;
+        bottom: -300px;
+        left: 0;
+        width: 100%;
+        display: none;
+      }
+      .main .page .night img {
+        width: 100%;
+        height: 100%;
+      }
+      .main .page .bg .cover {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(241deg, #333, #333);
+        opacity: 0.8;
+      }
+      .main .page .mask {
+        color: #94cfff;
+        clip-path: circle(var(--mask-size) at var(--mask-x) var(--mask-y));
+      }
+      .main .page .hoverL {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        width: 100%;
+        height: 400px;
+      }
       .bg {
         position: absolute;
         left: 0;
@@ -34,7 +107,7 @@
         width: 100%;
         height: 100vh;
       }
-      .bg video {
+      video {
         object-fit: cover;
         width: 100vw;
         height: 100vh;
@@ -51,11 +124,16 @@
         top: 50%;
         right: 50px;
         transform: translateY(-50%);
+        cursor: pointer;
       }
       span {
         position: relative;
         display: block;
         padding: 18px;
+        color: #bbb;
+      }
+      .dot span.on {
+        color: #333;
       }
       .dot span.on:after {
         content: url(images/icon_cloud2.png);
@@ -63,23 +141,11 @@
         top: 9px;
         left: 7px;
         z-index: -1;
-        transition: animate 1s;
-      }
-      @keyframes animate {
-        0% {
-          width: 0;
-        }
-        50% {
-          width: 99%;
-        }
-        100% {
-          width: 0;
-        }
       }
     </style>
     <script>
       $(function () {
-        $(".dot span").eq(0).css("color", "#bbb");
+        //도트 휠----------------------------------------------------------
         $("section").each(function (index) {
           $(this).on("mousewheel", function () {
             console.log(event.wheelDelta);
@@ -108,11 +174,52 @@
                 } catch (e) {}
               }
             }
-
             $("html,body")
               .stop()
               .animate({ scrollTop: moveTop + "px" }, 500);
           });
+        });
+      });
+
+      //마스크--------------------
+      $(function () {
+        let x_posi = 0;
+        let y_posi = 0;
+        let x_current = -50;
+        let y_current = -50;
+        let masksize = 50;
+        let size_current = 0;
+        let acc = 0.11; //움직이는 속도
+        let acc2 = 0.15; //마우스 커지는 속도
+        $(document).mousemove(function (e) {
+          x_posi = e.pageX;
+          y_posi = e.pageY;
+          calEase();
+        });
+        function calEase() {
+          x_current = x_current + (x_posi - x_current) * acc;
+          y_current = y_current + (y_posi - y_current) * acc;
+          size_current = size_current + (masksize - size_current) * acc2;
+          $(".mask").css({
+            "--mask-size": size_current + "px",
+            "--mask-x": x_current + "px",
+            "--mask-y": y_current + "px",
+          });
+        }
+        $(".hoverL").hover(
+          function () {
+            masksize = 250; //마스크 사이즈 키웠다가
+          },
+
+          function () {
+            masksize = 20; //작아짐
+          }
+        );
+
+        //애니메이트------
+        $(function () {
+          $(".night").css("display", "block");
+          $(".night").animate({ bottom: "0px" }, 500, "linear");
         });
       });
     </script>
@@ -120,8 +227,36 @@
   <body style="overflow: hidden">
     <div class="scroll">
       <section>
-        <div class="bg">
-          <video autoplay muted loop src="video/sky.mp4"></video>
+        <div class="main">
+          <div class="page">
+            <div class="bg innerCont">
+              <video autoplay muted loop src="video/star.mp4"></video>
+              <div class="cover"></div>
+              <div class="inner">
+                <h2>WELCOME AHRIM PLANET</h2>
+                <p>~하는 권아림입니다.</p>
+              </div>
+              <div class="night">
+                <img src="images/light.png" alt="" />
+              </div>
+            </div>
+            <div class="mask innerCont">
+              <video
+                autoplay
+                muted
+                loop
+                src="video/stars_-_67251 (720p).mp4"
+              ></video>
+              <div class="inner">
+                <h2>WELCOME AHRIM PLANET</h2>
+                <p>~하는 권아림입니다.</p>
+              </div>
+            </div>
+            <div class="hoverL"></div>
+            <div class="night">
+              <img src="images/night.png" alt="" />
+            </div>
+          </div>
         </div>
       </section>
       <section>2</section>
