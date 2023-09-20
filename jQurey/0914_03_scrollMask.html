@@ -106,10 +106,11 @@
         }
         $(".hoverLayer").hover(
           function () {
-            masksize = 250;
+            masksize = 250; //마스크 사이즈 키웠다가
           },
+
           function () {
-            masksize - 50;
+            masksize = 50; //작아짐
           }
         );
       });
