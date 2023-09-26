@@ -41,26 +41,51 @@
       nav {
         position: fixed;
         display: flex;
-        width: 100%;
-        justify-content: space-around;
+        width: 80%;
+        justify-content: space-between;
         line-height: 50px;
         z-index: 200000;
+        left: 50%;
+        transform: translateX(-50%);
       }
       nav a {
         color: #fff;
         letter-spacing: 1px;
       }
       nav .logo {
-        width: 30%;
         font-size: 27px;
       }
       nav ul {
-        width: 20%;
         display: flex;
       }
       nav ul li {
         margin: 0px 10px;
         font-size: 30px;
+      }
+      nav ul li a {
+        position: relative;
+      }
+      nav ul li a.on {
+        color: #66c2ff;
+        transition: 1s;
+      }
+      nav ul li a:hover {
+        color: #66c2ff;
+        transition: 1s;
+      }
+      nav > ul > li > a::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        bottom: -3px;
+        left: 0;
+        background: #66c2ff;
+        transform: scaleX(0);
+        transition: 0.5s;
+      }
+      nav > ul > li > a:hover::after {
+        transform: scaleX(1);
       }
       /* 1페이지 */
       :root {
@@ -333,10 +358,141 @@
           opacity: 1;
         }
       }
+      /* 2 페이지 */
+      #about,
+      #portfolio {
+        position: relative;
+        background: #000;
+      }
+      .content {
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        background: #fff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+      }
+      .left {
+        width: 40%;
+        height: 100%;
+        border: 1px solid #f00;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+      }
+      .photo {
+        width: 100%;
+        height: 50%;
+        border: 1px solid #00f;
+        border-radius: 30px;
+      }
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .profile {
+        width: 100%;
+        height: 50%;
+        border: 1px solid #00f;
+        border-radius: 30px;
+        font-size: 1.5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 40px;
+      }
+      .right {
+        width: 60%;
+        height: 100%;
+        border: 1px solid #f00;
+        padding: 10px;
+      }
+      .hi {
+        width: 100%;
+        height: 60%;
+        font-size: 20px;
+        border: 1px solid #00f;
+      }
+      .skillbar {
+        width: 100%;
+        height: 40%;
+      }
+      .skill {
+        width: 100%;
+        height: 100%;
+      }
+      .skill li {
+        width: 100%;
+        height: calc(100% / 4);
+      }
+      .skill li span {
+        height: 1px;
+        background: #00f;
+        animation: width 2s;
+        transition-timing-function: linear;
+      }
+      @keyframes width {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+      /* 3 페이지 */
+      #slideShow {
+        position: relative;
+        padding: 30px;
+      }
+      .slides {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 0.5s ease-out;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        border: 1px solid #f00;
+      }
+      .slides img {
+        width: 100%;
+      }
+      .slides li:not(:last-child) {
+        float: left;
+      }
+      .controller span {
+        position: absolute;
+        color: #66c2ff;
+        text-align: center;
+        border-radius: 50%;
+        padding: 10px 20px;
+        top: 45%;
+        font-size: 1.3em;
+        cursor: pointer;
+        transition: 0.5s;
+      }
+      .prev {
+        left: 10px;
+      }
+      .prev:hover {
+        transform: translateX(-10px);
+      }
+      .next {
+        right: 10px;
+      }
+      .next:hover {
+        transform: translateX(10px);
+      }
     </style>
     <script>
       $(function () {
-        //도트, 휠----------------------------------------
+        //도트&nav, 휠----------------------------------------
         $("section").each(function (index) {
           $(this).on("mousewheel", function () {
             console.log(event.wheelDelta);
@@ -351,6 +507,11 @@
                     .eq(index + 1)
                     .css("color", "#333")
                     .addClass("on");
+                  $(".innernav li").children().removeClass("on");
+                  $(".innernav li")
+                    .eq(index + 1)
+                    .children()
+                    .addClass("on");
                 } catch (e) {}
               }
             } else {
@@ -362,6 +523,11 @@
                     .eq(index - 1)
                     .css("color", "#333")
                     .addClass("on");
+                  $(".innernav li").children().removeClass("on");
+                  $(".innernav li")
+                    .eq(index - 1)
+                    .children()
+                    .addClass("on");
                 } catch (e) {}
               }
             }
@@ -371,20 +537,24 @@
           });
         });
       });
-      //메뉴 클릭시 도트--------------------
+      //메뉴 클릭시 도트,메뉴--------------------
       $(function () {
         $(".innernav li").click(function () {
           let i = $(this).index();
           $(".dot span").removeClass("on");
           $(".dot span").eq(i).addClass("on");
+          $(".innernav li").children().removeClass("on");
+          $(this).children().addClass("on");
         });
       });
-      //도트 클릭시-----------------------
+      //도트 클릭시,메뉴-----------------------
       $(function () {
         $(".dot span a").click(function () {
           let i = $(this).parent().index();
           $(".dot span").removeClass("on");
           $(".dot span").eq(i).addClass("on");
+          $(".innernav li").children().removeClass("on");
+          $(".innernav li").eq(i).children().addClass("on");
         });
       });
       //마스크--------------------
@@ -426,7 +596,7 @@
         $(function () {
           //홈 애니메이션
           $(".night").css("display", "block");
-          $(".night").animate({ bottom: "0px" }, 500, "linear");
+          $(".night").animate({ bottom: "-4px" }, 500, "linear");
         });
       });
     </script>
@@ -440,7 +610,7 @@
           </h1>
         </div>
         <ul class="innernav">
-          <li><a href="#home">HOME</a></li>
+          <li><a href="#home" class="on">HOME</a></li>
           <li><a href="#about">ABOUT</a></li>
           <li><a href="#portfolio">PORTFOLIO</a></li>
         </ul>
@@ -495,8 +665,56 @@
           </div>
         </div>
       </section>
-      <section id="about">2</section>
-      <section id="portfolio">3</section>
+      <section id="about">
+        <div class="content">
+          <div class="left">
+            <div class="photo">
+              <img src="images/blue_planet.png" alt="" />
+            </div>
+            <ul class="profile">
+              <li>
+                Name 권아림<br />
+                Birth ----.--.--<br />
+                Phone 010.----.----<br />Mail dim_ing@naver.com
+              </li>
+            </ul>
+          </div>
+          <div class="right">
+            <div class="hi">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum.
+            </div>
+            <div class="skillbar">
+              <ul class="skill">
+                <li>Figma <span>00%</span></li>
+                <li>HTML <span>00%</span></li>
+                <li>CSS <span>00%</span></li>
+                <li>Javascript <span>00%</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="portfolio">
+        <div class="content" id="slideShow">
+          <ul class="slides">
+            <li><img src="" alt="" /></li>
+            <li><img src="" alt="" /></li>
+          </ul>
+          <p class="controller">
+            <span class="prev">&lang;</span>
+            <span class="next">&rang;</span>
+          </p>
+        </div>
+      </section>
     </div>
     <div class="dot">
       <span class="on"><a href="#home">1</a></span>
