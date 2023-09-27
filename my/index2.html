@@ -418,10 +418,12 @@
         height: 60%;
         font-size: 20px;
         border: 1px solid #00f;
+        padding: 20px;
       }
       .skillbar {
         width: 100%;
         height: 40%;
+        padding: 20px;
       }
       .skill {
         width: 100%;
@@ -430,19 +432,68 @@
       .skill li {
         width: 100%;
         height: calc(100% / 4);
+        padding-bottom: 10px;
       }
-      .skill li span {
+      .skill span {
+        text-align: end;
         height: 1px;
-        background: #00f;
-        animation: width 2s;
+        line-height: 1px;
+        color: #000;
+        border-radius: 10px;
+      }
+      .skillw1.widthon1 {
+        background: #a8a8a8;
+        animation: width1 2s forwards;
         transition-timing-function: linear;
       }
-      @keyframes width {
+      .skillw2.widthon2 {
+        height: 1px;
+        background: #66c2ff;
+        animation: width2 2s forwards;
+        transition-timing-function: linear;
+      }
+      .skillw3.widthon3 {
+        height: 1px;
+        background: rgb(255, 224, 178);
+        animation: width3 2s forwards;
+        transition-timing-function: linear;
+      }
+      .skillw4.widthon4 {
+        height: 1px;
+        background: pink;
+        animation: width4 2s forwards;
+        transition-timing-function: linear;
+      }
+      @keyframes width1 {
         0% {
           width: 0%;
         }
         100% {
-          width: 100%;
+          width: 75%;
+        }
+      }
+      @keyframes width2 {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 95%;
+        }
+      }
+      @keyframes width3 {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 90%;
+        }
+      }
+      @keyframes width4 {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 80%;
         }
       }
       /* 3 페이지 */
@@ -459,9 +510,23 @@
         height: 100%;
         padding: 20px;
         border: 1px solid #f00;
+        overflow: hidden;
+      }
+      .slides li {
+        position: relative;
+        background: url(images/mac.png) no-repeat left bottom/50%;
+        height: 100%;
+        width: 100%;
       }
       .slides img {
-        width: 100%;
+        position: absolute;
+        top: 13%;
+        left: 0%;
+        width: 48%;
+      }
+      .slides img:hover {
+        transform: translateY(-50%);
+        transition: 2s;
       }
       .slides li:not(:last-child) {
         float: left;
@@ -473,7 +538,8 @@
         border-radius: 50%;
         padding: 10px 20px;
         top: 45%;
-        font-size: 1.3em;
+        font-size: 1.5em;
+        font-weight: bold;
         cursor: pointer;
         transition: 0.5s;
       }
@@ -494,10 +560,12 @@
       $(function () {
         //도트&nav, 휠----------------------------------------
         $("section").each(function (index) {
+          console.log(index);
           $(this).on("mousewheel", function () {
             console.log(event.wheelDelta);
             let moveTop = $(window).scrollTop();
             let elsel = $("section").eq(index);
+
             if (event.wheelDelta < 0) {
               if ($(elsel).next() != undefined) {
                 try {
@@ -512,6 +580,11 @@
                     .eq(index + 1)
                     .children()
                     .addClass("on");
+                  //2페이지 휠 애니메이션
+                  $(".skillw1").addClass("widthon1");
+                  $(".skillw2").addClass("widthon2");
+                  $(".skillw3").addClass("widthon3");
+                  $(".skillw4").addClass("widthon4");
                 } catch (e) {}
               }
             } else {
@@ -528,6 +601,7 @@
                     .eq(index - 1)
                     .children()
                     .addClass("on");
+                  $(".skillw").addClass("widthon");
                 } catch (e) {}
               }
             }
@@ -694,10 +768,10 @@
             </div>
             <div class="skillbar">
               <ul class="skill">
-                <li>Figma <span>00%</span></li>
-                <li>HTML <span>00%</span></li>
-                <li>CSS <span>00%</span></li>
-                <li>Javascript <span>00%</span></li>
+                <li>Figma <span class="skillw1">75%</span></li>
+                <li>HTML <span class="skillw2">95%</span></li>
+                <li>CSS <span class="skillw3">90%</span></li>
+                <li>Javascript <span class="skillw4">80%</span></li>
               </ul>
             </div>
           </div>
@@ -706,7 +780,7 @@
       <section id="portfolio">
         <div class="content" id="slideShow">
           <ul class="slides">
-            <li><img src="" alt="" /></li>
+            <li><img src="images/screencapture_BR.png" alt="" /></li>
             <li><img src="" alt="" /></li>
           </ul>
           <p class="controller">

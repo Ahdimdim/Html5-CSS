@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>라로슈포제</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+      }
+      @font-face {
+        font-family: NanumBarunGothic, "나눔 바른", sans-serif;
+        src: url(webfonts/NanumBarunGothic.woff) format("woff"),
+          url(webfonts/NanumBarunGothicBold.woff) format("woff");
+      }
+      @font-face {
+        font-family: NanumGothic, "나눔 고딕", sans-serif;
+        src: url(webfonts/NanumGothic.woff) format("woff"),
+          url(webfonts/NanumGothicExtraBold.woff) format("woff");
+      }
+      body {
+        font-family: NanumBarunGothic, "나눔 고딕", sans-serif;
+      }
+      h2 img {
+        height: 30px;
+      }
+      .login {
+        justify-content: flex-end;
+      }
+      .login ul {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .login ul li {
+        position: relative;
+        padding: 0 20px;
+        text-align: center;
+      }
+      .login ul li::after {
+        position: absolute;
+        content: "";
+        width: 1px;
+        height: 12px;
+        background: #cacaca;
+        top: 8px;
+        left: 0;
+      }
+      .login ul li:first-child:after {
+        content: none;
+      }
+      .login ul li a {
+        color: #adadad;
+        font-size: 12px;
+      }
+      .login ul li:hover a {
+        color: #009ee3;
+      }
+      .top {
+        width: 1280px;
+        height: 114px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+      }
+      .top div {
+        width: 260px;
+        text-align: center;
+      }
+      .top ul {
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+      .top .logo {
+        margin: 0 auto;
+      }
+      .top ul li {
+        padding-right: 10px;
+      }
+      .top .search input {
+        height: 40px;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #adadad;
+      }
+      .topmenu {
+        border-top: 1px solid #d4d4d4;
+        box-sizing: border-box;
+      }
+      .topmenu:hover {
+        border-bottom: 1px solid #d4d4d4;
+      }
+      .topmenu .menu ul {
+        display: flex;
+        width: 1280px;
+        height: 50px;
+        justify-content: space-between;
+        margin: 0 auto;
+      }
+      .topmenu .menu ul li {
+        line-height: 50px;
+        text-align: center;
+        flex: 1 1 20%;
+      }
+      .topmenu .menu ul li a {
+        position: relative;
+        color: #000;
+        font-size: 18px;
+        display: inline-block;
+        width: 100%;
+      }
+      /* .menu ul li a:hover,
+      .menu ul li a.on {
+        background: #ccc;
+      } */
+      .menu ul > li > a::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        bottom: 0px;
+        left: 0;
+        background: #009ee3;
+        transform: scaleX(0);
+        transition: 0.5s;
+      }
+      .menu ul > li > a:hover::after,
+      .menu ul li a.on::after {
+        transform: scaleX(1);
+      }
+      .submenu {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 188px;
+        background: #fff;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.5s;
+        z-index: 10;
+        border-bottom: 1px solid #d4d4d4;
+      }
+
+      .submenu .lnb {
+        width: 1280px;
+        margin: 0 auto;
+      }
+      .submenu .lnb > ul {
+        display: flex;
+        justify-content: space-between;
+      }
+      .submenu .lnb > ul > li {
+        flex: 1 1 20%;
+        line-height: 40px;
+        text-align: left;
+      }
+      .submenu .lnb > ul > li a {
+        color: #333;
+      }
+      .submenu .lnb > ul > li a:hover {
+        color: #009ee3;
+      }
+      .submenu .lnb > ul > li a span {
+        display: inline-block;
+        width: 200px;
+        border-bottom: 1px solid #cacaca;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+      .submenu .lnb > ul > li:last-child > ul {
+        display: flex;
+        width: 400px;
+        align-items: center;
+        border-left: 1px solid #cacaca;
+        padding-left: 50px;
+        height: 100%;
+        text-align: center;
+      }
+      .submenu .lnb > ul > li a .name {
+        border: none;
+        font-size: 16px;
+        line-height: 20px;
+      }
+      .submenu .lnb > ul > li a .price {
+        border: none;
+      }
+      .submenu .lnb > ul > li a .price strong {
+        font-size: 24px;
+        color: #009ee3;
+      }
+      .banner {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      #slideShow {
+        width: 1280px;
+        height: 448px;
+        position: relative;
+        margin: 50px auto;
+        overflow: hidden;
+      }
+      .slides {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 0.5s ease-out;
+      }
+      .slides img {
+        width: 1280px;
+      }
+      .slides li:not(:last-child) {
+        float: left;
+      }
+      .controller span {
+        position: absolute;
+        color: #fff;
+        text-align: center;
+        border-radius: 50%;
+        padding: 10px 20px;
+        top: 45%;
+        font-size: 1.3em;
+        cursor: pointer;
+        transition: 0.5s;
+      }
+      .prev {
+        left: 10px;
+      }
+      .prev:hover {
+        transform: translateX(-10px);
+      }
+      .next {
+        right: 10px;
+      }
+      .next:hover {
+        transform: translateX(10px);
+      }
+      .page {
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+        text-align: center;
+      }
+      .dot {
+        display: inline-block;
+        cursor: pointer;
+        height: 10px;
+        width: 10px;
+        margin: 0 7px;
+        background-color: #bbb;
+        border-radius: 50%;
+        transition: background-color 0.6s ease;
+      }
+      .active,
+      .dot:hover {
+        background-color: #717171;
+      }
+      .bestseller {
+        position: relative;
+        width: 1280px;
+        height: 461px;
+        margin: 80px auto 80px auto;
+      }
+      .bestseller h2 {
+        text-align: center;
+        padding-bottom: 50px;
+      }
+      .bestseller .btn img {
+        position: absolute;
+        width: 70px;
+        top: 200px;
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+      }
+      .bestseller .btn_prev img {
+        left: 0px;
+      }
+      .bestseller .btn_next img {
+        right: 0px;
+      }
+      .bestseller ul {
+        display: flex;
+        width: 1280px;
+        height: 350px;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+      }
+      .bestseller ul li {
+        width: 210px;
+        height: 100%;
+        text-align: center;
+        padding: 50px;
+      }
+      .bestseller ul li a {
+        line-height: 15px;
+        color: #333;
+      }
+      .bestseller ul li img {
+        width: 210px;
+        padding-bottom: 20px;
+      }
+      .bestseller ul li .product_price {
+        color: #009ee3;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 30px;
+      }
+      .video_product {
+        width: 1280px;
+        height: 529px;
+        padding: 80px 0;
+        margin: 0 auto;
+        display: flex;
+      }
+      .video_product .new_product {
+        position: relative;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .video_product .new_product > span {
+        position: absolute;
+        left: 130px;
+        top: 140px;
+      }
+      .video_product .new_product ul {
+        display: flex;
+        justify-content: center;
+        height: 476px;
+      }
+      .video_product .new_product ul li {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        padding: 30px 0;
+        z-index: 1;
+      }
+      .new_product .slide_bar {
+        position: relative;
+      }
+      .new_product .slide_bar > img {
+        width: 530px;
+        height: 3px;
+      }
+      .new_product .slide_bar .slide_barP > img {
+        width: 128px;
+        height: 3px;
+      }
+      .new_product .slide_bar .slide_barP {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+      .skinwrap {
+        width: 100%;
+        height: 800px;
+        background: rgb(211, 238, 253);
+        text-align: center;
+        padding: 80px 0;
+      }
+      .skinwrap h2 {
+        padding-bottom: 50px;
+      }
+      .skinwrap .skin_btn {
+        width: 1280px;
+        display: flex;
+        justify-content: space-around;
+        margin: 0 auto;
+        padding-bottom: 10px;
+      }
+      .skinwrap .skin_btn li {
+        width: 100%;
+        background: #fff;
+        text-align: center;
+      }
+      .skinwrap .skin_btn li a {
+        display: block;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+        color: #333;
+      }
+      .skinwrap .skin_btn li a:hover {
+        background: #009fe360;
+      }
+      .skinwrap .skin_btn li a.on {
+        background: #009ee3;
+      }
+      .skinwrap .skin_product {
+        width: 1280px;
+        height: 650px;
+        margin: 0 auto;
+        background: #fff;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .skinwrap .skin_product li {
+        width: 250px;
+        height: 250px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+      }
+      .skinwrap .skin_product li:hover {
+        transform: scale(1.109);
+        background: #009ee3;
+      }
+      .skinwrap .skin_product a:hover {
+      }
+      .skinwrap .skin_product li a {
+        color: #333;
+      }
+      .skinwrap .skin_product > div {
+        width: 100%;
+      }
+      .skinwrap .skin_product img {
+        width: 200px;
+      }
+      .skinwrap .skin_product span {
+        font-size: 12px;
+        letter-spacing: -1px;
+      }
+      .review {
+        width: 1280px;
+        padding: 80px 0;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .review h2 {
+        padding-bottom: 50px;
+      }
+      .review .review_img {
+        display: flex;
+      }
+      .review .review_img .left img {
+        width: 365px;
+        height: 664px;
+        object-fit: cover;
+        padding-right: 13.5px;
+      }
+      .review .review_img .right {
+        height: 664px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .review .review_img .right img {
+        width: 291px;
+        height: 325px;
+        object-fit: cover;
+        padding-right: 13.5px;
+      }
+
+      .banner_w {
+        padding: 80px 0;
+      }
+      .banner_wrap .left {
+        margin-bottom: 10px;
+      }
+      .banner_wraper {
+        height: 130px;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        margin: 0px auto;
+        display: flex;
+        background: rgb(211, 238, 253);
+      }
+      .banner_wraper img {
+        height: 120px;
+        position: absolute;
+        margin: 5px;
+      }
+      footer {
+        border-top: 1px solid #ddd;
+      }
+      .foot {
+        width: 1280px;
+        margin: 0 auto;
+      }
+      .foot .sns {
+        width: 500px;
+        height: 50px;
+        margin: 0 auto;
+      }
+      .foot .sns > ul {
+        display: flex;
+        justify-content: space-between;
+        line-height: 50px;
+      }
+      .foot .sns > ul li {
+        position: relative;
+      }
+      .foot .sns > ul li a {
+        color: #333;
+      }
+      .foot .sns > ul li a span {
+        color: #009ee3;
+        font-weight: bold;
+      }
+      .foot .sns > ul li a p::before {
+        position: absolute;
+        content: "|";
+        color: #d4d4d4;
+        right: -15px;
+        top: -1px;
+        font-weight: 100;
+      }
+      .foot .sns img {
+        width: 25px;
+        margin-top: 13px;
+      }
+      .foot .leri {
+        width: 1280px;
+        margin: 0 auto;
+        padding: 30px 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      .foot .leri li {
+        font-size: 14px;
+        color: #717171;
+      }
+      .foot .leri .middle {
+        text-align: center;
+      }
+      .foot .leri .middle img {
+        width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <header>
+        <div class="login">
+          <ul>
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">회원가입</a></li>
+            <li><a href="#">주문/배송조회</a></li>
+            <li><a href="#">고객케어센터</a></li>
+          </ul>
+        </div>
+        <div class="top">
+          <div></div>
+          <div class="logo"><img src="images/logo.png" alt="" /></div>
+          <div class="search">
+            <ul>
+              <li>
+                <input
+                  type="search"
+                  placeholder="SEARCH"
+                  onfocus="this.placeholder=''"
+                />
+              </li>
+              <li>
+                <a href="#"
+                  ><img src="images/ic_search_s32_000_style01.svg" alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><img src="images/ic_shoppingBag_s32_000.svg" alt=""
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="topmenu">
+          <div class="menu">
+            <ul>
+              <li><a href="#">공식몰 단독혜택</a></li>
+              <li><a href="#">병원판매화장품</a></li>
+              <li><a href="#">스킨케어</a></li>
+              <li><a href="#">바디케어</a></li>
+              <li><a href="#">UV케어</a></li>
+              <li><a href="#">리얼리뷰</a></li>
+              <li><a href="#">이벤트</a></li>
+            </ul>
+          </div>
+          <div class="submenu">
+            <div class="lnb">
+              <ul>
+                <li>
+                  <ul>
+                    <li><a href="#">베스트</a></li>
+                    <li><a href="#">단독구성</a></li>
+                    <li><a href="#">신규회원첫혜택</a></li>
+                    <li><a href="#">피부민감도 자가진단</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"
+                        ><img src="images/menu_product (1).jpg" alt=""
+                      /></a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="submenu">
+            <div class="lnb">
+              <ul>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>케어 고민별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">스킨케어</a></li>
+                    <li><a href="#">바디케어</a></li>
+                    <li><a href="#">헤어케어</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"
+                        ><img src="images/menu_product (2).png" alt="" />
+                        <span class="name"
+                          >H아이소바이옴울트라수딩하이드레이팅크림<br />[병원판매화장품]
+                        </span>
+                        <span class="price"><strong>29,000</strong>원</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="submenu">
+            <div class="lnb">
+              <ul>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>피부고민별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">민감성 피부</a></li>
+                    <li><a href="#">지성/트러블 피부</a></li>
+                    <li><a href="#">외부 자극 받은 피부</a></li>
+                    <li><a href="#">건조한 피부</a></li>
+                    <li><a href="#">톤업/메이크업</a></li>
+                    <li><a href="#">브라이트닝</a></li>
+                    <li><a href="#">탄력/주름</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>제품 라인별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">에빠끌라</a></li>
+                    <li><a href="#">시카플라스트</a></li>
+                    <li><a href="#">똘러리앙</a></li>
+                    <li><a href="#">히알루 B5</a></li>
+                    <li><a href="#">유비데아</a></li>
+                    <li><a href="#">퓨어비타민C10</a></li>
+                    <li><a href="#">세로징크</a></li>
+                    <li><a href="#">오 떼르말</a></li>
+                    <li><a href="#">미셀라 클렌징 워터</a></li>
+                    <li><a href="#">나이아신아마이드</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>사용 단계별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">클렌징</a></li>
+                    <li><a href="#">토너</a></li>
+                    <li><a href="#">세럼/에센스</a></li>
+                    <li><a href="#">로션/크림</a></li>
+                    <li><a href="#">마스크/팩</a></li>
+                    <li><a href="#">미스트</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"
+                        ><img src="images/menu_product (3).png" alt="" />
+                        <span class="name">멀티리페어크림B5[100ml] </span>
+                        <span class="price"><strong>46,000</strong>원</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="submenu">
+            <div class="lnb">
+              <ul>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>피부 고민별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">외부 자극 받은 피부</a></li>
+                    <li><a href="#">건조한 피부</a></li>
+                    <li><a href="#">두피 모발 강화</a></li>
+                    <li><a href="#">온가족사용가능</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>제품 라인별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">리피카</a></li>
+                    <li><a href="#">시카플라스트</a></li>
+                    <li><a href="#">키리움</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>사용 단계별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">바디 케어</a></li>
+                    <li><a href="#">헤어 케어</a></li>
+                    <li><a href="#">핸드 케어</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"
+                        ><img src="images/menu_product (4).png" alt="" />
+                        <span class="name">바디오일클렌저대용량세트 </span>
+                        <span class="price"><strong>53,000</strong>원</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="submenu">
+            <div class="lnb">
+              <ul>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>피부 고민별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">수분UV케어</a></li>
+                    <li><a href="#">톤업UV케어</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>제품 라인별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">유비데아</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"><span>사용 단계별</span></a>
+                    </li>
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">UV차단</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <a href="#"
+                        ><img src="images/menu_product (5).png" alt="" />
+                        <span class="name">안뗄리오스톤업클리어[30ml] </span>
+                        <span class="price"><strong>35,000</strong>원</span></a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <script src="js/menu.js"></script>
+
+      <section id="slideShow" class="banner">
+        <ul class="slides">
+          <li>
+            <a href="#"><img src="images/banner (1).jpg" alt="" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="images/banner (2).jpg" alt="" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="images/banner (3).jpg" alt="" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="images/banner (4).jpg" alt="" /></a>
+          </li>
+        </ul>
+        <p class="controller">
+          <span class="prev">&lang;</span>
+          <span class="next">&rang;</span>
+        </p>
+        <div class="page">
+          <span class="dot" onclick="currentSlide(0)"></span>
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+      </section>
+    </div>
+    <section class="bestseller">
+      <h2><img src="images/title_best.png" alt="" /></h2>
+      <div class="pslideShow">
+        <div class="btn">
+          <span class="btn_prev">
+            <img src="images/arrow_prev.png" alt="" />
+          </span>
+          <span class="btn_next">
+            <img src="images/arrow_next.png" alt="" />
+          </span>
+        </div>
+        <ul class="pslides">
+          <li>
+            <a href="#"
+              ><img src="images/product_210x210 (6).png" alt="" />
+              <span class="product_name"
+                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
+                화장품]<br
+              /></span>
+              <span class="product_price">29,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_210x210 (7).png" alt="" />
+              <span class="product_name">시카플라스트 밤 B5+<br /></span>
+              <span class="product_price">39,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_210x210 (13).png" alt="" />
+              <span class="product_name">에빠끌라K(+) 토너 [200ml]<br /></span>
+              <span class="product_price">35,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_1040x1040.png" alt="" />
+              <span class="product_name"
+                >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_1040x1040.png" alt="" />
+              <span class="product_name"
+                >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_1040x1040.png" alt="" />
+              <span class="product_name"
+                >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_1040x1040.png" alt="" />
+              <span class="product_name"
+                >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_1040x1040.png" alt="" />
+              <span class="product_name"
+                >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="images/product_1040x1040.png" alt="" />
+              <span class="product_name"
+                >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="video_product">
+      <div class="video">
+        <iframe
+          width="733"
+          height="529"
+          src="https://www.youtube.com/embed/HbmJ4CNMpI0"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="new_product">
+        <h2><img src="images/title_new.png" alt="title_new" /></h2>
+        <span><img src="images/new_productBg.png" alt="" /></span>
+        <ul>
+          <li>
+            <a href="#"><img src="images/new_product(1).png" alt="" /></a>
+          </li>
+        </ul>
+        <div class="slide_bar">
+          <img src="images/slide_bar.png" alt="" />
+          <div class="slide_barP">
+            <img src="images/slide_barP.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="hotdeal bestseller">
+      <h2><img src="images/title_hot.png" alt="" /></h2>
+      <div class="btn">
+        <span class="btn_prev">
+          <img src="images/arrow_prev.png" alt="" />
+        </span>
+        <span class="btn_next">
+          <img src="images/arrow_next.png" alt="" />
+        </span>
+      </div>
+      <ul>
+        <li>
+          <a href="#"
+            ><img src="images/product_210x210 (6).png" alt="" />
+            <span class="product_name"
+              >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
+              화장품]<br
+            /></span>
+            <span class="product_price">29,000원</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><img src="images/product_210x210 (7).png" alt="" />
+            <span class="product_name">시카플라스트 밤 B5+<br /></span>
+            <span class="product_price">39,000원</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><img src="images/product_210x210 (13).png" alt="" />
+            <span class="product_name">에빠끌라K(+) 토너 [200ml]<br /></span>
+            <span class="product_price">35,000원</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><img src="images/product_1040x1040.png" alt="" />
+            <span class="product_name"
+              >에빠끌라 딥 클렌징 포밍 크림 125ml<br
+            /></span>
+            <span class="product_price">28,000원</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section class="skinwrap">
+      <h2><img src="images/title_skin.png" alt="title_skin" /></h2>
+      <ul class="skin_btn">
+        <li><a href="#">트러블케어</a></li>
+        <li><a href="#">민감피부케어</a></li>
+        <li><a href="#">외부자극피부케어</a></li>
+        <li><a href="#">탄력&주름케어</a></li>
+      </ul>
+      <div>
+        <ul class="skin_product">
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeA (1).png" alt="" /></div>
+              <span class="product_name">에빠끌라 A.I.에센스<br /></span>
+              <span class="product_price">18,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeA (2).png" alt="" /></div>
+              <span class="product_name">에바끌라 K(+)토너[200ml] <br /></span>
+              <span class="product_price">35,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeA (3).png" alt="" /></div>
+              <span class="product_name"
+                >에빠끌라 울트라 컨센트레이티드 세럼 30ml <br
+              /></span>
+              <span class="product_price">48,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeA (4).png" alt="" /></div>
+              <span class="product_name"
+                >에빠끌라H 아이소바이옴 울트라 수딩 클렌저<br />[병원판매
+                화장품]<br
+              /></span>
+              <span class="product_price">25,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeA (5).png" alt="" /></div>
+              <span class="product_name"
+                >에빠끌라H 아이소바이옴 울트라 수딩 하이드레이팅 크림[병원판매
+                화장품]<br
+              /></span>
+              <span class="product_price">29,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeA (6).png" alt="" /></div>
+              <span class="product_name"
+                >에빠끌라 MAT 세보 컨트롤링 모이스춰라이저[40ml]<br
+              /></span>
+              <span class="product_price">34,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeA (7).png" alt="" /></div>
+              <span class="product_name">에빠끌라 듀오(+) 에센스<br /></span>
+              <span class="product_price">31,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeA (8).png" alt="" /></div>
+              <span class="product_name"
+                >에빠끌라 딥 클렌징 포밍 크림 [125ml]<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="skin_product">
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeB (1).png" alt="" /></div>
+              <span class="product_name"
+                >똘러리앙 퓨리파잉 포밍 크림[125ml]<br
+              /></span>
+              <span class="product_price">28,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeB (2).png" alt="" /></div>
+              <span class="product_name"
+                >똘러리앙 덤알레르고<br />[병원판매 화장품]<br
+              /></span>
+              <span class="product_price">45,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeB (3).png" alt="" /></div>
+              <span class="product_name"
+                >똘러리앙 울트라 더모-하이드레이팅 포밍젤[150ml]<br
+              /></span>
+              <span class="product_price">31,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeB (4).png" alt="" /></div>
+              <span class="product_name"
+                >똘러리앙 덤알레르고 플루이드[40ml]<br
+              /></span>
+              <span class="product_price">29,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeB (5).png" alt="" /></div>
+              <span class="product_name"
+                >똘러리앙 울트라 로션[400ml]<br
+              /></span>
+              <span class="product_price">48,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeB (6).png" alt="" /></div>
+              <span class="product_name"
+                >똘러리앙 덤알레르고 크림[40ml]<br
+              /></span>
+              <span class="product_price">32,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeB (7).png" alt="" /></div>
+              <span class="product_name"
+                >똘러리앙 울트라 로션 [200ml]<br
+              /></span>
+              <span class="product_price">31,000원</span>
+            </a>
+          </li>
+          <li></li>
+        </ul>
+        <ul class="skin_product">
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeC (1).png" alt="" /></div>
+              <span class="product_name"
+                >시카플라스트 라방 B5 클렌저<br
+              /></span>
+              <span class="product_price">22,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeC (2).png" alt="" /></div>
+              <span class="product_name"
+                >시카플라스트 멀티 리페어 크림 B5[100ml]<br
+              /></span>
+              <span class="product_price">46,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeC (3).png" alt="" /></div>
+              <span class="product_name"
+                >시카플라스트 마스크 B5 시트 1매<br
+              /></span>
+              <span class="product_price">12,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeC (4).png" alt="" /></div>
+              <span class="product_name"
+                >시카플라스트 리페어 세럼 B5[30ml]<br
+              /></span>
+              <span class="product_price">48,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeC (5).png" alt="" /></div>
+              <span class="product_name"
+                >시카플라스트 밤 B5[100ml] + 히알루 B5 세럼[30ml] <br
+              /></span>
+              <span class="product_price">76,588원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeC (6).png" alt="" /></div>
+              <span class="product_name"
+                >시카플라스트 젤 B5 [40ml]<br />[병원판매 화장품]<br
+              /></span>
+              <span class="product_price">27,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeC (7).png" alt="" /></div>
+              <span class="product_name">시카플라스트 밤 B5+[100ml]<br /></span>
+              <span class="product_price">39,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeC (8).png" alt="" /></div>
+              <span class="product_name"
+                >시카플라스트 B5 세럼 더블 세트<br
+              /></span>
+              <span class="product_price">75,500원</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="skin_product">
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeD (1).png" alt="" /></div>
+              <span class="product_name">히알루 B5 세럼[30ml]<br /></span>
+              <span class="product_price">54,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeD (2).png" alt="" /></div>
+              <span class="product_name">히알루 B5 세럼[50ml]<br /></span>
+              <span class="product_price">73,000원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><div><img src="images/productTypeD (3).png" alt="" /></div>
+              <span class="product_name">퓨어 비타민 C10 세럼[30ml]<br /></span>
+              <span class="product_price">54,000원</span>
+            </a>
+          </li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </section>
+    <section class="review">
+      <h2><img src="images/title_review.png" alt="title_review" /></h2>
+      <div class="review_img">
+        <div class="left">
+          <img src="images/review (1).jpg" alt="" />
+        </div>
+        <div class="right">
+          <img src="images/review (2).jpg" alt="" />
+          <img src="images/review (3).jpg" alt="" />
+          <img src="images/review (4).jpg" alt="" />
+          <img src="images/review (5).jpg" alt="" />
+          <img src="images/review (6).jpg" alt="" />
+          <img src="images/review (7).jpg" alt="" />
+        </div>
+      </div>
+    </section>
+    <div class="banner_w">
+      <section class="banner_wrap">
+        <div class="banner_wraper left">
+          <img src="images/event (1).jpg" />
+          <img src="images/event (2).jpg" />
+          <img src="images/event (3).jpg" />
+          <img src="images/event (1).jpg" />
+          <img src="images/event (2).jpg" />
+          <img src="images/event (3).jpg" />
+          <img src="images/event (1).jpg" />
+          <img src="images/event (2).jpg" />
+          <img src="images/event (3).jpg" />
+        </div>
+        <div class="banner_wraper right">
+          <img src="images/event (4).jpeg" />
+          <img src="images/event (5).jpeg" />
+          <img src="images/event (4).jpeg" />
+          <img src="images/event (5).jpeg" />
+          <img src="images/event (4).jpeg" />
+          <img src="images/event (5).jpeg" />
+          <img src="images/event (4).jpeg" />
+          <img src="images/event (5).jpeg" />
+          <img src="images/event (4).jpeg" />
+        </div>
+      </section>
+    </div>
+    <footer>
+      <div class="foot">
+        <div class="sns">
+          <ul>
+            <li>
+              <a href="#"><p>ABOUT US</p></a>
+            </li>
+            <li>
+              <a href="#"><p>이용약관</p></a>
+            </li>
+            <li>
+              <a href="#"
+                ><span><p>개인정보처리방침</p></span></a
+              >
+            </li>
+            <li>
+              <a href="#"><img src="images/sns_facebook.png" alt="" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="images/sns_youtube.png" alt="" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="images/sns_naver.png" alt="" /></a>
+            </li>
+          </ul>
+        </div>
+        <div class="leri">
+          <ul class="left">
+            <li>
+              <span>엘오케이(유)</span>대표 : 사무엘 티보 부티에 뒤 리테일
+            </li>
+            <li>구매/배송/사이트 이용 문의 080-844-0088</li>
+            <li>상담 시간 : 평일 09:30 - 17:30 (점심시간 12:30 - 13:30)</li>
+            <li>COPYRIGHT © 2018 LA ROCHE-POSAY ALL RIGHTS RESERVED</li>
+          </ul>
+          <ul class="middle">
+            <li>
+              <a href="#"><img src="images/logo.png" alt="" /></a>
+            </li>
+          </ul>
+          <ul class="right">
+            <li>서울특별시 강남구 영동대로 517(삼성동, 아셈타워 31층)</li>
+            <li>
+              <span>사업자등록번호 220-81-73483</span> 통신판매업신고번호
+              2012-서울강남-01663
+            </li>
+            <li>개인정보보호책임자 신은경 (IMC&E-commerce Director)</li>
+            <li>호스팅서비스사업자 : (주)아이네트</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="js/larocheposay.js"></script>
+  </body>
+</html>

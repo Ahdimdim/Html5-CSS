@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      @font-face {
+        font-family: "Neodgm";
+        src: url(webfonts/neodgm.woff) format("woff");
+      }
+      @font-face {
+        font-family: "Neo특수";
+        font-style: normal;
+        src: url(webfonts/neodgm_code.woff) format("woff");
+      }
+      body {
+        font-family: "Neodgm", "Neo특수", sans-serif;
+      }
+      section {
+        height: 100vh;
+      }
+      /* 메뉴 ▼ */
+      header {
+        position: absolute;
+      }
+      nav {
+        position: fixed;
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        line-height: 50px;
+        z-index: 200000;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      nav a {
+        color: #fff;
+        letter-spacing: 1px;
+      }
+      nav .logo {
+        font-size: 27px;
+      }
+      nav ul {
+        display: flex;
+      }
+      nav ul li {
+        margin: 0px 10px;
+        font-size: 30px;
+      }
+      nav ul li a {
+        position: relative;
+      }
+      nav ul li a.on {
+        color: #66c2ff;
+        transition: 1s;
+      }
+      nav ul li a:hover {
+        color: #66c2ff;
+        transition: 1s;
+      }
+      nav > ul > li > a::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        bottom: -3px;
+        left: 0;
+        background: #66c2ff;
+        transform: scaleX(0);
+        transition: 0.5s;
+      }
+      nav > ul > li > a:hover::after {
+        transform: scaleX(1);
+      }
+      /* 1페이지 */
+      :root {
+        --mask-size: 50px;
+        --mask-x: -25px;
+        --mask-y: -25px;
+      }
+      .main {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .main .page {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+      }
+      .main .page .inner {
+        position: absolute;
+      }
+      .main .page .innerCont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+      }
+      .main .page h2 {
+        font-size: 60px;
+        overflow: hidden;
+        line-height: 1;
+        letter-spacing: 2px;
+        border-right: 0.08em solid #66c2ff;
+        white-space: nowrap;
+        animation: typing 3.5s steps(30, end),
+          blink-caret 0.5s step-end infinite;
+      }
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #66c2ff;
+        }
+      }
+      .main .page ul {
+        display: flex;
+        font-size: 30px;
+        margin-top: 40px;
+        justify-content: center;
+      }
+      .main .page ul li {
+        padding-right: 7px;
+        animation: bounceIn 1s linear forwards;
+        opacity: 0;
+      }
+      .main .page ul li:nth-of-type(2) {
+        animation-delay: 0.3s;
+      }
+      .main .page ul li:nth-of-type(3) {
+        animation-delay: 0.6s;
+      }
+      .main .page ul li:nth-of-type(4) {
+        animation-delay: 0.9s;
+        color: #66c2ff;
+      }
+      .main .page ul li:nth-of-type(5) {
+        animation-delay: 1.2s;
+      }
+      @keyframes bounceIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.3) translate3d(0, 0, 0);
+        }
+        50% {
+          opacity: 0.9;
+          transform: scale(1.1);
+        }
+        80% {
+          opacity: 1;
+          transform: scale(0.89);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translate3d(0, 0, 0);
+        }
+      }
+      .main .page .night {
+        position: absolute;
+        bottom: -300px;
+        left: 0;
+        width: 100%;
+        display: none;
+      }
+      .main .page .night img {
+        width: 100%;
+        height: 100%;
+      }
+      .main .page .bg h2 {
+        color: #66c2ff;
+      }
+      .main .page .bg li {
+        color: #bbb;
+      }
+      .main .page .bg .cover {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(241deg, #333, #333);
+        opacity: 0.8;
+      }
+      .main .page .mask {
+        color: #d8ecfd;
+        clip-path: circle(var(--mask-size) at var(--mask-x) var(--mask-y));
+      }
+      .main .page .hoverL {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        width: 100%;
+        height: 400px;
+        z-index: 999;
+      }
+      .bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+      }
+      video {
+        object-fit: cover;
+        width: 100vw;
+        height: 100vh;
+      }
+      section:first-child {
+        background: silver;
+      }
+
+      section:nth-child(3) {
+        background: slateblue;
+      }
+      /* 페이지넘버 ▼ */
+      .dot {
+        position: fixed;
+        top: 50%;
+        right: 50px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        z-index: 99999;
+      }
+      span {
+        position: relative;
+        display: block;
+        padding: 18px;
+      }
+      span a {
+        color: #bbb;
+      }
+      .dot span.on {
+        height: 52px;
+        font-size: 0;
+      }
+      .dot span.on:after {
+        content: url(images/star_FILL0sky.png);
+        position: absolute;
+        top: 11px;
+        left: 8.5px;
+        animation: bounceIn 0.7s;
+      }
+
+      /* 스크롤 마우스 ▼ */
+      .scrollIcon {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .container {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        left: 50%;
+        bottom: 150px;
+        transform: translateX(-50%);
+      }
+      .chevron {
+        position: absolute;
+        width: 28px;
+        height: 8px;
+        opacity: 0;
+        transform: scale3d(0.5, 0.5, 0.5);
+        animation: move 3s ease-out infinite;
+      }
+      .chevron:first-child {
+        animation: move 3s ease-out 1s infinite;
+      }
+
+      .chevron:nth-child(2) {
+        animation: move 3s ease-out 2s infinite;
+      }
+      .chevron:before,
+      .chevron:after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 51%;
+        background: #fff;
+      }
+      .chevron:before {
+        left: 0;
+        transform: skew(0deg, 30deg);
+      }
+      .chevron:after {
+        right: 0;
+        width: 50%;
+        transform: skew(0deg, -30deg);
+      }
+      @keyframes move {
+        25% {
+          opacity: 1;
+        }
+        33% {
+          opacity: 1;
+          transform: translateY(30px);
+        }
+        67% {
+          opacity: 1;
+          transform: translateY(40px);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+        }
+      }
+      .text {
+        display: block;
+        margin-top: 75px;
+        margin-left: -65px;
+        font-size: 12px;
+        color: #fff;
+        text-transform: uppercase;
+        white-space: nowrap;
+        opacity: 0.25;
+        animation: pulse 2s linear alternate infinite;
+        letter-spacing: 6px;
+      }
+      @keyframes pulse {
+        to {
+          opacity: 1;
+        }
+      }
+      /* 2 페이지 */
+      #about,
+      #portfolio {
+        position: relative;
+        background: #000;
+      }
+      .content {
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        background: #fff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+      }
+      .left {
+        width: 40%;
+        height: 100%;
+        border: 1px solid #f00;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+      }
+      .photo {
+        width: 100%;
+        height: 50%;
+        border: 1px solid #00f;
+        border-radius: 30px;
+      }
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .profile {
+        width: 100%;
+        height: 50%;
+        border: 1px solid #00f;
+        border-radius: 30px;
+        font-size: 1.5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 40px;
+      }
+      .right {
+        width: 60%;
+        height: 100%;
+        border: 1px solid #f00;
+        padding: 10px;
+      }
+      .hi {
+        width: 100%;
+        height: 60%;
+        font-size: 20px;
+        border: 1px solid #00f;
+        padding: 20px;
+      }
+      .skillbar {
+        width: 100%;
+        height: 40%;
+        padding: 20px;
+      }
+      .skill {
+        width: 100%;
+        height: 100%;
+      }
+      .skill li {
+        width: 100%;
+        height: calc(100% / 4);
+        padding-bottom: 10px;
+      }
+      .skill span {
+        text-align: end;
+        height: 1px;
+        line-height: 1px;
+        color: #000;
+        border-radius: 10px;
+      }
+      .skillw1.widthon1 {
+        background: #a8a8a8;
+        animation: width1 2s forwards;
+        transition-timing-function: linear;
+      }
+      .skillw2.widthon2 {
+        height: 1px;
+        background: #66c2ff;
+        animation: width2 2s forwards;
+        transition-timing-function: linear;
+      }
+      .skillw3.widthon3 {
+        height: 1px;
+        background: rgb(255, 224, 178);
+        animation: width3 2s forwards;
+        transition-timing-function: linear;
+      }
+      .skillw4.widthon4 {
+        height: 1px;
+        background: pink;
+        animation: width4 2s forwards;
+        transition-timing-function: linear;
+      }
+      @keyframes width1 {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 75%;
+        }
+      }
+      @keyframes width2 {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 95%;
+        }
+      }
+      @keyframes width3 {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 90%;
+        }
+      }
+      @keyframes width4 {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 80%;
+        }
+      }
+      /* 3 페이지 */
+      #slideShow {
+        position: relative;
+        padding: 30px;
+      }
+      .slides {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 0.5s ease-out;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        border: 1px solid #f00;
+        overflow: hidden;
+      }
+      .slides li {
+        position: relative;
+        background: url(images/mac.png) no-repeat center bottom/50%;
+        height: 100%;
+        width: 100%;
+      }
+      .slides img {
+        position: absolute;
+        top: 13%;
+        left: 50%;
+        width: 48%;
+        transform: translateX(-50%);
+      }
+      .slides img:hover {
+        transform: translateY(-50%);
+        transition: 2s;
+      }
+      .slides li:not(:last-child) {
+        float: left;
+      }
+      .controller span {
+        position: absolute;
+        color: #66c2ff;
+        text-align: center;
+        border-radius: 50%;
+        padding: 10px 20px;
+        top: 45%;
+        font-size: 1.5em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.5s;
+      }
+      .prev {
+        left: 10px;
+      }
+      .prev:hover {
+        transform: translateX(-10px);
+      }
+      .next {
+        right: 10px;
+      }
+      .next:hover {
+        transform: translateX(10px);
+      }
+    </style>
+    <script>
+      $(function () {
+        //도트&nav, 휠----------------------------------------
+        $("section").each(function (index) {
+          console.log(index);
+          $(this).on("mousewheel", function () {
+            console.log(event.wheelDelta);
+            let moveTop = $(window).scrollTop();
+            let elsel = $("section").eq(index);
+
+            if (event.wheelDelta < 0) {
+              if ($(elsel).next() != undefined) {
+                try {
+                  moveTop = $(elsel).next().offset().top;
+                  $(".dot span").css("color", "#bbb").removeClass("on");
+                  $(".dot span")
+                    .eq(index + 1)
+                    .css("color", "#333")
+                    .addClass("on");
+                  $(".innernav li").children().removeClass("on");
+                  $(".innernav li")
+                    .eq(index + 1)
+                    .children()
+                    .addClass("on");
+                  //2페이지 휠 애니메이션
+                  $(".skillw1").addClass("widthon1");
+                  $(".skillw2").addClass("widthon2");
+                  $(".skillw3").addClass("widthon3");
+                  $(".skillw4").addClass("widthon4");
+                } catch (e) {}
+              }
+            } else {
+              if ($(elsel).prev() != undefined) {
+                try {
+                  moveTop = $(elsel).prev().offset().top;
+                  $(".dot span").css("color", "#bbb").removeClass("on");
+                  $(".dot span")
+                    .eq(index - 1)
+                    .css("color", "#333")
+                    .addClass("on");
+                  $(".innernav li").children().removeClass("on");
+                  $(".innernav li")
+                    .eq(index - 1)
+                    .children()
+                    .addClass("on");
+                  $(".skillw").addClass("widthon");
+                } catch (e) {}
+              }
+            }
+            $("html,body")
+              .stop()
+              .animate({ scrollTop: moveTop + "px" }, 500);
+          });
+        });
+      });
+      //메뉴 클릭시 도트,메뉴--------------------
+      $(function () {
+        $(".innernav li").click(function () {
+          let i = $(this).index();
+          $(".dot span").removeClass("on");
+          $(".dot span").eq(i).addClass("on");
+          $(".innernav li").children().removeClass("on");
+          $(this).children().addClass("on");
+        });
+      });
+      //도트 클릭시,메뉴-----------------------
+      $(function () {
+        $(".dot span a").click(function () {
+          let i = $(this).parent().index();
+          $(".dot span").removeClass("on");
+          $(".dot span").eq(i).addClass("on");
+          $(".innernav li").children().removeClass("on");
+          $(".innernav li").eq(i).children().addClass("on");
+        });
+      });
+      //마스크--------------------
+      $(function () {
+        let x_posi = 0;
+        let y_posi = 0;
+        let x_current = -50;
+        let y_current = -50;
+        let masksize = 50;
+        let size_current = 0;
+        let acc = 0.11; //움직이는 속도
+        let acc2 = 0.15; //마우스 커지는 속도
+        $(document).mousemove(function (e) {
+          x_posi = e.pageX;
+          y_posi = e.pageY;
+          calEase();
+        });
+        function calEase() {
+          x_current = x_current + (x_posi - x_current) * acc;
+          y_current = y_current + (y_posi - y_current) * acc;
+          size_current = size_current + (masksize - size_current) * acc2;
+          $(".mask").css({
+            "--mask-size": size_current + "px",
+            "--mask-x": x_current + "px",
+            "--mask-y": y_current + "px",
+          });
+        }
+        $(".hoverL").hover(
+          function () {
+            masksize = 250; //마스크 사이즈 키웠다가
+          },
+
+          function () {
+            masksize = 20; //작아짐
+          }
+        );
+
+        //애니메이션------
+        $(function () {
+          //홈 애니메이션
+          $(".night").css("display", "block");
+          $(".night").animate({ bottom: "-4px" }, 500, "linear");
+        });
+      });
+    </script>
+  </head>
+  <body style="overflow: hidden">
+    <header>
+      <nav>
+        <div class="logo">
+          <h1>
+            <a href="">AHRIM PLANET</a>
+          </h1>
+        </div>
+        <ul class="innernav">
+          <li><a href="#home" class="on">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#portfolio">PORTFOLIO</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="scroll">
+      <section id="home">
+        <div class="main">
+          <div class="page">
+            <div class="bg innerCont">
+              <video autoplay muted loop src="video/star.mp4"></video>
+              <div class="cover"></div>
+              <div class="inner">
+                <h2>WELCOME AHRIM PLANET</h2>
+                <ul>
+                  <li>긍정과</li>
+                  <li>행복을</li>
+                  <li>전하는</li>
+                  <li>웹퍼블리셔</li>
+                  <li>권아림입니다.</li>
+                </ul>
+              </div>
+              <div class="night">
+                <img src="images/light.png" alt="" />
+              </div>
+            </div>
+            <div class="mask innerCont">
+              <video autoplay muted loop src="video/star.mp4"></video>
+              <div class="inner">
+                <h2>WELCOME AHRIM PLANET</h2>
+                <ul>
+                  <li>긍정과</li>
+                  <li>행복을</li>
+                  <li>전하는</li>
+                  <li>웹퍼블리셔</li>
+                  <li>권아림입니다.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="hoverL"></div>
+            <div class="night">
+              <img src="images/night.png" alt="" />
+            </div>
+            <div class="scrollIcon">
+              <div class="container">
+                <div class="chevron"></div>
+                <div class="chevron"></div>
+                <div class="chevron"></div>
+                <span class="text">Scroll down</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="about">
+        <div class="content">
+          <div class="left">
+            <div class="photo">
+              <img src="images/blue_planet.png" alt="" />
+            </div>
+            <ul class="profile">
+              <li>
+                Name 권아림<br />
+                Birth ----.--.--<br />
+                Phone 010.----.----<br />Mail dim_ing@naver.com
+              </li>
+            </ul>
+          </div>
+          <div class="right">
+            <div class="hi">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum.
+            </div>
+            <div class="skillbar">
+              <ul class="skill">
+                <li>Figma <span class="skillw1">75%</span></li>
+                <li>HTML <span class="skillw2">95%</span></li>
+                <li>CSS <span class="skillw3">90%</span></li>
+                <li>Javascript <span class="skillw4">80%</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="portfolio">
+        <div class="content" id="slideShow">
+          <ul class="slides">
+            <li><img src="images/screencapture_BR.png" alt="" /></li>
+            <li><img src="" alt="" /></li>
+          </ul>
+          <p class="controller">
+            <span class="prev">&lang;</span>
+            <span class="next">&rang;</span>
+          </p>
+        </div>
+      </section>
+    </div>
+    <div class="dot">
+      <span class="on"><a href="#home">1</a></span>
+      <span><a href="#about">2</a></span>
+      <span><a href="#portfolio">3</a></span>
+    </div>
+  </body>
+</html>

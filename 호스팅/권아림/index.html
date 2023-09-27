@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      @font-face {
+        font-family: "Neodgm";
+        src: url(webfonts/neodgm.woff) format("woff");
+      }
+      @font-face {
+        font-family: "Neo특수";
+        font-style: normal;
+        src: url(webfonts/neodgm_code.woff) format("woff");
+      }
+      body {
+        font-family: "Neodgm", "Neo특수", sans-serif;
+      }
+      h3,
+      strong {
+        font-weight: 400;
+      }
+      .wrap {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      ul {
+        list-style: none;
+      }
+      #space {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #000000;
+        z-index: -1;
+      }
+      .planet {
+        transition: 1.5s;
+        cursor: pointer;
+        z-index: 998;
+      }
+      .planet img {
+        width: 200px;
+      }
+      .planetH {
+        position: absolute;
+        top: 32%;
+        left: 52%;
+        display: none;
+      }
+      .planetH li {
+        width: 150px;
+        text-align: center;
+        background: #addaff79;
+        margin-bottom: 8px;
+        border-radius: 5px;
+        line-height: 25px;
+      }
+      .planetH li:nth-child(2) {
+        text-align: left;
+        padding-left: 10px;
+        height: 50px;
+        line-height: 25px;
+      }
+      .planet:hover ~ .planetH,
+      .planetH:hover {
+        display: block;
+      }
+      .planetC {
+        cursor: pointer;
+      }
+      .videobg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        display: none;
+      }
+      .videobg video {
+        object-fit: cover;
+        width: 100vw;
+        height: 100vh;
+      }
+      .loading {
+        font-size: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        letter-spacing: 10px;
+        color: #fff;
+        text-shadow: 2px 2px 2px gray;
+      }
+
+      .loading:before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #66c2ff;
+        overflow: hidden;
+        animation: animate 7s linear infinite;
+        border-right: 4px solid rgb(102, 194, 255);
+      }
+
+      @keyframes animate {
+        0% {
+          width: 0;
+        }
+        50% {
+          width: 99%;
+        }
+        100% {
+          width: 0;
+        }
+      }
+    </style>
+    <script>
+      //배경--------------------------------------------------------
+      var canvas;
+      var context;
+      var screenH;
+      var screenW;
+      var stars = [];
+      var fps = 50;
+      var numStars = 2000;
+
+      $(document).ready(function () {
+        // 스크린 사이즈에 맞게
+        screenH = $(window).height();
+        screenW = $(window).width();
+        canvas = $("#space");
+
+        canvas.attr("height", screenH);
+        canvas.attr("width", screenW);
+        context = canvas[0].getContext("2d");
+
+        // 별 랜덤하게 나오게
+        for (var i = 0; i < numStars; i++) {
+          var x = Math.round(Math.random() * screenW);
+          var y = Math.round(Math.random() * screenH);
+          var length = 1 + Math.random() * 2;
+          var opacity = Math.random();
+
+          // 새로운 별 만들기
+          var star = new Star(x, y, length, opacity);
+
+          // 별 배열 추가
+          stars.push(star);
+        }
+
+        setInterval(animate, 1000 / fps);
+      });
+
+      /**
+       * 애니메이트
+       */
+      function animate() {
+        context.clearRect(0, 0, screenW, screenH);
+        $.each(stars, function () {
+          this.draw(context);
+        });
+      }
+
+      /**
+       * 별
+       *
+       * @param int x
+       * @param int y
+       * @param int length
+       * @param opacity
+       */
+      function Star(x, y, length, opacity) {
+        this.x = parseInt(x);
+        this.y = parseInt(y);
+        this.length = parseInt(length);
+        this.opacity = opacity;
+        this.factor = 1;
+        this.increment = Math.random() * 0.03;
+      }
+
+      /**
+       *
+       * 변수 context로 별 그리기
+       *
+       * @param context
+       */
+      Star.prototype.draw = function () {
+        context.rotate((Math.PI * 1) / 10);
+
+        // Save the context
+        context.save();
+
+        // move into the middle of the canvas, just to make room
+        context.translate(this.x, this.y);
+
+        //opacity값 수정은 여기
+        if (this.opacity > 1) {
+          this.factor = -1;
+        } else if (this.opacity <= 0) {
+          this.factor = 1;
+
+          this.x = Math.round(Math.random() * screenW);
+          this.y = Math.round(Math.random() * screenH);
+        }
+
+        this.opacity += this.increment * this.factor;
+
+        context.beginPath();
+        for (var i = 5; i--; ) {
+          context.lineTo(0, this.length);
+          context.translate(0, this.length);
+          context.rotate((Math.PI * 2) / 10);
+          context.lineTo(0, -this.length);
+          context.translate(0, -this.length);
+          context.rotate(-((Math.PI * 6) / 10));
+        }
+        //별색상과 별그림자색
+        context.lineTo(0, this.length);
+        context.closePath();
+        context.fillStyle = "rgba(102, 194, 255, " + this.opacity + ")";
+        context.shadowBlur = 5;
+        context.shadowColor = "#ffff33";
+        context.fill();
+
+        context.restore();
+      };
+
+      //행성--------------------------------------
+      $(function () {
+        $(".planet,.planetC").click(function () {
+          $(".planet").css({ transform: "scale(20)" });
+          setTimeout(function () {
+            $(".planet").hide();
+          }, 800);
+          $(".planetH").hide();
+          setTimeout(function () {
+            $(".videobg").css({ display: "block", "z-index": "999" });
+          }, 600);
+          setTimeout(function () {
+            $(location).attr("href", "index2.html");
+          }, 4100);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <canvas id="space"> </canvas>
+      <div class="planet"><img src="images/blue_planet.png" alt="" /></div>
+      <ul class="planetH">
+        <li><h3>〚Ahrim행성〛</h3></li>
+        <li>
+          <span>⦁ 날씨: 쾌적</span><br />
+          <span>⦁ 자원: 풍족</span>
+        </li>
+        <li class="planetC">Click 하여 착륙</li>
+      </ul>
+      <div class="videobg">
+        <video autoplay muted loop src="video/cloud.mp4"></video>
+        <div class="loading" data-text="loading...">loading...</div>
+      </div>
+    </div>
+  </body>
+</html>
